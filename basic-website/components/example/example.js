@@ -1,14 +1,17 @@
 /*!
  * Example component module.
  *
- * Copyright (c) 2014 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
  *
  * @author Manu Sporny
  */
 define([
   'angular',
   './example-controller'
-], function(angular, exampleController) {
+], function(
+  angular,
+  exampleController
+) {
 
 'use strict';
 
@@ -16,6 +19,6 @@ var module = angular.module('app.example', []);
 
 module.controller(exampleController);
 
-return module;
+return module.name;
 
 });

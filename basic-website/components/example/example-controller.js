@@ -1,7 +1,7 @@
 /*!
  * Example controller.
  *
- * Copyright (c) 2014 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
  *
  * @author Manu Sporny
  */
@@ -11,9 +11,15 @@ define([], function() {
 
 /* @ngInject */
 function factory($scope, config) {
-  var model = $scope.model = {};
+  var self = this;
   var data = config.data;
-  console.log('ExampleCtrl initialized...');
+  self.count = 0;
+  console.log('ExampleController initialized...');
+
+  self.inc = function() {
+    self.count = self.count + 1;
+    console.log('Count incremented to:', self.count);
+  };
 }
 
 return {ExampleController: factory};
