@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodejs index.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "bedrock": "~1.0.0"
-  },
-  "devDependencies": {
+    "bedrock": "~0.3.0",
+    "bedrock-express": "~0.1.0",
+    "bedrock-i18n": "~0.1.0",
+    "bedrock-requirejs": "~0.1.0",
+    "bedrock-server": "~0.1.0",
+    "bedrock-views": "~0.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "main": "index.js"
 }

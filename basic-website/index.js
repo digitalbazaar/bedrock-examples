@@ -1,14 +1,18 @@
 /*
- * Bedrock-based Windows GUI Example
+ * Bedrock-based Website Example
  *
- * Copyright (c) 2014 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
  */
-var br = require('bedrock');
+var bedrock = require('bedrock');
+
+// bedrock modules to load
+require('bedrock-express');
+require('bedrock-i18n');
+require('bedrock-requirejs');
+require('bedrock-server');
+require('bedrock-views');
+
 // load example config
 require('./configs/example');
 
-if(module.parent) {
-  module.exports = br;
-} else {
-  br.start();
-}
+bedrock.start();
