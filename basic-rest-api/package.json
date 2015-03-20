@@ -1,0 +1,17 @@
+{
+  "name": "bedrock-rest-api",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bedrock": "^0.3.2",
+    "bedrock-express": "~0.2.0",
+    "bedrock-mongodb": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "directories": {},
+  "main": "index.js"
+}
