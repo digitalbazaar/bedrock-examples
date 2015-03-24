@@ -10,6 +10,11 @@ A very minimal website application.
 
 TODO
 
+## basic-rest-api
+
+A basic rest api with a mongo-db backend
+
+
 ## Other Examples
 
 - https://github.com/digitalbazaar/bedrock-seed
