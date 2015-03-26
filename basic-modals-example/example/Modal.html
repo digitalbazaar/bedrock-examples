@@ -1,11 +1,13 @@
-<a href="" ng-click="showMyModal=true">Add Person</a>
+<a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
 <stackable-modal stackable="showMyModal">
-  
-  <person-editor>
+  <person-editor/>
 </stackable-modal>
+<h3>List of people</h3>
+<hr/>
+
 
 <script type="text/ng-template" id="person-editor">
-<!div class="modal" ng-controller="PersonController as model">
+<div class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,30 +32,9 @@
               <a class="btn btn-primary" ng-click="showTraitModal=true">
                 Add
               </a>
-
-              <!-- Beginning of trait adding modal -->
               <stackable-modal stackable="showTraitModal">
-                <div class="modal">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <a class="close stackable-cancel">&times;</a>
-                        <h3 class="modal-title">Add a trait for {{person.name}}</h3>
-                      </div>
-                      <div class="modal-body">
-                        <input type = "text" ng-model="trait"/>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"
-                          ng-click="ok()">Ok</button>
-                        <button type="button"
-                          class="btn btn-default stackable-cancel">Cancel</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <trait-adder/>
               </stackable-modal>
-              <!-- End of trait adding modal -->
             </div>
           </div>
            <h4> {{name}} Traits</h4>
@@ -73,5 +54,23 @@
 </script>
 
 <script type="text/ng-template" id="trait-adder">
-
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close stackable-cancel">&times;</a>
+        <h3 class="modal-title">Add a trait for {{person.name}}</h3>
+      </div>
+      <div class="modal-body">
+        <input type = "text" ng-model="trait"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"
+          ng-click="ok()">Ok</button>
+        <button type="button"
+          class="btn btn-default stackable-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 </script>

@@ -33,7 +33,7 @@ module.controller('PersonController', function($scope) {
 });
 
 module.controller('TraitController', function($scope) {
-  $scope.trait = '';
+  $scope.trait = 'test';
 });
 
 module.directive('personEditor', function(){
@@ -60,7 +60,13 @@ module.directive('traitAdder', function(){
     controllerAs: 'model',
     link: function(scope, element, attrs, stackable) {
       scope.ok = function() {
-        stackable.close(scope.trait);
+        console.log(scope);
+        /**if(scope.trait.length() > 1){
+          stackable.close(scope.trait);
+        }
+        else{
+          //add error - forgot how to do this bedrock way
+        }*/
       };
     }
   };
