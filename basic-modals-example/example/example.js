@@ -34,9 +34,6 @@ module.controller('PersonController', function($scope) {
 
 module.controller('TraitController', function($scope) {
   $scope.trait = 'test';
-  $scope.ok = function(trait) {
-    console.log(trait);
-  };
 });
 
 module.directive('personEditor', function(){
@@ -62,6 +59,9 @@ module.directive('traitAdder', function(){
     controller: 'TraitController',
     controllerAs: 'model',
     link: function(scope, element, attrs, stackable) {
+      scope.ok = function(trait) {
+        console.log(trait);
+      };
     }
   };
 });
