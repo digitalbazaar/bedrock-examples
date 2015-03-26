@@ -19,11 +19,7 @@ var module = angular.module('app.example', []);
 module.config(function($routeProvider) {
   $routeProvider.when('/', {
     title: 'Example',
-    templateUrl: requirejs.toUrl('example/foo.html')
-  });
-  $routeProvider.when('/foo', {
-    title: 'Example',
-    templateUrl: requirejs.toUrl('example/foo.html')
+    templateUrl: requirejs.toUrl('example/Modal.html')
   });
 });
 

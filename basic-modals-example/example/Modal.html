@@ -1,0 +1,61 @@
+<a href="" ng-click="showMyModal=true">Add Person</a>
+<stackable-modal stackable="showMyModal">
+  <div class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close stackable-cancel">&times;</a>
+          <h3 class="modal-title">Add a Person to the list</h3>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-6" ng-model="name">  
+              Enter a name:
+            </div>
+            <div class="col-xs-6">
+              <input type="text"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Add a trait
+            </div>
+            <div class="col-xs-6">
+              <a class="btn btn-primary" ng-click="showTraitModal=true">
+                Add
+              </a>
+
+              <!-- Beginning of trait adding modal -->
+              <stackable-modal stackable="showTraitModal">
+                <div class="modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <a class="close stackable-cancel">&times;</a>
+                        <h3 class="modal-title">Add a trait for </h3>
+                      </div>
+                      <div class="modal-body">
+                        <input type = "text"/>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Ok</button>
+                        <button type="button"
+                          class="btn btn-default stackable-cancel">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </stackable-modal>
+              <!-- End of trait adding modal -->
+
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Ok</button>
+          <button type="button"
+            class="btn btn-default stackable-cancel">Cancel</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</stackable-modal>
