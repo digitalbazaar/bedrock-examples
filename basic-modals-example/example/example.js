@@ -25,15 +25,13 @@ module.config(function($routeProvider) {
 
 /* @ngInject */
 module.controller('PersonController', function($scope) {
-  $scope.person = {name:"Bedrock", traits:['versatile', 'fast']};
-  //$scope.name = "Bedrock";
-  //$scope.traits = ['versatile', 'fast'];
-  console.log('controller created');
+  $scope.person = {name:"", traits:[]};
 
 });
 
+/* @ngInject */
 module.controller('TraitController', function($scope) {
-  $scope.trait = 'test';
+  $scope.trait = '';
 });
 
 module.directive('personEditor', function(){
@@ -44,8 +42,8 @@ module.directive('personEditor', function(){
     controller: 'PersonController',
     controllerAs: 'model',
     link: function(scope, element, attrs, stackable) {
-      scope.ok = function() {
-        stackable.close(scope.person);
+      scope.ok = function(person) {
+        stackable.close(person);
       };
     }
   };
@@ -60,6 +58,7 @@ module.directive('traitAdder', function(){
     controllerAs: 'model',
     link: function(scope, element, attrs, stackable) {
       scope.ok = function(trait) {
+        stackable.close(trait);
         console.log(trait);
       };
     }

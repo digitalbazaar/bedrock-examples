@@ -3,6 +3,14 @@
   <person-editor/>
 </stackable-modal>
 <h3>List of people</h3>
+<ul ng-repeat="person in people">
+  <li>
+    {{person.name}}
+    <ul ng-repeat="trait in person.traits">
+      {{trait}}
+    </ul>
+  </li>
+</ul>
 <hr/>
 
 
@@ -44,7 +52,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="ok()">Ok</button>
+        <button type="button" class="btn btn-primary" ng-click="ok(person)">Ok</button>
         <button type="button"
           class="btn btn-default stackable-cancel">Cancel</button>
       </div>

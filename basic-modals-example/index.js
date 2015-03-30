@@ -12,7 +12,6 @@ bedrock.config.views.paths.push(
   path.join(__dirname)
 );
 
-// preferred component setup
 var config = bedrock.config;
 config.requirejs.config.packages.push({
   name: 'example',
