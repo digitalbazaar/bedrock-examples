@@ -39,9 +39,8 @@ module.config(function($routeProvider) {
 });
 
 /* @ngInject */
-module.controller('PeopleController', function() {
-  var self = this;
-  self.people = [];
+module.controller('PeopleController', function($scope) {
+  $scope.people = [];
 });
 
 
@@ -53,6 +52,7 @@ module.directive('personEditor', function(){
     link: function(scope, element, attrs, stackable) {
       scope.person = {name:"", traits:[]};
       scope.ok = function(person) {
+        console.log(person);
         scope.people.push(person);
         stackable.close(null, person);
       };

@@ -11,7 +11,7 @@
     <person-editor/>
   </stackable-modal>
   <h3>List of people</h3>
-  <ul ng-if="foo" ng-repeat="person in model.people">
+  <ul ng-repeat="person in people">
     <li>
       {{person.name}}
       <ul ng-repeat="trait in person.traits">
