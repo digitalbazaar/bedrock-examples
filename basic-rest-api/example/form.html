@@ -1,0 +1,21 @@
+<div ng-controller="HelloController as model">
+
+  <form class="well form-horizontal" role="form" 
+    style="width: 400px; float: left;">
+    <fieldset>
+      <br-input br-model="model.name" 
+        br-options="{icon: 'tag', name: 'name', label: 'Name'}">
+        Please enter your name.
+      </br-input>
+    </fieldset>
+    <button ng-click="model.newPerson(model.name)" style="float:right"> 
+      Add Person </button>
+  </form>
+
+
+  <ul style="width: 400px; float: left;">
+    <li ng-repeat="person in model.people">{{person.name}}</li>
+  </ul>
+
+  <div style="clear:both;"></div>
+</div>
