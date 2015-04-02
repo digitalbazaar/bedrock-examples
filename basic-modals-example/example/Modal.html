@@ -1,16 +1,18 @@
-<a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
-<stackable-modal stackable="showMyModal">
-  <person-editor/>
-</stackable-modal>
-<h3>List of people</h3>
-<ul ng-repeat="person in people">
-  <li>
-    {{person.name}}
-    <ul ng-repeat="trait in person.traits">
-      {{trait}}
-    </ul>
-  </li>
-</ul>
+<div ng-controller="PeopleController">
+  <a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
+  <stackable-modal stackable="showMyModal">
+    <person-editor/>
+  </stackable-modal>
+  <h3>List of people</h3>
+  <ul ng-repeat="person in people">
+    <li>
+      {{person.name}}
+      <ul ng-repeat="trait in person.traits">
+        {{trait}}
+      </ul>
+    </li>
+  </ul>
+</div>
 <hr/>
 
 

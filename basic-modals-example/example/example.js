@@ -24,9 +24,13 @@ module.config(function($routeProvider) {
 });
 
 /* @ngInject */
+module.controller('PeopleController', function($scope) {
+  $scope.people = [];
+});
+
+/* @ngInject */
 module.controller('PersonController', function($scope) {
   $scope.person = {name:"", traits:[]};
-
 });
 
 /* @ngInject */
@@ -43,6 +47,7 @@ module.directive('personEditor', function(){
     controllerAs: 'model',
     link: function(scope, element, attrs, stackable) {
       scope.ok = function(person) {
+        scope.people.push(person);
         stackable.close(person);
       };
     }
@@ -58,8 +63,8 @@ module.directive('traitAdder', function(){
     controllerAs: 'model',
     link: function(scope, element, attrs, stackable) {
       scope.ok = function(trait) {
+        scope.person.traits.push(trait);
         stackable.close(trait);
-        console.log(trait);
       };
     }
   };
