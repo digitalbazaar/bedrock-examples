@@ -1,5 +1,7 @@
 ##Modal Example
 
+The goal of this example is to create a page in which users may click a button, "Add Person", and add a person to a list of people. When the button is clicked, a modal will appear that allows the user to enter information about the person they would like to add to the list.
+
 To start, we must create a file, package.json, to setup our environment.
 
 ```json
@@ -88,38 +90,41 @@ Now, to add on to the template provided we will need to make some additions to i
 ```javascript
 var bedrock = require('bedrock');
 var path = require('path');
+
 require('bedrock-express');
+
 require('bedrock-requirejs');
 require('bedrock-server');
+
 require('bedrock-views');
- 
+
 bedrock.config.views.paths.push(
   path.join(__dirname)
 );
 
 var config = bedrock.config;
 config.requirejs.config.packages.push({
-  name: 'modals',
-  main: './modals.js',
-  location: '/bower-components/modals'
+  name: 'example',
+  main: './example.js',
+  location: '/bower-components/example'
 });
 config.requirejs.optimize.config.packages.push({
-  name: 'modals',
-  main: './modals.js',
-  location: path.join(__dirname, 'modals')
+  name: 'example',
+  main: './example.js',
+  location: path.join(__dirname, 'example')
 });
 config.express.static.push({
-  route: '/bower-components/modals',
-  path: path.join(__dirname, 'modals')
+  route: '/bower-components/example',
+  path: path.join(__dirname, 'example')
 });
-config.requirejs.autoload.push('modals');
+config.requirejs.autoload.push('example');
 
 
 bedrock.start();
 ```
 
 These additions will allow us to create a file, index.html, to replace the current bedrock home page's index.html.
-We may now also place any code we would like in a folder called modals and it will be included with our view as we would like.
+We may now also place any code we would like in a folder called example and it will be included with our view as we would like.
 
 So, we may now create a file, index.html, so we may adjust how our page is displayed.
 Create an index.html file with the following
@@ -139,9 +144,9 @@ Create an index.html file with the following
 ```
 This html file allows us to extend layout.html, which is provided within bedrock-views, and also gives us an area to place our content which we will define soon.
 
-Now, lets create a folder called modals where we can start creating some modals.
+Now, lets create a folder called example where we can start working on some front-end examples.
 
-Now we can create a file called modals.js within our new folder and populate it with the following
+Now we can create a file called examples.js within our new folder and populate it with the following
 
 ```javascript
 define([
@@ -152,79 +157,60 @@ define([
 
 'use strict';
 
-var module = angular.module('app.modals', []);
+var module = angular.module('app.example', ['bedrock.alert']);
 
 /* @ngInject */
 module.config(function($routeProvider) {
   $routeProvider.when('/', {
     title: 'Example',
-    templateUrl: requirejs.toUrl('modals/Modals.html')
+    templateUrl: requirejs.toUrl('example/example.html')
   });
-});
-
-
-/* @ngInject */
-module.controller('PersonController', function($scope) {
-  $scope.person = {name:"", traits:[]};
-
-});
-
-/* @ngInject */
-module.controller('TraitController', function($scope) {
-  $scope.trait = '';
-});
-
-module.directive('personEditor', function(){
-  return{
-    restrict: 'E',
-    require: '^stackable',
-    templateUrl: 'person-editor',
-    controller: 'PersonController',
-    controllerAs: 'model',
-    link: function(scope, element, attrs, stackable) {
-      scope.ok = function(person) {
-        stackable.close(person);
-      };
-    }
-  };
-});
-
-module.directive('traitAdder', function(){
-  return{
-    restrict: 'E',
-    require: '^stackable',
-    templateUrl: 'trait-adder',
-    controller: 'TraitController',
-    controllerAs: 'model',
-    link: function(scope, element, attrs, stackable) {
-      scope.ok = function(trait) {
-        stackable.close(trait);
-        console.log(trait);
-      };
-    }
-  };
 });
 
 return module.name;
 
 });
-
 ```
-This javascript will set up angular for us and make it so that when the route, '/' is reached, Modals.html can be loaded by angular. This has also created two angular directives and controllers to represent two modals that we will be creating.
+
+This javascript will set up angular for us and make it so that when the route, '/' is reached, example.html will be loaded by angular.
+
+Now, lets create a file called "example.html" and see if we are able to load it using our code.
+
+Create a file named "example.html" in the example folder and place the following within it.
+
+```html
+<div ng-controller="PeopleController as model">
+  <a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
+</div>
+```
 
 You may see that our two directives have templates attached to them, person-editor, and trait-adder.
 
 We now need to implement those templates so that when the directive is used, there can be a view for these directives.
 
-To create this, we will now have to create a file called Modals.html and populate it with the following
+To create this, we will now have to create a file called example.html and populate it with the following
 
 ```html
-<a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
-<stackable-modal stackable="showMyModal">
-  <person-editor/>
-</stackable-modal>
-<h3>List of people</h3>
-<hr/>
+<div ng-controller="PeopleController as model">
+  <a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
+  <stackable-modal stackable="showMyModal">
+    <person-editor/>
+  </stackable-modal>
+  <div ng-show="people.length > 0">
+    <h3>List of people</h3>
+    <hr/>
+    <ul ng-repeat="person in people">
+      <li>
+        {{person.name}}
+        <ul ng-repeat="trait in person.traits">
+          <li>
+            {{trait}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <script type="text/ng-template" id="person-editor">
 <div class="modal">

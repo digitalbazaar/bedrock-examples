@@ -15,28 +15,6 @@ define([
 
 var module = angular.module('app.example', ['bedrock.alert']);
 
-/*module.directive('alertDirective', showAlert);
-
-/* @ngInject */
-/*function showAlert(brAlertService) {
-  return {
-    restrict: 'E',
-    scope: {},
-    template: '<button \
-      ng-click="model.errorOccurred()">New ERrors</button>',
-    link: function(scope, element) {
-      brAlertService.add('info', 'my-directive loaded.');
-      
-      var model = scope.model = {};
-      console.log(scope);
-
-      model.errorOccurred = function() {
-        console.log("button clicked");
-      };
-    }
-  };
-}*/
-
 
 
 /* @ngInject */
@@ -62,7 +40,6 @@ module.directive('personEditor', function(brAlertService) {
       scope.person = {name:"", traits:[]};
       scope.ok = function(person) {
         if(person.name.length > 1 && person.traits.length > 0) {
-          console.log(person);
           scope.people.push(person);
           stackable.close(null, person);
         }

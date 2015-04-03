@@ -14,6 +14,9 @@ TODO
 
 A basic rest api with a mongo-db backend
 
+## basic-modals-example
+
+A basic front-end display using bedrock's modals and angular
 
 ## Other Examples
 
