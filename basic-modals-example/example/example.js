@@ -13,22 +13,31 @@ define([
 
 'use strict';
 
-var module = angular.module('app.example', ['bedrock.alert']).directive('alert-directive', showAlert);
+var module = angular.module('app.example', ['bedrock.alert']);
+
+/*module.directive('alertDirective', showAlert);
 
 /* @ngInject */
-function showAlert(brAlertService){
+/*function showAlert(brAlertService) {
   return {
     restrict: 'E',
     scope: {},
+    template: '<button \
+      ng-click="model.errorOccurred()">New ERrors</button>',
     link: function(scope, element) {
       brAlertService.add('info', 'my-directive loaded.');
-      scope.errorOccurred = function(err) {
-        // add a feedback error; if the scope is destroyed, remove the error
-        brAlertService.add('error', err, {scope: scope});
+      
+      var model = scope.model = {};
+      console.log(scope);
+
+      model.errorOccurred = function() {
+        console.log("button clicked");
       };
     }
   };
-}
+}*/
+
+
 
 /* @ngInject */
 module.config(function($routeProvider) {
@@ -44,7 +53,7 @@ module.controller('PeopleController', function($scope) {
 });
 
 
-module.directive('personEditor', function(){
+module.directive('personEditor', function(brAlertService) {
   return{
     restrict: 'E',
     require: '^stackable',
@@ -52,15 +61,21 @@ module.directive('personEditor', function(){
     link: function(scope, element, attrs, stackable) {
       scope.person = {name:"", traits:[]};
       scope.ok = function(person) {
-        console.log(person);
-        scope.people.push(person);
-        stackable.close(null, person);
+        if(person.name.length > 1 && person.traits.length > 0) {
+          console.log(person);
+          scope.people.push(person);
+          stackable.close(null, person);
+        }
+        else {
+          brAlertService.add('error', 
+            'Please enter a valid name and atleast one trait');
+        }
       };
     }
   };
 });
 
-module.directive('traitAdder', function(){
+module.directive('traitAdder', function(brAlertService) {
   return{
     restrict: 'E',
     require: '^stackable',
@@ -68,8 +83,13 @@ module.directive('traitAdder', function(){
     link: function(scope, element, attrs, stackable) {
       scope.trait = '';
       scope.ok = function(trait) {
-        scope.person.traits.push(trait);
-        stackable.close(null, trait);
+        if(trait.length > 1) {
+          scope.person.traits.push(trait);
+          stackable.close(null, trait);
+        }
+        else {
+          brAlertService.add('error', 'Please enter a valid trait');
+        }
       };
     }
   };

@@ -1,28 +1,24 @@
-<!-- display all logged alerts -->
-<div br-alerts br-fixed="true"></div>
-
-<!-- custom directive that uses brAlertService -->
-<alert-directive><button ng-click="errorOccurred">Error</button></alert-directive>
-
 
 <div ng-controller="PeopleController as model">
   <a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
   <stackable-modal stackable="showMyModal">
     <person-editor/>
   </stackable-modal>
-  <h3>List of people</h3>
-  <ul ng-repeat="person in people">
-    <li>
-      {{person.name}}
-      <ul ng-repeat="trait in person.traits">
-        <li>
-          {{trait}}
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <div ng-show="people.length > 0">
+    <h3>List of people</h3>
+    <hr/>
+    <ul ng-repeat="person in people">
+      <li>
+        {{person.name}}
+        <ul ng-repeat="trait in person.traits">
+          <li>
+            {{trait}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
-<hr/>
 
 <script type="text/ng-template" id="person-editor">
 <div class="modal">
