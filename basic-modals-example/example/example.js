@@ -21,7 +21,7 @@ var module = angular.module('app.example', ['bedrock.alert']);
 module.config(function($routeProvider) {
   $routeProvider.when('/', {
     title: 'Example',
-    templateUrl: requirejs.toUrl('example/Modal.html')
+    templateUrl: requirejs.toUrl('example/example.html')
   });
 });
 

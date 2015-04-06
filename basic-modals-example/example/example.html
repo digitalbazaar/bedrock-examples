@@ -1,0 +1,90 @@
+
+<div ng-controller="PeopleController as model">
+  <a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
+  <stackable-modal stackable="showMyModal">
+    <person-editor/>
+  </stackable-modal>
+  <div ng-show="people.length > 0">
+    <h3>List of people</h3>
+    <hr/>
+    <ul ng-repeat="person in people">
+      <li>
+        {{person.name}}
+        <ul ng-repeat="trait in person.traits">
+          <li>
+            {{trait}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/ng-template" id="person-editor">
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close stackable-cancel">&times;</a>
+        <h3 class="modal-title">Add a Person to the list</h3>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="row">
+            <div class="col-xs-6">  
+              Enter a name:
+            </div>
+            <div class="col-xs-6">
+              <input type="text" ng-model="person.name"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              Add a trait
+            </div>
+            <div class="col-xs-6">
+              <a class="btn btn-primary" ng-click="showTraitModal=true">
+                Add
+              </a>
+              <stackable-modal stackable="showTraitModal">
+                <trait-adder/>
+              </stackable-modal>
+            </div>
+          </div>
+           <h4> {{name}} Traits</h4>
+              <ul ng-repeat="trait in person.traits">
+                <li>{{trait}}</li>
+              </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="ok(person)">Ok</button>
+        <button type="button"
+          class="btn btn-default stackable-cancel">Cancel</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div--><!-- /.modal >
+</script>
+
+<script type="text/ng-template" id="trait-adder">
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close stackable-cancel">&times;</a>
+        <h3 class="modal-title">Add a trait for {{person.name}}</h3>
+      </div>
+      <div class="modal-body">
+        <input type = "text" ng-model="trait"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"
+          ng-click="ok(trait)">Ok</button>
+        <button type="button"
+          class="btn btn-default stackable-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
