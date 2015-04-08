@@ -12,11 +12,11 @@ To start, we must create a file, package.json, to setup our environment.
     "start": "node index.js"
   },
   "dependencies": {
-    "bedrock": "^0.3.2",
-    "bedrock-express": "~0.2.0",
-    "bedrock-server": "*",
-    "bedrock-views": "*",
-    "bower": "~1.3.12"
+    "bedrock": "^1.0.0",
+    "bedrock-express": "^1.0.0",
+    "bedrock-server": "^1.0.0",
+    "bedrock-views": "^1.0.0",
+    "bower": "~1.4.1"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -41,18 +41,18 @@ Create a file named bower.json with the following
   "private": true,
   "description": "Bedrock basic website example dependencies.",
   "dependencies": {
-    "angular": "~1.3.10",
+    "angular": "~1.3.15",
     "angular-bootstrap": "~0.12.0",
-    "bedrock-angular": "~0.1.0",
-    "bedrock-angular-modal":"*",
-    "angular-stackables":"*",
-    "bedrock-angular-alert":"*",
+    "angular-stackables": "~0.0.30",
+    "bedrock-angular": "^1.0.0",
+    "bedrock-angular-alert": "^1.0.0",
+    "bedrock-angular-modal": "^1.0.0",
+    "bootstrap": "~3.3.1",
     "jquery": "~1.11.1",
-    "requirejs": "~2.1.15",
-    "bootstrap": "~3.3.1"
+    "requirejs": "~2.1.15"
   },
   "resolutions": {
-    "angular": "~1.3.10"
+    "angular": "~1.3.15"
   }
 }
 ```
