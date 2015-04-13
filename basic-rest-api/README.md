@@ -1,7 +1,7 @@
 # bedrock-rest-api
 Bedrock Rest API Example Project
 
-##Rest API Example
+## Rest API Example
 
 To start, we must create a file, package.json, to setup our environment.
 
@@ -13,9 +13,9 @@ To start, we must create a file, package.json, to setup our environment.
     "start": "node index.js"
   },
   "dependencies": {
-    "bedrock": "~0.3.0",
-    "bedrock-express": "~0.2.0",
-    "bedrock-mongodb": "*"
+    "bedrock": "^1.0.0",
+    "bedrock-express": "^1.0.0",
+    "bedrock-mongodb": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -83,7 +83,7 @@ This is a bedrock event listener, waiting for the event "bedrock-express.configu
 Now we can add our different http request types and their corresponding routes to create our rest api.
 
 
-##Get
+## Get
 To start here is a basic get route to list all the people in our database:
 ```js
 app.get('/users', function(req, res){
@@ -94,7 +94,7 @@ app.get('/users', function(req, res){
 ```
 This will find all the people in our database and send them back as a response in array form
 
-##Post
+## Post
 
 Now to add in the ability to add people:
 
@@ -109,7 +109,7 @@ app.post('/users/:name', function(req, res){
 This route demonstrates the use of a parameter in the route, that can then be accessed by using req.param("name").
 For example a Post request to /users/TestUser will add the name TestUser to the database.
 
-##Delete
+## Delete
 
 Finally will will add the ability to delete people in the database by sending a delete request.
 
@@ -122,7 +122,7 @@ app.delete('/users/:name', function(req, res){
 });
 ```
 
-##Starting bedrock
+## Starting bedrock
 Now that we have added all of our routes to the application, we will start the bedrock service by adding this line at the end:
 
 ```js

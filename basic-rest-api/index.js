@@ -52,7 +52,7 @@ bedrock.events.on('bedrock-mongodb.ready', function(callback) {
 
 bedrock.events.on('bedrock-express.configure.routes', function(app) {
   app.get('/people', function(req, res) {
-    database.collections.people.find({}).toArray(function(err, docs){
+    database.collections.people.find({}).toArray(function(err, docs) {
       res.send(docs);
     });
   });
