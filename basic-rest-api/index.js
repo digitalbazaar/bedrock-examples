@@ -14,7 +14,6 @@ bedrock.config.views.paths.push(
   path.join(__dirname)
 );
 
-
 // add pseudo bower package
 bedrock.config.requirejs.bower.packages.push({
   path: path.join(__dirname, 'example'),
