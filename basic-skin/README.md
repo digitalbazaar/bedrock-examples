@@ -2,20 +2,21 @@
 
 An example of using substitute templates (skinning) with a website application built on top of Bedrock.
 
-# Installation
+## Installation
 
     npm install
 
-# Running the software
+## Running the software
 
     npm start
 
-# Running the skinned version
+## Running the skinned version
 
     node run-script skin
 
-# Skinning:  How-To
-## Overview
+## Skinning:  How-To
+
+### Overview
 A Bedrock module will typically ship with a set of built-in Angular front-end templates.  In this example, the built-in template is `/components/example/example.html`
 
 
@@ -31,7 +32,7 @@ The skin is contained in another pseudo bower package called â€˜example-skinnedâ
 Once the skin package has been defined, the template replacement is configured by defining the override as shown at the bottom of `/configs/skin.js`.
 
 
-## Step-by-Step
+### Step-by-Step
 1. Identify and locate the built-in template.
    1. Navigate to the page on the Bedrock site that you would like to change and note the URL.
       1. In the demo, the URL is the home page or `/`
