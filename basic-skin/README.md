@@ -39,9 +39,9 @@ Once the skin package has been defined, the template replacement is configured b
          * `grep -rnw config.requirejs.bower.packages`
    1. Make note of the path, name and main properties specified in the package definition.
       1. In the example the package is defined in `/configs/example.js`.
-         1. `path` is defined relative to the config file which in the example is `/components`.
-         2. `name` is `example-unskinned`.
-         3. `main` is `main.js`.
+         * `path` is defined relative to the config file which in the example is `/components`.
+         * `name` is `example-unskinned`.
+         * `main` is `main.js`.
    1. Locate the file specified by the main property in the package definition which is located in the folder defined by the path property.
       1. In the example the file is `/components/main.js`.
    1. Locate the Angular route definition.
