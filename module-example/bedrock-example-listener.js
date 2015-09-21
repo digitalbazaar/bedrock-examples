@@ -1,5 +1,7 @@
 var bedrock = require('bedrock');
-require('./bedrock-example-listener');
+
+// ensure bedrock-example-server loads
+require('./bedrock-example-server');
 
 // emitted to allow listeners to be attached to the example server
 bedrock.events.on('example.server.ready', function(server) {
