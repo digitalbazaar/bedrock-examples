@@ -1,0 +1,31 @@
+{
+  "name": "bedrock-advanced-rest-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "bedrock": "^1.0.6",
+    "bedrock-express": "^1.0.0",
+    "bedrock-identity": "digitalbazaar/bedrock-identity#2.x",
+    "bedrock-mail": "^1.0.1",
+    "bedrock-mongodb": "^1.0.2",
+    "bedrock-passport": "digitalbazaar/bedrock-passport#2.x",
+    "bedrock-permission": "digitalbazaar/bedrock-permission#master",
+    "bedrock-server": "^1.0.0",
+    "bedrock-validation": "^1.0.1",
+    "bedrock-views": "digitalbazaar/bedrock-views#master",
+    "bower": "~1.4.1",
+    "http-signature": "^0.11.0",
+    "jsonld": "^0.4.1",
+    "request": "^2.63.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "directories": {},
+  "main": "index.js"
+}
