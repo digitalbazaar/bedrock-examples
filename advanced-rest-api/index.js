@@ -19,27 +19,8 @@ require('./configs/config');
 var identities = config.demo.identities;
 // modules
 require('bedrock-express');
-
-// frontend configuration
-require('bedrock-requirejs');
 require('bedrock-server');
 require('bedrock-views');
-
-// load validation schemas from 'schemas'
-config.validation.schema.paths.push(path.join(__dirname, 'schemas'));
-
-// add pseudo bower package
-config.requirejs.bower.packages.push({
-  path: path.join(__dirname, 'example'),
-  manifest: {
-    name: 'example',
-    moduleType: 'amd',
-    main: './form.js',
-    dependencies: {
-      angular: '~1.3.0'
-    }
-  }
-});
 
 bedrock.events.on('bedrock-mongodb.ready', function(callback) {
   async.parallel([

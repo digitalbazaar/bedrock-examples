@@ -4,6 +4,9 @@
 var config = require('bedrock').config;
 var path = require('path');
 
+// modules
+require('bedrock-requirejs');
+
 var baseUri = 'https://bedrock.dev:18443';
 var baseIdPath = 'https://bedrock.dev:18443/i';
 var userName = '';
@@ -110,4 +113,20 @@ config.demo.identities[userName].keys = createKey({
     'Oe7DZl9Ffg6veYo3iMu2IRFxvEyy3DtQsnaew6vk7Pvh9ZyXnPVeCrFj+k0SVumO\n' +
     'twIDAQAB\n' +
     '-----END PUBLIC KEY-----\n'
+});
+
+// load validation schemas from 'schemas'
+config.validation.schema.paths.push(path.join(__dirname, '..', 'schemas'));
+
+// add pseudo bower package
+config.requirejs.bower.packages.push({
+  path: path.join(__dirname, '..', 'example'),
+  manifest: {
+    name: 'example',
+    moduleType: 'amd',
+    main: './form.js',
+    dependencies: {
+      angular: '~1.3.0'
+    }
+  }
 });
