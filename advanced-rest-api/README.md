@@ -1,6 +1,6 @@
 # bedrock-advanced-rest-api
-Bedrock Advanced Rest API Example Project.
-* Using JSON-LD
+[Bedrock][] Advanced REST API Example Project.
+* Using [JSON-LD][]
 * Using HTTP-Signatures and User Permissions
 
 ## Installation
@@ -29,7 +29,7 @@ transformed by the JSON-LD frame.
 The API endpoint used in this example is `app.post('/people/:name')` defined in
 `index.js`.
 
-The incoming object is also validated using [bedrock-validate][1] and the
+The incoming object is also validated using [bedrock-validation][] and the
 'person' schema found in `/schemas/person.js`.
 
 ## Using HTTP-Signatures and User Permissions
@@ -37,10 +37,10 @@ This example demonstrates how HTTP-Signatures can be used to authenticate API
 requests and how user permissions can be used to control access to resources.
 
 This process involves the following bedrock modules:
-* [bedrock-passport][2] which provides HTTP-Signatures authentication for the
+* [bedrock-passport][] which provides HTTP-Signatures authentication for the
 API endpoint.
-* [bedrock-identity][3] for managing users.
-* [bedrock-permission][4] for managing access control to resources via
+* [bedrock-identity][] for managing users.
+* [bedrock-permission][] for managing access control to resources via
 configurable permissions and roles.
 
 ### The Command-Line Programs
@@ -105,7 +105,9 @@ here as Express middleware.  The bedrock-identity method `checkPermission` is
 then used to determine if the authenticated user has sufficient privileges for
 the action.
 
-[1]: https://github.com/digitalbazaar/bedrock-validation
-[2]: https://github.com/digitalbazaar/bedrock-passport/tree/2.x
-[3]: https://github.com/digitalbazaar/bedrock-identity/tree/2.x
-[4]: https://github.com/digitalbazaar/bedrock-permission
+[Bedrock]: https://github.com/digitalbazaar/bedrock
+[JSON-LD]: http://json-ld.org/
+[bedrock-validation]: https://github.com/digitalbazaar/bedrock-validation
+[bedrock-passport]: https://github.com/digitalbazaar/bedrock-passport/tree/2.x
+[bedrock-identity]: https://github.com/digitalbazaar/bedrock-identity/tree/2.x
+[bedrock-permission]: https://github.com/digitalbazaar/bedrock-permission
