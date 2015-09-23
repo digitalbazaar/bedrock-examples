@@ -223,7 +223,7 @@ To create this, we will now have to create a file called example.html and popula
       <div class="modal-body">
         <div>
           <div class="row">
-            <div class="col-xs-6">  
+            <div class="col-xs-6">
               Enter a name:
             </div>
             <div class="col-xs-6">
@@ -256,7 +256,7 @@ To create this, we will now have to create a file called example.html and popula
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div--><!-- /.modal >
+</div--><!-- /.modal -->
 </script>
 
 <script type="text/ng-template" id="trait-adder">
@@ -292,4 +292,4 @@ Now if you run
 ```
 npm start
 ```
-You will see that if you click the add person link, a modal will show up allowing you to add and edit a person, and also you may add traits for people which will lead to our second modal showing up overtop of the first modal displayed. 
+You will see that if you click the add person link, a modal will show up allowing you to add and edit a person, and also you may add traits for people which will lead to our second modal showing up overtop of the first modal displayed.
