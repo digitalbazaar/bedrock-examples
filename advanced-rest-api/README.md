@@ -84,9 +84,9 @@ Status Code: 200
 Body: { status: 'success',
   authenticatedUser: 'https://bedrock.dev:18443/i/rsa2048' }
 ```
-note:  The HTTP-Signatures demo will require a host file entry for `bedrock.dev`
-pointing to `127.0.0.1` (localhost).  The host header is validated and signed by
-the HTTP-Signature software.
+**Note**:  The HTTP-Signatures demo will require a [host file entry][] for
+`bedrock.dev` pointing to `127.0.0.1` (localhost).  The host header is
+validated and signed by the HTTP-Signature software.
 
 ### Overview
 In this example, the server has user accounts and public keys for two users:
@@ -107,6 +107,7 @@ the action.
 
 [Bedrock]: https://github.com/digitalbazaar/bedrock
 [JSON-LD]: http://json-ld.org/
+[host file entry]: http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/
 [bedrock-validation]: https://github.com/digitalbazaar/bedrock-validation
 [bedrock-passport]: https://github.com/digitalbazaar/bedrock-passport/tree/2.x
 [bedrock-identity]: https://github.com/digitalbazaar/bedrock-identity/tree/2.x
