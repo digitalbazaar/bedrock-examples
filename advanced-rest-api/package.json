@@ -18,7 +18,7 @@
     "bedrock-server": "^1.0.0",
     "bedrock-validation": "^1.0.1",
     "bedrock-views": "digitalbazaar/bedrock-views#master",
-    "bower": "~1.4.1",
+    "bower": "^1.5.2",
     "http-signature": "^0.11.0",
     "jsonld": "^0.4.1",
     "request": "^2.63.0"
