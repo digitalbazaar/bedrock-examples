@@ -213,72 +213,56 @@ To create this, we will now have to create a file called example.html and popula
 </div>
 
 <script type="text/ng-template" id="person-editor">
-<div class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <a class="close stackable-cancel">&times;</a>
-        <h3 class="modal-title">Add a Person to the list</h3>
-      </div>
-      <div class="modal-body">
-        <div>
-          <div class="row">
-            <div class="col-xs-6">
-              Enter a name:
-            </div>
-            <div class="col-xs-6">
-              <input type="text" ng-model="person.name"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              Add a trait
-            </div>
-            <div class="col-xs-6">
-              <a class="btn btn-primary" ng-click="showTraitModal=true">
-                Add
-              </a>
-              <stackable-modal stackable="showTraitModal">
-                <trait-adder/>
-              </stackable-modal>
-            </div>
-          </div>
-           <h4> {{name}} Traits</h4>
-              <ul ng-repeat="trait in person.traits">
-                <li>{{trait}}</li>
-              </ul>
+<br-modal br-title="Add a Person to the list">
+  <div name="br-modal-body">
+    <div>
+      <div class="row">
+        <div class="col-xs-6">
+          Enter a name:
+        </div>
+        <div class="col-xs-6">
+          <input type="text" ng-model="person.name"/>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="ok(person)">Ok</button>
-        <button type="button"
-          class="btn btn-default stackable-cancel">Cancel</button>
+      <div class="row">
+        <div class="col-xs-6">
+          Add a trait
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-primary" ng-click="showTraitModal=true">
+            Add
+          </a>
+          <stackable-modal stackable="showTraitModal">
+            <trait-adder/>
+          </stackable-modal>
+        </div>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div--><!-- /.modal -->
+       <h4> {{name}} Traits</h4>
+          <ul ng-repeat="trait in person.traits">
+            <li>{{trait}}</li>
+          </ul>
+    </div>
+  </div>
+  <div name="br-modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="ok(person)">Ok</button>
+    <button type="button"
+      class="btn btn-default stackable-cancel">Cancel</button>
+  </div>
+</br-modal>
 </script>
 
 <script type="text/ng-template" id="trait-adder">
-<div class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <a class="close stackable-cancel">&times;</a>
-        <h3 class="modal-title">Add a trait for {{person.name}}</h3>
-      </div>
-      <div class="modal-body">
-        <input type = "text" ng-model="trait"/>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary"
-          ng-click="ok(trait)">Ok</button>
-        <button type="button"
-          class="btn btn-default stackable-cancel">Cancel</button>
-      </div>
-    </div>
+<br-modal br-title="Add a trait for {{person.name}}">
+  <div name="br-modal-body">
+    <input type = "text" ng-model="trait"/>
   </div>
-</div>
+  <div name="br-modal-footer">
+    <button type="button" class="btn btn-primary"
+      ng-click="ok(trait)">Ok</button>
+    <button type="button"
+      class="btn btn-default stackable-cancel">Cancel</button>
+  </div>
+</br-modal>
 </script>
 ```
 
