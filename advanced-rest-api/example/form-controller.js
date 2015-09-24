@@ -53,7 +53,7 @@ function factory(brAlertService, $scope, $http) {
   };
 
   self.setPerson = function(person) {
-    self.person = JSON.stringify(person);
+    self.person = JSON.stringify(person, null, 2);
   };
 
   self.peopleTemplates = {};
