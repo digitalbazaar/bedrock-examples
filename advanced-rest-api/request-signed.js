@@ -2,21 +2,20 @@
  * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
  */
 var request = require('request');
-var httpSignature = require('http-signature');
 var async = require('async');
-var identities = require('./configs/client.config.js').identities;
+var identities = require('./configs/client.config').identities;
 
 async.forEachOf(identities, function(value, key, callback) {
-  deleteItem(key, callback);
+  deletePerson(key, callback);
 }, function(err) {
   if(err) {
     console.log('Error:', err);
   }
 });
 
-function deleteItem(user, callback) {
+function deletePerson(user, callback) {
   var options = {
-    url: 'https://bedrock.dev:18443/people/somePerson',
+    url: 'https://bedrock.dev:18443/people/Alice',
     method: 'DELETE',
     strictSSL: false,
     json: true,

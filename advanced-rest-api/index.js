@@ -3,20 +3,18 @@
  */
 var bedrock = require('bedrock');
 var config = bedrock.config;
-var path = require('path');
 var BedrockError = bedrock.util.BedrockError;
 var jsonld = require('jsonld');
 var async = require('async');
 var validate = require('bedrock-validation').validate;
 var brIdentity = require('bedrock-identity');
-var brPermission = require('bedrock-permission');
 var ensureAuthenticated = require('bedrock-passport').ensureAuthenticated;
 var database = require('bedrock-mongodb');
 var permissions = config.permission.permissions;
 
 // load configuration and demo data
 require('./configs/config');
-var identities = config.demo.identities;
+
 // modules
 require('bedrock-express');
 require('bedrock-server');
@@ -39,13 +37,15 @@ bedrock.events.on('bedrock-mongodb.ready', function(callback) {
 });
 
 bedrock.events.on('bedrock-express.configure.routes', function(app) {
+  // get all people
   app.get('/people', function(req, res) {
     database.collections.people.find({}).toArray(function(err, docs) {
       res.send(docs);
     });
   });
 
-  app.post('/people/:name', function(req, res, next) {
+  // add a new person
+  app.post('/people', function(req, res, next) {
     var response = {};
     async.waterfall([
       function(callback) {
@@ -54,10 +54,19 @@ bedrock.events.on('bedrock-express.configure.routes', function(app) {
           req.body, {'@context': 'http://schema.org', '@type': 'Person'},
           callback);
       },
-      function(result, callback) {
-        response.framed = result;
-        response.valid = validate('person', result['@graph'][0]);
-        callback(null);
+      function(framed, callback) {
+        response.framed = framed;
+        var person = framed['@graph'][0];
+        response.valid = validate('person', person);
+        if(!response.valid) {
+          return callback();
+        }
+        database.collections.people.insert(person, function(err, result) {
+          if(err) {
+            return next(err);
+          }
+          callback();
+        });
       }
     ], function(err) {
       if(err) {
@@ -67,35 +76,39 @@ bedrock.events.on('bedrock-express.configure.routes', function(app) {
     });
   });
 
+  // delete a person
   app.delete('/people/:name', ensureAuthenticated, function(req, res, next) {
     // req.user.identity contains information about the authenticated user
     var actor = {id: req.user.identity.id};
-    brIdentity.checkPermission(
-      actor, permissions.PERSON_DELETE, function(err) {
+    brIdentity.checkPermission(actor, permissions.PERSON_DELETE, function(err) {
+      if(err) {
+        return next(new BedrockError(
+          'Permission Denied.', 'PermissionDenied', {
+            'public': true,
+            httpStatusCode: 403,
+            details: {authenticatedUser: req.user.identity.id}
+          }));
+      }
+      database.collections.people.remove(
+        {name: req.param('name')}, function(err, result) {
         if(err) {
-          return next(
-            new BedrockError(
-              'Insufficient Privileges',
-              'InsufficientPrivileges', {
-                'public': true,
-                httpStatusCode: 403,
-                details: {
-                  authenticatedUser: req.user.identity.id
-                }
-              }));
+          return next(err);
         }
-        res.status = 200;
-        res.send({
+        res.status(200).send({
           status: 'success',
           authenticatedUser: req.user.identity.id
         });
       });
+    });
   });
 });
 
-// Insert identities and public keys used for testing into database
+bedrock.start();
+
+// insert identities and public keys used for testing into database
 function insertTestData(done) {
-  async.forEachOf(identities, function(identity, key, callbackA) {
+  var identities = config.demo.identities;
+  async.forEachOf(identities, function(identity, key, callback) {
     async.parallel([
       function(callback) {
         brIdentity.insert(null, identity.identity, callback);
@@ -103,16 +116,12 @@ function insertTestData(done) {
       function(callback) {
         brIdentity.addPublicKey(null, identity.keys.publicKey, callback);
       }
-    ], callbackA);
+    ], callback);
   }, function(err) {
-    if(err) {
-      if(!database.isDuplicateError(err)) {
-        // duplicate error means test data is already loaded
-        return done(err);
-      }
+    // duplicate error means test data is already loaded and is ignored
+    if(err && !database.isDuplicateError(err)) {
+      return done(err);
     }
     done();
   });
 }
-
-bedrock.start();

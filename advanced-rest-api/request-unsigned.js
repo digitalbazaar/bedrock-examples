@@ -2,10 +2,9 @@
  * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
  */
 var request = require('request');
-var httpSignature = require('http-signature');
 
 var options = {
-  url: 'https://bedrock.dev:18443/people/somePerson',
+  url: 'https://bedrock.dev:18443/people/Alice',
   method: 'DELETE',
   strictSSL: false,
   json: true

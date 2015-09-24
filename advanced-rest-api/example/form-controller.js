@@ -8,11 +8,10 @@ define([], function() {
 /* @ngInject */
 function factory(brAlertService, $scope, $http) {
   var self = this;
-  self.name = '';
 
   Promise.resolve($http.get('/people'))
     .then(function(response) {
-      console.log('people: ');
+      console.log('current people: ');
       _.each(response.data, function(d) {
         console.log(d.name + ' ');
       });
@@ -25,7 +24,7 @@ function factory(brAlertService, $scope, $http) {
       $scope.$apply();
     });
 
-  self.newPerson = function(newPerson) {
+  self.addPerson = function(newPerson) {
     var person = null;
     try {
       person = JSON.parse(newPerson);
@@ -34,13 +33,16 @@ function factory(brAlertService, $scope, $http) {
     }
     Promise.resolve(
       $http({
-        url: '/people/' + person.label,
+        url: '/people',
         method: 'POST',
-        data: person.person
+        data: person
       }))
       .then(function(response) {
         self.response = response;
-        console.log('Created new person with name: ' + person.label);
+        if(self.response.data.valid.valid) {
+          var person = self.response.data.framed['@graph'][0];
+          console.log('Created new person with name: ' + person.name);
+        }
       })
       .catch(function(err) {
         brAlertService.add('error', err);
@@ -60,7 +62,7 @@ function factory(brAlertService, $scope, $http) {
     person: {
       '@context': {'@vocab': 'http://schema.org/'},
       '@type': 'Person',
-      name: 'Alice ' + Date.now()
+      name: 'Alice'
     }
   };
   self.peopleTemplates.b = {
@@ -71,7 +73,7 @@ function factory(brAlertService, $scope, $http) {
         'AutonomousBeing': 'http://schema.org/Person'
       },
       '@type': 'AutonomousBeing',
-      'person_name': 'Bob ' + Date.now()
+      'person_name': 'Bob'
     }
   };
   self.peopleTemplates.c = {
@@ -79,7 +81,7 @@ function factory(brAlertService, $scope, $http) {
     person: {
       '@context': 'http://schema.org/',
       '@type': 'Person',
-      name: 'Cathy ' + Date.now(),
+      name: 'Cathy',
       birthDate: '2011-05-26T07:56:00.123Z'
     }
   };
@@ -88,12 +90,12 @@ function factory(brAlertService, $scope, $http) {
     person: {
       '@context': 'http://schema.org/',
       '@type': 'Person',
-      name: 'David ' + Date.now(),
+      name: 'David',
       birthDate: Date()
     }
   };
 }
 
-return {formController: factory};
+return {FormController: factory};
 
 });

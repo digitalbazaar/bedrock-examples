@@ -5,13 +5,12 @@ var config = require('bedrock').config;
 var path = require('path');
 
 // modules
+require('bedrock-permission');
 require('bedrock-requirejs');
 
 var baseUri = 'https://bedrock.dev:18443';
 var baseIdPath = 'https://bedrock.dev:18443/i';
 var userName = '';
-var permissions = config.permission.permissions;
-var roles = config.permission.roles;
 
 config.demo = {};
 config.demo.identities = {};
@@ -26,12 +25,14 @@ config.mongodb.password = 'password';     // default: password
 // the mongodb database 'bedrock_rest_dev' and the 'bedrock_rest' user will
 // be created on start up following a prompt for the admin user credentials
 
+var permissions = config.permission.permissions;
 permissions.PERSON_DELETE = {
   id: 'PERSON_DELETE',
   label: 'Delete Person',
   comment: 'Required to delete a Person.'
 };
 
+var roles = config.permission.roles;
 roles['demo.admin'] = {
   id: 'demo.administrator',
   label: 'Demo Administrator',

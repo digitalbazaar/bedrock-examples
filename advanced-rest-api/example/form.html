@@ -1,9 +1,9 @@
-<div ng-controller="formController as model">
+<div ng-controller="FormController as model">
   <form class="col-md-12 well form-horizontal" role="form">
     <div class="btn-group col-md-offset-3">
       <button
         ng-repeat="(key, value) in model.peopleTemplates"
-        ng-click="model.setPerson(value)"
+        ng-click="model.setPerson(value.person)"
         class="btn btn-primary">{{ value.label }}</button>
     </div>
     <hr/>
@@ -11,10 +11,10 @@
       <br-textarea br-model="model.person"
         br-options="{name: 'person', label: 'Person', rows: '5'}">
         Please describe a person.
-      </br-input>
+      </br-textarea>
     </fieldset>
-    <button ng-click="model.newPerson(model.person)" class="btn btn-success col-md-offset-3">
-      Add Person </button>
+    <button ng-click="model.addPerson(model.person)"
+      class="btn btn-success col-md-offset-3">Add Person</button>
   </form>
   <h3>Request Body</h3>
   <pre>{{ model.response.data.body | json }}</pre>
@@ -22,5 +22,4 @@
   <pre>{{ model.response.data.framed | json }}</pre>
   <h3>Validated</h3>
   <pre>{{ model.response.data.valid | json }}</pre>
-
 </div>
