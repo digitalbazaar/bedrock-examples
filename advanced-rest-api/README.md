@@ -7,9 +7,10 @@
 ```
 npm install
 ```
-The HTTP-Signatures demo will require a host file entry for `bedrock.dev`
-pointing to `127.0.0.1` (localhost).  The host header is validated and signed by
-the HTTP-Signature software.
+
+**Note**:  The HTTP-Signatures demo will require a [host file entry][] for
+`bedrock.dev` pointing to `127.0.0.1` (localhost).  The host header is
+validated and signed by the HTTP-Signature software.
 
 ## Starting the Server
 ```
@@ -58,8 +59,8 @@ Body: { message: 'Not authenticated.',
   type: 'PermissionDenied',
   details: { httpStatusCode: 400 },
   cause: null }
-
 ```
+
 #### Signed Requests
 The requests for this example are made using the `request-signed.js` script.
 The private keys used in this example are configured in
@@ -84,9 +85,6 @@ Status Code: 200
 Body: { status: 'success',
   authenticatedUser: 'https://bedrock.dev:18443/i/rsa2048' }
 ```
-**Note**:  The HTTP-Signatures demo will require a [host file entry][] for
-`bedrock.dev` pointing to `127.0.0.1` (localhost).  The host header is
-validated and signed by the HTTP-Signature software.
 
 ### Overview
 In this example, the server has user accounts and public keys for two users:
