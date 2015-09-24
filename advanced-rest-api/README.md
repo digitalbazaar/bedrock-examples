@@ -26,7 +26,7 @@ templates.  Click one of the buttons and you may study and or manipulate the
 object.  Next, click the `Add Person` button and you will see how the object is
 transformed by the JSON-LD frame.
 
-The API endpoint used in this example is `app.post('/people/:name')` defined in
+The API endpoint used in this example is `app.post('/people')` defined in
 `index.js`.
 
 The incoming object is also validated using [bedrock-validation][] and the
@@ -73,8 +73,8 @@ The script should produce the following output:
 ```
 ---- rsa4096 ----------------------------------------------
 Status Code: 403
-Body: { message: 'Insufficient Privileges',
-  type: 'InsufficientPrivileges',
+Body: { message: 'Permission Denied.',
+  type: 'PermissionDenied',
   details:
    { httpStatusCode: 403,
      details: { authenticatedUser: 'https://bedrock.dev:18443/i/rsa4096' } },
