@@ -58,7 +58,7 @@ bedrock.events.on('bedrock-express.configure.routes', function(app) {
         response.framed = framed;
         var person = framed['@graph'][0];
         response.valid = validate('person', person);
-        if(!response.valid) {
+        if(!response.valid.valid) {
           return callback();
         }
         database.collections.people.insert(person, function(err, result) {
