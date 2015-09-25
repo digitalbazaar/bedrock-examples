@@ -85,8 +85,15 @@ configuration to tell [bedrock][] to treat them as if they were.
 To do this we create a "pseudo bower package" for each component. This can be
 seen by looking at the "example-skinned" entry in `configs/skinned.js` or at
 the "example-unskinned" entry in `configs/unskinned.js`. This is just a way to
-get directories to behave like [bower][] packages, so that [bedrock][] can
-deal with both [bower][] packages and directories in a consistent way.
+get directories to behave like [bower][] packages, so that [bedrock][] can deal
+with both [bower][] packages and directories in a consistent way.
+
+These "pseudo bower packages" are pushed onto an array that is referenced in
+[bedrock][]'s configuration system as:
+
+```
+bedrock.config.requirejs.bower.packages
+```
 
 ### Template replacement
 
