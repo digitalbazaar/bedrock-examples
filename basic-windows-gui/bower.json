@@ -1,0 +1,16 @@
+{
+  "name": "bedrock-basic-windows-gui",
+  "version": "0.0.1",
+  "moduleType": ["amd"],
+  "private": true,
+  "description": "Basic Windows GUI.",
+  "dependencies": {
+    "bedrock-angular": "^1.3.0",
+    "bedrock-angular-alert": "^1.0.0",
+    "bedrock-angular-form": "^1.5.0",
+    "bedrock-angular-lazy-compile": "^1.0.0"
+  },
+  "resolutions": {
+    "angular": "~1.3.15"
+  }
+}

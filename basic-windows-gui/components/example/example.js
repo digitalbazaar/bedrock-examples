@@ -16,6 +16,14 @@ var module = angular.module('app.example', []);
 
 module.controller(exampleController);
 
+/* @ngInject */
+module.config(function($routeProvider) {
+  $routeProvider.when('/', {
+    title: 'Example',
+    templateUrl: requirejs.toUrl('example/example.html')
+  });
+});
+
 return module;
 
 });

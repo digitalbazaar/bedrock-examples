@@ -1,14 +1,32 @@
 /*
  * Bedrock-based Windows GUI Example
  *
- * Copyright (c) 2014 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
  */
-var br = require('bedrock');
-// load example config
-require('./configs/example');
+var bedrock = require('bedrock');
+var path = require('path');
 
-if(module.parent) {
-  module.exports = br;
-} else {
-  br.start();
-}
+require('bedrock-express');
+require('bedrock-server');
+require('bedrock-topcube');
+require('bedrock-views');
+
+// default configuration
+bedrock.config.topcube.name = 'Bedrock';
+bedrock.config.topcube.width = 1024;
+bedrock.config.topcube.height = 768;
+
+// add pseudo bower package for frontend
+bedrock.config.requirejs.bower.packages.push({
+  path: path.join(__dirname, 'components', 'example'),
+  manifest: {
+    name: 'example',
+    moduleType: 'amd',
+    main: './example.js',
+    dependencies: {
+      angular: '~1.3.0'
+    }
+  }
+});
+
+bedrock.start();

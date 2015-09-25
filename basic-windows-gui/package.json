@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodejs index.js"
+    "start": "node index.js",
+    "postinstall": "bower install"
   },
   "dependencies": {
-    "bedrock": "~1.0.0"
+    "bedrock": "^1.0.6",
+    "bedrock-express": "^1.4.0",
+    "bedrock-server": "^1.0.2",
+    "bedrock-topcube": "^1.0.0",
+    "bedrock-views": "^1.2.0",
+    "bower": "^1.5.2"
   },
   "devDependencies": {
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "directories": {},
+  "main": "index.js"
 }
