@@ -1,90 +1,147 @@
-# Example Website Application
+# Example Template-Skinning Web Application
 
-An example of using substitute templates (skinning) with a website application built on top of [Bedrock][].
+This example demonstrates how to substitute templates (or "skin") in an
+[AngularJS][] web application built on top of [bedrock][].
 
 ## Installation
 
-    npm install
+```
+npm install
+```
 
-## Running the software
+## Running the unskinned version
 
-    npm start
+```
+npm run unskinned
+```
 
 ## Running the skinned version
 
-    node run-script skin
+```
+npm run skinned
+```
 
-## Skinning:  How-To
+## Skinning: How To
+
+### A Quick Bedrock Primer
+
+[Bedrock][] is a foundation onwhich to build web applications. It uses a
+modular design to help keep code well-organized and to allow a healthy
+ecosystem to grow without hindrance.
+
+[Bedrock][] web applications are typically built by installing a backend
+[npm][] module, [bedrock-views][], and a companion frontend [bower][] package,
+[bedrock-angular][].
+
+The [bedrock-views][] module, via a dependency [bedrock-requirejs][], expects
+all frontend code to behave like a [bower][] package. This means that any
+packages you install via [bower][] will be automatically made available to
+the browser once you've installed them and restarted your [bedrock][] server.
+If you want to serve a directory that isn't in a [bower][] package, you can
+manually add a [bower][] manifest for it to [bedrock][]'s configuration system.
+This establishes a "pseudo bower package" for your directory, causing it to be
+treated just like it was any other [bower][] package.
+
+The [bedrock-angular][] package will create a core, generic [AngularJS][]
+application for you, and automatically integrate any [bower][] packages that
+contain [AngularJS][] components.
+
+So, taken together, all you should need to do to add new frontend content to
+your [bedrock][]-based [AngularJS][] web application is install [bower][]
+packages or manually describe directories as if they were [bower][] packages.
 
 ### Overview
-A Bedrock module will typically ship with a set of built-in Angular front-end templates.  In this example, the built-in template is `/components/example/example.html`
 
-It is possible to entirely replace a built-in Angular view template with an alternate ‘skin’.  The skin will have access to the same Angular resources (e.g. controllers, directives) as the built-in template.
+In this example, a [bedrock][] application consists of an [AngularJS][]
+component, "unskinned", that defines a route and a template and controller for
+that route. It also defines a component, "skinned", that overrides the
+"unskinned" template, changing its look and feel.
 
-The built-in template is part of the psuedo bower package called ‘example-unskinned’ which is defined in `/configs/example.js`
+When the "unskinned" version of the application is run, the application's
+main route ("/") will display a list of increasing numbers, starting with one
+at the top and ending with four at the bottom.
 
-The skin is contained in another pseudo bower package called ‘example-skinned’ which is located in `/skin` and is defined in `/configs/skin.js`.  The skin could also be packaged and distributed as an actual bower package.
+When the "skinned" version of the application is run, the main route will
+display a list of decreasing numbers, starting with four at the top and ending
+with one at the bottom.
 
-Once the skin package has been defined, the template replacement is configured by defining the override as shown at the bottom of `/configs/skin.js`.
+When the "unskinned" version starts, it only loads the "unskinned" component
+via [bedrock][]'s configuration system. When the "skinned" version starts,
+it loads both the "unskinned" component and the "skinned" component,
+demonstrating that the "skinned" component's look and feel overrides the
+"unskinned" component's.
 
-### Step-by-Step
-1. Identify and locate the built-in template.
-   1. Navigate to the page on the Bedrock site that you would like to change and note the URL.
-      1. In the demo, the URL is the home page or `/`.
-   1. Locate the definition for the built-in pseudo bower package.
-      1. The definition is typically found in the following locations:
-         * `/configs`
-         * `/lib/config.js`
-      1. A text search using the following command in your module folder can be helpful:
-         * `grep -rnw config.requirejs.bower.packages`
-   1. Make note of the path, name and main properties specified in the package definition.
-      1. In the example the package is defined in `/configs/example.js`.
-         * `path` is defined relative to the config file which in the example is `/components`.
-         * `name` is `example-unskinned`.
-         * `main` is `main.js`.
-   1. Locate the file specified by the main property in the package definition which is located in the folder defined by the path property.
-      1. In the example the file is `/components/main.js`.
-   1. Locate the Angular route definition.
-      1. The Angular route definitions are typically located in the file referenced in Step 1.iv.
-      2. Locate the route definition that corresponds to the URL you identified in Step 1.i.
-   1. Locate the template corresponding to the route.
-      1. In the example, the route `/` corresponds to the path `example-unskinned/example/example.html`.
-         1. The first part of this path is the bower package `name` `example-unskinned` which corresponds to the `path` defined in Step 1.iii  Which resolves to `/components/example/example.html`.  This is the file that needs to be skinned.
-1. Create a folder inside the Bedrock module to contain the psuedo bower package.
-   1. In the example this is the `/skin` folder.
-1. Create a directory structure for the skin’s pseudo bower package.
-   1. It is easy to mirror the directory structure from the built-in package, however this is not a requirement.
-   2. Create a folder `/skin/example`.
-1. Copy the built-in template.
-   1. Copy the template file from Step 1.vi into the folder created in Step 3.
-1. Create a new config file to contain the skin package definition.
-   1. Model the new config file after the example in `/configs/skin.js`.
-1. Define a pseudo bower package for the skin.
-   1. Set the `path` property to correspond to the folder created in Step 2.
-   2. Set the `name` property to some unique name.
-1. Define the template override in the skin config.
-   1. Use the overrides definition found at the bottom of the example in `/configs/skin.js`.
-   2. The first argument corresponds to the template found in Step 1.vi.
-   3. The second argument corresponds to the package defined in Step 6 and the path to the new template file from Steps 3 and 4.
-1. Save the new config file created in Steps 5 through 7.
-1. Copy the Bedrock module launcher.
-   1. In the example the launcher is `/index.js`.
-   2. Copy the launcher to some unique filename.
-      1. In the example this is `/index-skin.js`.
-1. Require the new skin config file in the new launcher.
-   1. Below the `require()` function for the built-in config, `require` the config file created in Step 5.
-      1. In the example this is: `require('./configs/skin');`.
-1. Start the Bedrock module using the new launcher.
-   1. In the example this is done with `node index-skin.js`.
-1. Test the new configuration.
-   1. Browse to the URL identified in Step 1.i.
-   2. At this point, the page should load successfully and appear just as it did before.
-1. Modify the template.
-   1. Make changes to the copy of the built-in template that was created in Step 4.
-   2. Save the template file.
-1. View Changes.
-   1. While in development mode, changes made to Angular templates are are immediately available.
-   2. The changes can be viewed by refreshing the page in the browser.
-   3. There is no need to restart the Bedrock module to view template changes.
+### Serving components
 
-[Bedrock]: https://github.com/digitalbazaar/bedrock
+Before we can look at how to override a component in the browser, we first
+need to learn how [bedrock][] makes components available to the browser. When
+components are installed via [bower][] packages, [bedrock][] will automatically
+parse their `bower.json` files and make them available to the browser.
+
+Since this is only an example, both the "unskinned" and "skinned" components
+aren't installed via [bower][]. So we need to manually update [bedrock][]'s
+configuration to tell [bedrock][] to treat them as if they were.
+
+To do this we create a "pseudo bower package" for each component. This can be
+seen by looking at the "example-skinned" entry in `configs/skinned.js` or at
+the "example-unskinned" entry in `configs/unskinned.js`. This is just a way to
+get directories to behave like [bower][] packages, so that [bedrock][] can
+deal with both [bower][] packages and directories in a consistent way.
+
+### Template replacement
+
+Now that we know how to serve components, we need to tell [bedrock][] to
+override a particular [AngularJS][] template with a different one. To do
+this is another configuration change. If you look in `configs/skinned.js`,
+you can see an entry that is added to a template "overrides" map. The
+overrides map is referred to in the configuration system using this key:
+
+```
+bedrock.config.views.vars.angular.templates.overrides
+```
+
+Both its keys and values are URLs that are relative to [bower][] package names.
+Therefore, an entry with a key of `example-unskinned/unskinned.html` and a
+value of `example-skinned/skinned.html` will cause the [AngularJS][] application
+to use `example-skinned/skinned.html` instead of
+`example-unskinned/unskinned.html` whenever it is requested. This configuration
+entry is also used by [bedrock][] when optimizing (minification, consolidation,
+etc) a web application, ensuring that templates that have been overridden are
+not unnecessarily served to the browser.
+
+### Starting bedrock
+
+Starting [bedrock][] involves requiring [bedrock][], setting configuration
+values, and calling `bedrock.start`. Since this example demonstrates two
+different applications, there are two different scripts that can be used
+to start [bedrock][].
+
+To run a [bedrock][] application with an "unskinned" component, run:
+
+```
+npm run unskinned
+```
+
+The script above will use a configuration file that will cause [bedrock][]
+to only load the "unskinned" component. To see how the unskinned application
+looks, visit the URL that is logged to the console.
+
+To run a [bedrock][] application with a "skinned" component, run:
+
+```
+npm run skinned
+```
+
+This script will use an additional configuration file that will cause
+[bedrock][] to also load the "skinned" component and to override the
+template in the "unskinned" component. To see how the skinned application
+looks, visit the URL that is logged to the console.
+
+[AngularJS]: https://github.com/angular/angular.js
+[bedrock]: https://github.com/digitalbazaar/bedrock
+[bedrock-express]: https://github.com/digitalbazaar/bedrock-express
+[bedrock-requirejs]: https://github.com/digitalbazaar/bedrock-requirejs
+[bedrock-views]: https://github.com/digitalbazaar/bedrock-views
+[bedrock-angular]: https://github.com/digitalbazaar/bedrock-angular
+[bower]: http://bower.io
+[npm]: https://www.npmjs.com
