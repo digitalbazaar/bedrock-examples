@@ -1,0 +1,22 @@
+{
+  "name": "advanced-skin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "skin": "node index-skin.js",
+    "postinstall": "bower install && node index.js compile-less"
+  },
+  "dependencies": {
+    "bedrock": "^1.0.0",
+    "bedrock-express": "^1.0.0",
+    "bedrock-requirejs": "^1.0.0",
+    "bedrock-server": "^1.0.0",
+    "bedrock-views": "digitalbazaar/bedrock-views#master",
+    "bower": "^1.4.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "main": "index.js"
+}
