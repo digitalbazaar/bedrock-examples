@@ -5,7 +5,7 @@
  */
 var bedrock = require('bedrock');
 
-// load example config
-require('./configs/example');
+// load skin config
+require('./configs/skinned');
 
 bedrock.start();

@@ -18,6 +18,6 @@ function factory($scope) {
   };
 }
 
-return {SkinController: factory};
+return {SkinnedController: factory};
 
 });

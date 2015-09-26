@@ -1,9 +1,7 @@
-
 /*!
- * Example controller.
+ * Example Unskinned controller.
  *
- * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
- *
+ * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
  */
 define([], function() {
 
@@ -18,6 +16,6 @@ function factory($scope) {
   };
 }
 
-return {ExampleController: factory};
+return {UnskinnedController: factory};
 
 });

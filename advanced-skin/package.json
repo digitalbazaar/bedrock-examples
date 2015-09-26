@@ -1,22 +1,22 @@
 {
-  "name": "advanced-skin",
+  "name": "advanced-skinning",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "skin": "node index-skin.js",
-    "postinstall": "bower install && node index.js compile-less"
+    "unskinned": "node unskinned.js",
+    "skinned": "node skinned.js",
+    "postinstall": "bower install && node unskinned.js compile-less"
   },
   "dependencies": {
-    "bedrock": "^1.0.0",
-    "bedrock-express": "^1.0.0",
+    "bedrock": "^1.0.6",
+    "bedrock-express": "^1.4.0",
     "bedrock-requirejs": "^1.0.0",
-    "bedrock-server": "^1.0.0",
-    "bedrock-views": "digitalbazaar/bedrock-views#master",
-    "bower": "^1.4.1"
+    "bedrock-server": "^1.0.2",
+    "bedrock-views": "^1.2.0",
+    "bower": "^1.5.2"
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "main": "index.js"
+  "main": "skinned.js"
 }
