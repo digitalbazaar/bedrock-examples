@@ -2,21 +2,27 @@
 
 Examples of applications running on the Bedrock framework.
 
-## basic-website
+## basic-desktop-gui
 
-A very minimal website application.
-
-## basic-windows-gui
-
-TODO
+An example running as a desktop application.
 
 ## basic-rest-api
 
-A basic rest api with a mongo-db backend
+A simple REST API with a MongoDB backend.
 
 ## basic-modals-example
 
-A basic front-end display using bedrock's modals and angular
+A frontend display using bedrock's modals and angular.
+
+## basic-skin
+
+An example demonstrating how to replace an existing AngularJS template to
+change look and feel.
+
+## advanced-skin
+
+An example demonstrating how to replace an existing AngularJS template and
+add new controller and directive code to change look and feel and functionality.
 
 ## Other Examples
 
