@@ -1,5 +1,5 @@
 /*
- * Bedrock-based Windows GUI Example
+ * Bedrock-based Desktop GUI Example
  *
  * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
  */

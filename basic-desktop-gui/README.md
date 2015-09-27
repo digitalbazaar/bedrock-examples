@@ -1,6 +1,6 @@
-# Example Windows GUI Application
+# Example Desktop GUI Application
 
-An example of a Windows GUI Application built on top of Bedrock.
+An example of a Desktop GUI Application built on top of Bedrock.
 
 # Installation
 

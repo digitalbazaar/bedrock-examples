@@ -1,5 +1,5 @@
 {
-  "name": "bedrock-basic-windows-gui",
+  "name": "bedrock-basic-desktop-gui",
   "version": "0.0.1",
   "moduleType": ["amd"],
   "private": true,

@@ -10,10 +10,10 @@ define([], function() {
 'use strict';
 
 /* @ngInject */
-function factory(config, $http) {
+function factory(config) {
   this.name = config.data.siteTitle;
   this.bedrock = 'Bedrock';
-  console.log('ExampleCtrl initialized...');
+  console.log('ExampleController initialized...');
 }
 
 return {ExampleController: factory};
