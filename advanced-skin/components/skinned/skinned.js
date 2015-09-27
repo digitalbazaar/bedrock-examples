@@ -5,15 +5,15 @@
  *
  */
 define(
-  ['angular', './skinned-controller', './passphrase-confirmation-directive'],
-  function(angular, skinnedController, passphraseConfirmation) {
+  ['angular', './skinned-controller', './password-confirmation-directive'],
+  function(angular, skinnedController, passwordConfirmationDirective) {
 
 'use strict';
 
 var module = angular.module('app.skinned', []);
 
 module.controller(skinnedController);
-module.directive(passphraseConfirmation);
+module.directive(passwordConfirmationDirective);
 
 return module.name;
 

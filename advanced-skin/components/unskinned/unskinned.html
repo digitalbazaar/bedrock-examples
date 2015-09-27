@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h1 class="headline">Create an Account</h1>
+      <h1 class="headline">Register</h1>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
             </p>
           </div>
 
-          <br-input br-model="model.identity.email"
+          <br-input br-model="model.email"
             br-options="{
               name: 'email', label: 'Email',
               autocomplete: 'off',
@@ -43,9 +43,9 @@
           </br-input>
           </br-input>
 
-          <br-input br-model="model.identity.sysPassword"
+          <br-input br-model="model.password"
             br-options="{
-              name: 'sysPassword', type: 'password',
+              name: 'password', type: 'password',
               label: 'Password',
               showValidation: true,
               columns: {
@@ -55,17 +55,17 @@
               }
             }" ng-minlength="6" ng-maxlength="32" required>
             <div name="br-input-help">
-              Please enter a secure password that is between 6 and 32 characters long. The best passwords are
-              lengthy, memorable phrases like: the<strong>lemurs</strong>ride<strong>on</strong>the<strong>fortnight</strong>
+              Please enter a secure password that is between 6 and 32
+              characters long.
             </div>
             <div name="br-input-validation-errors">
-              <p ng-show="regForm.sysPassword.$error.required">
+              <p ng-show="regForm.password.$error.required">
                 Password is required.
               </p>
-              <p ng-show="regForm.sysPassword.$error.minlength">
+              <p ng-show="regForm.password.$error.minlength">
                 Password must be longer than 6 characters.
               </p>
-              <p ng-show="regForm.sysPassword.$error.maxlength">
+              <p ng-show="regForm.password.$error.maxlength">
                 Password must be shorter than 32 characters.
               </p>
             </div>
@@ -79,7 +79,7 @@
           <div class="col-md-offset-3">
             <button type="submit"
               ng-disabled="regForm.$invalid"
-              class="btn btn-primary btn-lg">Next</button>
+              class="btn btn-primary btn-lg">Register</button>
           </div>
         </div>
       </form>

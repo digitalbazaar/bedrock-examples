@@ -1,5 +1,5 @@
 /*!
- * Example Unskinned controller.
+ * Example unskinned controller.
  *
  * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
  */
@@ -8,11 +8,11 @@ define([], function() {
 'use strict';
 
 /* @ngInject */
-function factory($scope) {
+function factory(RegisterService) {
   var self = this;
 
   self.submit = function() {
-    alert('Thank you for submitting the form!');
+    RegisterService.register(self.email, self.password);
   };
 }
 

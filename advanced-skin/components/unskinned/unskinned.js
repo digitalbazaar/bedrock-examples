@@ -4,13 +4,14 @@
  * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
  */
 define(
-  ['angular', './unskinned-controller'],
-  function(angular, unskinnedController) {
+  ['angular', './register-service', './unskinned-controller'],
+  function(angular, registerService, unskinnedController) {
 
 'use strict';
 
 var module = angular.module('app.unskinned', []);
 
+module.service(registerService);
 module.controller(unskinnedController);
 
 /* @ngInject */

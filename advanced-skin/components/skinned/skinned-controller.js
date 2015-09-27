@@ -1,20 +1,20 @@
-
 /*!
- * advanced skin-controller.
+ * Advanced skinned controller.
  *
- * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
- *
+ * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
  */
 define([], function() {
 
 'use strict';
 
 /* @ngInject */
-function factory($scope) {
+function factory(RegisterService) {
   var self = this;
 
   self.submit = function() {
-    alert('Thank you for submitting the skinned form!');
+    if(confirm('Are you sure you want to register?')) {
+      RegisterService.register(self.email, self.password);
+    }
   };
 }
 
