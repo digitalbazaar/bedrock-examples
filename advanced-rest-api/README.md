@@ -46,7 +46,7 @@ configurable permissions and roles.
 
 ### The Command-Line Programs
 #### Unsigned Request
-The request for this example are made using the `request-unsigned.js` script.
+The request for this example is made using the `request-unsigned.js` script.
 
 After starting the server, run the script:
 ```
