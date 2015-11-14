@@ -16,7 +16,7 @@ To start, we must create a file, package.json, to setup our environment.
     "bedrock-express": "^1.0.0",
     "bedrock-server": "^1.0.0",
     "bedrock-views": "^1.0.0",
-    "bower": "~1.4.1"
+    "bower": "^1.5.2"
   },
   "engines": {
     "node": ">=0.10.0"
