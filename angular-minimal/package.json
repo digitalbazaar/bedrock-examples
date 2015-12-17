@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./lib/minimal.js",
-    "postinstall": "bower install && node ./lib/minimal.js compile-less"
+    "start": "node minimal.js",
+    "postinstall": "bower install && node minimal.js compile-less"
   },
   "dependencies": {
     "bedrock": "^1.0.0",
