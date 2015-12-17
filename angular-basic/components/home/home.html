@@ -1,0 +1,12 @@
+<div ng-controller="homeController as model">
+  <button ng-click="model.showPage('page1')">Show Page 1</button>
+  <button ng-click="model.showPage('page2')">Show Page 2</button>
+  <div ng-if="model.display.page1">
+    <h1>Page 1</h1>
+    <show-numbers sort-descending="false"></show-numbers>
+  </div>
+  <div ng-if="model.display.page2">
+    <h1>Page 2</h1>
+    <show-numbers sort-descending="true"></show-numbers>
+  </div>
+</div>
