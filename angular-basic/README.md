@@ -10,7 +10,8 @@ and directives.
 ## Defining the Psuedo Bower Package
 A _psuedo bower package_ is a way to get directories to behave like bower
 packages so that bedrock can deal with both bower packages and directories in
-a consistent way.  _Psuedo bower packages_ are pushed onto an array that is referenced in bedrock's configuration system as:
+a consistent way.  _Psuedo bower packages_ are pushed onto an array that is
+referenced in bedrock's configuration system as:
 ```
 bedrock.config.requirejs.bower.packages
 ```
@@ -30,7 +31,9 @@ The `main` property in `bower.json` references the AngularJS module definition,
 in this case `./components/main.js`.  The `main.js` file is used to define
 dependencies and routes for the AngularJS module.
 #### Module Declaration
-It is important that the `module` declaration in this file specifies a **unique** module name.  This unique module name will serve to name space the additional AngularJS sub-components.
+It is important that the `module` declaration in this file specifies a
+**unique** module name.  This unique module name will serve to name space the
+additional AngularJS sub-components.
 #### Routes
 The module definition file should contain the declaration for the routes handled
 by the module.  In this case, the route for the root document '/' is assigned to
@@ -49,7 +52,8 @@ The controllers and directives used on the home page, are configured in
 specify a **unique** module name, name spaced by the parent module.
 #### HTML Template
 As mentioned in the routes section, the template for the root document '/' is
-defined in `components/home/home.html`.  Generally, controllers in bedrock use the AngularJS "_Controller As_" syntax as demonstrated here.  The controller's
+defined in `components/home/home.html`.  Generally, controllers in bedrock use
+the AngularJS "_Controller As_" syntax as demonstrated here.  The controller's
 scope is almost always defined as `model` in bedrock modules.  Therefore,
 a controller's variables are referenced by `model.foo` in the template.
 #### Controller
@@ -69,9 +73,26 @@ self.bar = function() {
   console.log(self.foo);
 };
 ```
-
 #### Directive
-
+A directive is defined in `components/home/home-directive.html` and referenced
+in the sub-componenent definition file `components/home/home.js`.  The name
+that an HTML template will used to reference the directive is found in the
+return of the factory function, `showNumbers` in this case.  Keep in mind that
+AngularJS automatically transforms the directive name from camelCasing to
+snake-casing.  Therefore, the `showNumbers` directive is referenced in the
+HTML as `show-numbers`.  The link function in bedrock modules always include
+the variable declaration:
+```
+var model = scope.model = {};
+```
+Therefore, variables and functions that should be exposed the the directive's
+HTML template are declared as:
+```
+model.foo = 'Hello';
+model.bar = function() {
+  console.log(self.model);
+};
+```
 ## Installation
 ```
 npm install
