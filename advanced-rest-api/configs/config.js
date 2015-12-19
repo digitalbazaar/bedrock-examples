@@ -61,7 +61,7 @@ function createKey(options) {
   var publicKey = options.publicKey;
   var newKey = {
     publicKey: {
-      '@context': 'someContextURL',
+      '@context': 'https://w3id.org/security/v1',
       id: baseIdPath + '/' + userName + '/keys/1',
       type: 'CryptographicKey',
       owner: baseIdPath + '/' + userName,
