@@ -11,6 +11,7 @@
     "bedrock": "^1.0.6",
     "bedrock-express": "^1.0.0",
     "bedrock-identity": "digitalbazaar/bedrock-identity#2.x",
+    "bedrock-key": "digitalbazaar/bedrock-key#master",
     "bedrock-mail": "^1.0.1",
     "bedrock-mongodb": "^1.0.2",
     "bedrock-passport": "digitalbazaar/bedrock-passport#2.x",

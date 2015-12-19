@@ -8,6 +8,7 @@ var jsonld = require('jsonld');
 var async = require('async');
 var validate = require('bedrock-validation').validate;
 var brIdentity = require('bedrock-identity');
+var brKey = require('bedrock-key');
 var ensureAuthenticated = require('bedrock-passport').ensureAuthenticated;
 var database = require('bedrock-mongodb');
 var permissions = config.permission.permissions;
@@ -114,7 +115,7 @@ function insertTestData(done) {
         brIdentity.insert(null, identity.identity, callback);
       },
       function(callback) {
-        brIdentity.addPublicKey(null, identity.keys.publicKey, callback);
+        brKey.addPublicKey(null, identity.keys.publicKey, callback);
       }
     ], callback);
   }, function(err) {
