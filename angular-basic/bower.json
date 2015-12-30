@@ -2,7 +2,7 @@
   "name": "angular-basic",
   "version": "1.0.0",
   "moduleType": ["amd"],
-  "main": "./components/main.js",
+  "main": "./main.js",
   "ignore": [
     "bower_components",
     "lib",

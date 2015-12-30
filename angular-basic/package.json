@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./lib/basic.js",
-    "postinstall": "bower install && node ./lib/basic.js compile-less"
+    "start": "node ./lib/main.js",
+    "postinstall": "bower install && node ./lib/main.js compile-less"
   },
   "dependencies": {
     "bedrock": "^1.0.0",
@@ -13,6 +13,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "main": "index.js"
+  }
 }

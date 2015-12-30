@@ -6,7 +6,7 @@ define([], function() {
 'use strict';
 
 /* @ngInject */
-function factory($scope) {
+function factory() {
   var self = this;
   self.display = {
     page1: true,
@@ -25,6 +25,6 @@ function factory($scope) {
   }
 }
 
-return {homeController: factory};
+return {exHomeController: factory};
 
 });

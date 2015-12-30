@@ -16,8 +16,7 @@ module.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       title: 'Angular Basic Home',
-      templateUrl: requirejs.toUrl(
-        'angular-basic/components/home/home.html')
+      templateUrl: requirejs.toUrl('angular-basic/home/home.html')
     });
 });
 

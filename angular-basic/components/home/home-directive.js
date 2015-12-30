@@ -13,17 +13,17 @@ function factory() {
       sortDescending: '='
     },
     templateUrl: requirejs.toUrl(
-      'angular-basic/components/home/home-directive.html'),
+      'angular-basic/home/home-directive.html'),
     link: Link
   };
 
-  function Link(scope, element) {
+  function Link(scope) {
     var model = scope.model = {};
     model.numbers = [1, 5, 99, 6, 75];
     model.sortDescending = scope.sortDescending;
   }
 }
 
-return {showNumbers: factory};
+return {exShowNumbers: factory};
 
 });
