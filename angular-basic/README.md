@@ -6,7 +6,7 @@ utilizes the same directory structure used by many of the more advanced bedrock
 modules. This demo shows current best practices for defining AngularJS 1.x
 modules, controllers, and directives in a bedrock-based project.
 
-**Note**: The angular-minimal demo will require a [host file entry][] for
+**Note**: The angular-basic demo will require a [host file entry][] for
 `bedrock.dev` pointing to `127.0.0.1` (localhost).
 
 ## Defining the Pseudo Bower Package
