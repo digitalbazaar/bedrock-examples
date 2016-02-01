@@ -13,10 +13,10 @@ To start, we must create a file, package.json, to setup our environment.
   },
   "dependencies": {
     "bedrock": "^1.0.0",
-    "bedrock-express": "^1.0.0",
+    "bedrock-express": "^1.4.0",
     "bedrock-server": "^1.0.0",
-    "bedrock-views": "^1.0.0",
-    "bower": "^1.5.2"
+    "bedrock-views": "^1.5.0",
+    "bower": "^1.7.7"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -42,14 +42,9 @@ Create a file named bower.json with the following
   "description": "Bedrock basic website example dependencies.",
   "dependencies": {
     "angular": "~1.3.15",
-    "angular-bootstrap": "~0.12.0",
-    "angular-stackables": "~0.0.30",
     "bedrock-angular": "^1.0.0",
     "bedrock-angular-alert": "^1.0.0",
-    "bedrock-angular-modal": "^1.0.0",
-    "bootstrap": "~3.3.1",
-    "jquery": "~1.11.1",
-    "requirejs": "~2.1.15"
+    "bedrock-angular-modal": "^1.0.0"
   },
   "resolutions": {
     "angular": "~1.3.15"
