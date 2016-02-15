@@ -8,7 +8,7 @@ var schema = {
   type: 'object',
   title: 'Credential',
   properties: {
-    '@type': {
+    'type': {
       required: true,
       type: 'string'
     },
