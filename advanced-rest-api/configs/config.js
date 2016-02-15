@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
  */
 var config = require('bedrock').config;
 var path = require('path');
@@ -120,14 +120,8 @@ config.demo.identities[userName].keys = createKey({
 config.validation.schema.paths.push(path.join(__dirname, '..', 'schemas'));
 
 // add pseudo bower package
+var rootPath = path.join(__dirname, '..');
 config.requirejs.bower.packages.push({
-  path: path.join(__dirname, '..', 'example'),
-  manifest: {
-    name: 'example',
-    moduleType: 'amd',
-    main: './form.js',
-    dependencies: {
-      angular: '~1.3.0'
-    }
-  }
+  path: path.join(rootPath, 'example'),
+  manifest: path.join(rootPath, 'bower.json')
 });

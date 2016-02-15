@@ -1,14 +1,11 @@
 /*!
- * Example component module.
- *
- * Copyright (c) 2014-2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
  *
  */
 define([
   'angular',
-  'underscore',
   './form-controller'
-], function(angular, _, formController) {
+], function(angular, formController) {
 
 'use strict';
 
@@ -17,8 +14,8 @@ var module = angular.module('app.example', ['bedrock.alert']);
 /* @ngInject */
 module.config(function($routeProvider) {
   $routeProvider.when('/', {
-    title: 'Form Example',
-    templateUrl: requirejs.toUrl('example/form.html')
+    title: 'Advanced REST API',
+    templateUrl: requirejs.toUrl('bedrock-advanced-rest-api/form.html')
   });
 });
 
