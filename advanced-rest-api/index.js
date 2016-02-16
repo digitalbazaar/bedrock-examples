@@ -91,7 +91,7 @@ bedrock.events.on('bedrock-express.configure.routes', function(app) {
           }));
       }
       database.collections.people.remove(
-        {name: req.param('name')}, function(err, result) {
+        {name: req.params.name}, function(err, result) {
         if(err) {
           return next(err);
         }
