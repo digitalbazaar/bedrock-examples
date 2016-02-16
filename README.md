@@ -2,6 +2,15 @@
 
 Examples of applications running on the [Bedrock][] framework.
 
+## [angular-basic][]
+
+Demonstrates how client-side AMD modules that define AngularJS components can
+be added as a _pseudo bower package_.
+
+## [angular-minimal][]
+
+An example demonstrating minimal bootstrapping for an AngularJS front-end.
+
 ## [basic-desktop-gui][]
 
 An example running as a desktop application.
@@ -17,7 +26,7 @@ user permissions.
 
 ## [basic-modals-example][]
 
-A frontend display using bedrock's modals and angular.
+A front-end display using bedrock's modals and angular.
 
 ## [basic-skin][]
 
@@ -37,6 +46,8 @@ add new controller and directive code to change look and feel and functionality.
   - The PaySwarm Payments Processor that implements web payments specs.
 
 [Bedrock]: https://github.com/digitalbazaar/bedrock
+[angular-minimal]: ./angular-minimal
+[angular-basic]: ./angular-basic
 [advanced-rest-api]: ./advanced-rest-api
 [advanced-skin]: ./advanced-skin
 [basic-modals-example]: ./basic-modals-example
