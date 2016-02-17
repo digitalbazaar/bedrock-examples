@@ -1,26 +1,17 @@
 var bedrock = require('bedrock');
 var path = require('path');
+var config = bedrock.config;
 
 require('bedrock-express');
 require('bedrock-requirejs');
 require('bedrock-server');
 require('bedrock-views');
 
-bedrock.config.views.paths.push(
-  path.join(__dirname)
-);
-
-// add pseudo bower package
-bedrock.config.requirejs.bower.packages.push({
-  path: path.join(__dirname, 'example'),
-  manifest: {
-    name: 'example',
-    moduleType: 'amd',
-    main: './example.js',
-    dependencies: {
-      angular: '~1.3.0'
-    }
-  }
+// basic-modals pseudo bower package
+var rootPath = path.join(__dirname);
+config.requirejs.bower.packages.push({
+  path: path.join(rootPath, 'example'),
+  manifest: path.join(rootPath, 'bower.json')
 });
 
 bedrock.start();

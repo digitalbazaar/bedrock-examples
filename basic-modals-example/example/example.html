@@ -1,13 +1,15 @@
 
-<div ng-controller="PeopleController as model">
-  <a class="btn btn-default" ng-click="showMyModal=true">Add Person</a>
+<div ng-controller="exPeopleController as model">
+  <button type="button" class="btn btn-primary" ng-click="showMyModal=true">
+    Add Person
+  </button>
   <stackable-modal stackable="showMyModal">
-    <person-editor/>
+    <ex-person-editor/>
   </stackable-modal>
-  <div ng-show="people.length > 0">
+  <div ng-show="model.people.length > 0">
     <h3>List of people</h3>
     <hr/>
-    <ul ng-repeat="person in people">
+    <ul ng-repeat="person in model.people">
       <li>
         {{person.name}}
         <ul ng-repeat="trait in person.traits">
@@ -19,56 +21,3 @@
     </ul>
   </div>
 </div>
-
-<script type="text/ng-template" id="person-editor">
-<br-modal br-title="Add a Person to the list">
-  <div name="br-modal-body">
-    <div>
-      <div class="row">
-        <div class="col-xs-6">
-          Enter a name:
-        </div>
-        <div class="col-xs-6">
-          <input type="text" ng-model="person.name"/>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6">
-          Add a trait
-        </div>
-        <div class="col-xs-6">
-          <a class="btn btn-primary" ng-click="showTraitModal=true">
-            Add
-          </a>
-          <stackable-modal stackable="showTraitModal">
-            <trait-adder/>
-          </stackable-modal>
-        </div>
-      </div>
-       <h4> {{name}} Traits</h4>
-          <ul ng-repeat="trait in person.traits">
-            <li>{{trait}}</li>
-          </ul>
-    </div>
-  </div>
-  <div name="br-modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="ok(person)">Ok</button>
-    <button type="button"
-      class="btn btn-default stackable-cancel">Cancel</button>
-  </div>
-</br-modal>
-</script>
-
-<script type="text/ng-template" id="trait-adder">
-<br-modal br-title="Add a trait for {{person.name}}">
-  <div name="br-modal-body">
-    <input type = "text" ng-model="trait"/>
-  </div>
-  <div name="br-modal-footer">
-    <button type="button" class="btn btn-primary"
-      ng-click="ok(trait)">Ok</button>
-    <button type="button"
-      class="btn btn-default stackable-cancel">Cancel</button>
-  </div>
-</br-modal>
-</script>
