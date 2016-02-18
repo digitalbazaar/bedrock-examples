@@ -1,0 +1,19 @@
+{
+  "name": "angular-resource",
+  "version": "1.0.0",
+  "moduleType": ["amd"],
+  "main": "./form.js",
+  "private": true,
+  "description": "angular-resource example dependencies.",
+  "dependencies": {
+    "angular": "~1.3.20",
+    "bedrock-angular": "^1.0.0",
+    "bedrock-angular-model": "^1.0.0",
+    "bedrock-angular-alert": "^1.0.0",
+    "bedrock-angular-form": "^1.0.0",
+    "bedrock-angular-resource": "^1.0.0"
+  },
+  "resolutions": {
+    "angular": "1.3.20"
+  }
+}

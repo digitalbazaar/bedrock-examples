@@ -19,6 +19,11 @@ An example running as a desktop application.
 
 A simple REST API with a MongoDB backend.
 
+## [angular-resource][]
+
+Demonstrates the use of the [bedrock-angular-resource][] AngularJS module for
+interacting with the `basic-rest-api`.
+
 ## [advanced-rest-api][]
 
 Advanced REST API techniques including using JSON-LD, HTTP Signatures, and
@@ -54,3 +59,4 @@ add new controller and directive code to change look and feel and functionality.
 [basic-rest-api]: ./basic-rest-api
 [basic-desktop-gui]: ./basic-desktop-gui
 [basic-skin]: ./basic-skin
+[bedrock-angular-resource]:https://github.com/digitalbazaar/bedrock-angular-resource
