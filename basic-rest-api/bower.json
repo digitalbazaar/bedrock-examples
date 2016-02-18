@@ -3,6 +3,7 @@
   "moduleType": [
     "amd"
   ],
+  "main": "./form.js",
   "dependencies": {
     "bedrock-angular": "^1.0.0",
     "bedrock-angular-alert": "^1.0.0",

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bower install"
+    "postinstall": "bower install && node index.js compile-less"
   },
   "dependencies": {
     "bedrock": "^1.0.0",
