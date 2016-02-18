@@ -1,20 +1,12 @@
 # Bedrock REST API Example
 
-This example demonstrates how to setup a RESTful API to interface with
-a MongoDB database.
+This example demonstrates how to setup a RESTful API to interface with a MongoDB database.
 
-Notice the dependencies in our package.json, [bedrock][], [bedrock-express][],
-and [bedrock-mongodb][]. These dependencies provide us with the
-base bedrock package, [Express][] capabilities, and an interface with
-[MongoDB][].
+Notice the dependencies in our package.json, [bedrock][], [bedrock-express][], and [bedrock-mongodb][]. These dependencies provide us with the base bedrock package, [Express][] capabilities, and an interface with [MongoDB][].
 
-The additional dependencies, bedrock-views and bower, relate
-to the included AngularJS front-end designed to interact with the REST API.  
-See the [angular-basic][] example for additional details about
-implementing an AngularJS front-end.
+The additional dependencies, bedrock-views and bower, relate to the included AngularJS front-end designed to interact with the REST API.  See the [angular-basic][] example for additional details about implementing an AngularJS front-end.
 
-**Note**: This demo will require a [host file entry][] for
-`bedrock.dev` pointing to `127.0.0.1` (localhost).
+**Note**: This demo will require a [host file entry][] for `bedrock.dev` pointing to `127.0.0.1` (localhost).
 
 ## Installation
 
