@@ -2,6 +2,10 @@
 
 Examples of applications running on the [Bedrock][] framework.
 
+## Requirements
+
+- npm v3+
+
 ## [angular-basic][]
 
 Demonstrates how client-side AMD modules that define AngularJS components can
