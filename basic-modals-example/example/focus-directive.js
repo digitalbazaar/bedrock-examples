@@ -6,7 +6,7 @@ define([], function() {
 'use strict';
 
 /* @ngInject */
-function factory(brAlertService, exPeopleService, $timeout) {
+function factory($timeout) {
   return {
     restrict: 'A',
     scope: {
