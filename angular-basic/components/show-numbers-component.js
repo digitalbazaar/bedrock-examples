@@ -11,7 +11,7 @@ function register(module) {
       sortDescending: '<'
     },
     controller: Ctrl,
-    templateUrl: requirejs.toUrl('angular-basic/home/home-component.html')
+    templateUrl: requirejs.toUrl('angular-basic/show-numbers-component.html')
   });
 }
 

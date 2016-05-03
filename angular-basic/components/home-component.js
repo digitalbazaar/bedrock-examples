@@ -1,16 +1,19 @@
 /*!
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
  */
 define([], function() {
 
 'use strict';
 
 function register(module) {
-  module.controller('exHomeController', factory);
+  module.component('exHome', {
+    controller: Ctrl,
+    templateUrl: requirejs.toUrl('angular-basic/home-component.html')
+  });
 }
 
 /* @ngInject */
-function factory() {
+function Ctrl() {
   var self = this;
   self.display = {
     page1: true,
