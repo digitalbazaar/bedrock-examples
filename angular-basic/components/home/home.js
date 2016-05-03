@@ -4,16 +4,15 @@
 define([
   'angular',
   './home-controller',
-  './home-directive'
-], function(angular, homeController, homeDirective) {
+  './home-component'
+], function(angular) {
 
 'use strict';
 
 var module = angular.module('angular-basic.home', []);
 
-module.controller(homeController);
-module.directive(homeDirective);
-
-return module.name;
+Array.prototype.slice.call(arguments, 1).forEach(function(register) {
+  register(module);
+});
 
 });

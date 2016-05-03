@@ -5,6 +5,10 @@ define([], function() {
 
 'use strict';
 
+function register(module) {
+  module.controller('exHomeController', factory);
+}
+
 /* @ngInject */
 function factory() {
   var self = this;
@@ -25,6 +29,6 @@ function factory() {
   }
 }
 
-return {exHomeController: factory};
+return register;
 
 });

@@ -4,7 +4,7 @@ angular-basic is a demonstration of how client-side AMD modules that define
 AngularJS components can be added as a _pseudo bower package_. This demo
 utilizes the same directory structure used by many of the more advanced bedrock
 modules. This demo shows current best practices for defining AngularJS 1.x
-modules, controllers, and directives in a bedrock-based project.
+modules, controllers, and components in a bedrock-based project.
 
 **Note**: The angular-basic demo will require a [host file entry][] for
 `bedrock.dev` pointing to `127.0.0.1` (localhost).
@@ -55,7 +55,7 @@ all AngularJS components for the _pseudo bower package_.
 ## Client-side AMD Modules
 
 This demo shows current best practices for using client-side AMD modules to
-define AngularJS 1.x modules, controllers, and directives. Most of the more
+define AngularJS 1.x modules, controllers, and components. Most of the more
 advanced bedrock modules utilize the same file and folder structure shown here.
 
 ### Main AMD Module
@@ -94,11 +94,11 @@ In the AMD `define` function call at the top of the `main.js`, note that there
 is a reference to `./home/home`. This relative URL will be resolved to
 `components/home/home.js` on the server, which is a script containing the AMD
 module that defines the `angular-basic.home` AngularJS component. This
-component contains controllers and directives for the `'/'` route. Components
+component contains controllers and components for the `'/'` route. Components
 are generally defined by functional area. In a more advanced bedrock module,
 separate AMD module would define each AngularJS component.
 
-The controllers and directives used on the home page are registered in
+The controllers and components used on the home page are registered in
 `components/home/home.js`. Each controller and directive is defined by its own
 AMD module, which are specified as AMD dependencies. Note the `angular.module`
 declaration in this file must specify a **unique** AngularJS module name,
@@ -140,37 +140,34 @@ As mentioned in the routes section, the template for the root document `'/'` is
 defined in `components/home/home.html`. As a best practice, controllers in
 bedrock use the AngularJS "_Controller As_" syntax as demonstrated here.
 
-#### Directive
+#### Component
 
-A directive is defined in `components/home/home-directive.html` and referenced
-in `components/home/home.js`. The name of the directive is found in the
-return of the factory function, `exShowNumbers` in this case. Again, a prefix
+A component is defined in `components/home/home-component.js` and referenced
+in `components/home/home.js`. The name of the component is found in the
+`register` function, `exShowNumbers` in this case. Again, a prefix
 of is used here. Keep in mind that AngularJS automatically transforms the
-directive name from camelCase to snake-case. Therefore, the `exShowNumbers`
-directive is referenced in the HTML as `ex-show-numbers`. If the directive
+component name from camelCase to snake-case. Therefore, the `exShowNumbers`
+component is referenced in the HTML as `ex-show-numbers`. If the component
 is not using a controller, then the link function in bedrock modules always
 include the variable declaration:
 
 ```
-var model = scope.model = {};
+var self = this;
 ```
 
 This helps prevent common mistakes related to scope prototypal inheritance. If
-all of the directive's model information is stored underneath a variable in
+all of the component's model information is stored underneath a variable in
 the scope, then unexpected behavior caused by implementation details for other
-directives used in the directive's template is more likely to be avoided. Again,
-this is not necessary if the directive is using a controller and the
-"_Controller As_" syntax. In that case, the `bindToController` option should
-also be used for any directive scope definition.
+components used in the component's template is more likely to be avoided.
 
 With this in mind, variables and functions that should be exposed the
 directive's HTML template are declared as:
 
 ```
-model.foo = 'Hello';
+self.foo = 'Hello';
 
-model.bar = function() {
-  console.log(self.model);
+self.bar = function() {
+  console.log(self.foo);
 };
 ```
 
