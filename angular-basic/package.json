@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "bedrock": "^1.0.0",
+    "bedrock-docs": "^2.0.2",
     "bedrock-express": "^2.0.0",
     "bedrock-requirejs": "^2.0.0",
     "bedrock-server": "^2.0.0",
+    "bedrock-validation": "^2.2.1",
     "bedrock-views": "^4.0.0",
     "bower": "^1.7.0"
   },
