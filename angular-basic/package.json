@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./lib/main.js",
-    "postinstall": "bower install && node ./lib/main.js compile-less"
+    "start": "node ./lib/index.js",
+    "postinstall": "bower install && node ./lib/index.js compile-less"
   },
   "dependencies": {
     "bedrock": "^1.0.0",
