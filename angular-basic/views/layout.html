@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html prefix="
+  {% block prefixes %}
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/terms/
+  br: https://w3id.org/bedrock#
+  sec: https://w3id.org/security#
+  vcard: http://www.w3.org/2006/vcard/ns#
+  {% endblock %}" {% block headAttrs %}{% endblock %}>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <title ng-bind="(app.config.data.noRoute && 'Page Not Found') ||
+      ((route.vars.title && (siteTitle + ': ' + route.vars.title)) || siteTitle)"></title>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Sans+Mono' rel='stylesheet' type='text/css'
+      media="none" onload="if(media!='all')media='all'">
+    {% if minify %}
+      <link href="/css/bedrock-views.min.css" rel="stylesheet" type="text/css"
+        media="none" onload="if(media!='all')media='all'">
+    {% else %}
+      {% block css %}
+      <link href="/css/bedrock-views.css" rel="stylesheet" type="text/css"
+        media="none" onload="if(media!='all')media='all'">
+      {% endblock %}
+    {% endif %}
+
+    <link rel="shortcut icon" href="/favicon.ico"
+      media="none" onload="if(media!='all')media='all'">
+
+    {% block beforeMain %}{% endblock %}
+
+    {% if pageLayout != "error" %}
+      {% include "data.html" %}
+      {% if minify %}
+        <script defer src="/requirejs/main.min.js"></script>
+      {% else %}
+        <!--<script defer data-main="/requirejs/main.js" src="/bower-components/requirejs/require.js"></script>-->
+        <script defer src="/systemjs/system.js"></script>
+        <script defer src="/systemjs/main.js"></script>
+      {% endif %}
+    {% endif %}
+  </head>
+
+  <body class="{{(app.ngClass.body && '') || 'br-body'}}"
+    ng-class="app.ngClass.body"
+    ng-style="app.ngStyle.body" ng-cloak>
+    <!-- Javascript warning -->
+    <noscript>
+      <div class="alert alert-danger">
+        <p>Javascript must be enabled to use this site.</p>
+      </div>
+    </noscript>
+
+    {% if pageLayout != "error" %}
+    {% block forcedFonts %}{% endblock %}
+    {% endif %}
+
+    {% block content %}
+    {% set pageTitle = "App" %}
+    <!-- Main application component -->
+    <br-app></br-app>
+    {% endblock %}
+  </body>
+</html>

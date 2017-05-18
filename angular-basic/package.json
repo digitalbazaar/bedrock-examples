@@ -14,7 +14,9 @@
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^4.0.0",
-    "bower": "^1.7.0"
+    "bower": "^1.7.0",
+    "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21"
   },
   "engines": {
     "node": ">=0.10.0"
