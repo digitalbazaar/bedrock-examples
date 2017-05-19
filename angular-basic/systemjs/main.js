@@ -40,11 +40,10 @@ SystemJS.config({
   transpiler: 'plugin-babel'
 });
 
-const events = await SystemJS.import('requirejs/events');
-const brAngular = await SystemJS.import('bedrock-angular');
+const angular = await SystemJS.import('angular');
+const bedrock = await SystemJS.import('bedrock-angular');
 
-events.emit('bedrock-requirejs.init', [events, brAngular]);
-
+// TODO: remove requirejs shim
 global.requirejs = {};
 requirejs.toUrl = x => x;
 
@@ -53,6 +52,10 @@ await Promise.all([
   SystemJS.import('angular-basic')
 ]);
 
-events.emit('bedrock-requirejs.ready');
+console.log('bootstrapping application');
+
+bedrock.bootstrap(
+  angular.module('root', ['bedrock', 'angular-basic'])
+);
 
 })();
