@@ -8,7 +8,7 @@ define([], function() {
 function register(module) {
   module.component('exHome', {
     controller: Ctrl,
-    templateUrl: requirejs.toUrl('angular-basic/home-component.html')
+    templateUrl: 'angular-basic/home-component.html'
   });
 }
 

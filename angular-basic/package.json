@@ -13,7 +13,7 @@
     "bedrock-requirejs": "^2.0.0",
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "^4.0.0",
+    "bedrock-views": "digitalbazaar/bedrock-views#systemjs",
     "bower": "^1.7.0",
     "systemjs": "^0.20.12",
     "systemjs-plugin-babel": "0.0.21"

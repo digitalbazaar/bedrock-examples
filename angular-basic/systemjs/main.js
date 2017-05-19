@@ -46,7 +46,7 @@ const brAngular = await SystemJS.import('bedrock-angular');
 events.emit('bedrock-requirejs.init', [events, brAngular]);
 
 global.requirejs = {};
-requirejs.toUrl = x => '/bower-components/' + x;
+requirejs.toUrl = x => x;
 
 await Promise.all([
   // TODO: load all the things
