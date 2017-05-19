@@ -26,7 +26,7 @@ config.express.static.push({
 
 // systemJS babel plugin
 config.express.static.push({
-  route: 'systemjs/plugin-babel',
+  route: '/systemjs/plugin-babel',
   path: path.join(rootPath, 'node_modules/systemjs-plugin-babel')
 });
 
