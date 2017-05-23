@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
 'use strict';
 
@@ -19,22 +19,11 @@ config.requirejs.bower.packages.push({
 });
 
 // systemJS
-config.express.static.push({
-  route: '/systemjs',
-  path: path.join(rootPath, 'node_modules/systemjs/dist')
-});
-
-// systemJS babel plugin
-config.express.static.push({
-  route: '/systemjs/plugin-babel',
-  path: path.join(rootPath, 'node_modules/systemjs-plugin-babel')
-});
-
-// systemJS main
-config.express.static.push({
-  route: '/systemjs/main.js',
-  path: path.join(rootPath, 'systemjs/main.js'),
-  file: true
-});
-
-config.views.paths.push(path.join(rootPath, 'views'));
+config.views.system.paths.systemjs =
+  path.join(rootPath, 'node_modules/systemjs/dist');
+config.views.system.paths.systemjsBabel =
+  path.join(rootPath, 'node_modules/systemjs-plugin-babel');
+config.views.system.paths.main =
+  path.join(rootPath, 'systemjs/main.js');
+// config.views.system.paths.packageLoader =
+//   path.join(rootPath, 'systemjs/package-loader-plugin.js');
