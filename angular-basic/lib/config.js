@@ -18,12 +18,8 @@ config.requirejs.bower.packages.push({
   manifest: path.join(rootPath, 'bower.json')
 });
 
-// systemJS
-config.views.system.paths.systemjs =
-  path.join(rootPath, 'node_modules/systemjs/dist');
-config.views.system.paths.systemjsBabel =
-  path.join(rootPath, 'node_modules/systemjs-plugin-babel');
-config.views.system.paths.main =
-  path.join(rootPath, 'systemjs/main.js');
-// config.views.system.paths.packageLoader =
-//   path.join(rootPath, 'systemjs/package-loader-plugin.js');
+// custom main app loader
+// config.views.system.paths.main =
+//   path.join(rootPath, 'system/main.js');
+
+config.paths.cache = path.join(__dirname, '..', '.cache');
