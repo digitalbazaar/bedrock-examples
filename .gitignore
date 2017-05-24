@@ -3,6 +3,7 @@
 *~
 .project
 .settings
+.cache
 TAGS
 bower_components
 coverage

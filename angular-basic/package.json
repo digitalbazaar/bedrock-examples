@@ -10,13 +10,11 @@
     "bedrock": "^1.0.0",
     "bedrock-docs": "^2.0.2",
     "bedrock-express": "^2.0.0",
-    "bedrock-requirejs": "^2.0.0",
+    "bedrock-requirejs": "digitalbazaar/bedrock-requirejs#systemjs-transition",
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "digitalbazaar/bedrock-views#systemjs",
-    "bower": "^1.7.0",
-    "systemjs": "^0.20.12",
-    "systemjs-plugin-babel": "0.0.21"
+    "bower": "^1.7.0"
   },
   "engines": {
     "node": ">=0.10.0"
