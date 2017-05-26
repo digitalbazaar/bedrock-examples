@@ -6,16 +6,15 @@
 const config = require('bedrock').config;
 const path = require('path');
 require('bedrock-express');
-require('bedrock-requirejs');
 require('bedrock-views');
 
 // root module path
 const rootPath = path.join(__dirname, '..');
 
-// angular-basic pseudo bower package
-config.requirejs.bower.packages.push({
+// angular-basic pseudo package
+config.views.system.packages.push({
   path: path.join(rootPath, 'components'),
-  manifest: path.join(rootPath, 'bower.json')
+  manifest: path.join(rootPath, 'package.json')
 });
 
 // custom main app loader

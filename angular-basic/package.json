@@ -8,14 +8,24 @@
   },
   "dependencies": {
     "bedrock": "^1.0.0",
+    "bedrock-angular": "digitalbazaar/bedrock-angular#systemjs",
     "bedrock-docs": "^2.0.2",
     "bedrock-express": "^2.0.0",
     "bedrock-requirejs": "digitalbazaar/bedrock-requirejs#systemjs-transition",
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "digitalbazaar/bedrock-views#systemjs",
+    "bedrock-views": "digitalbazaar/bedrock-views#remove-requirejs",
     "bower": "^1.7.0"
   },
+  "bedrock": {
+    "browserDependencies": [
+      "angular",
+      "angular-route",
+      "bedrock-angular",
+      "jsonld"
+    ]
+  },
+  "main": "main.js",
   "engines": {
     "node": ">=0.10.0"
   }
