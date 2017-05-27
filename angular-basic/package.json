@@ -7,6 +7,8 @@
     "postinstall": "bower install && node ./lib/index.js compile-less"
   },
   "dependencies": {
+    "angular": "~1.6.4",
+    "angular-route": "~1.6.4",
     "bedrock": "^1.0.0",
     "bedrock-angular": "digitalbazaar/bedrock-angular#systemjs",
     "bedrock-docs": "^2.0.2",
@@ -25,8 +27,5 @@
       "jsonld"
     ]
   },
-  "main": "main.js",
-  "engines": {
-    "node": ">=0.10.0"
-  }
+  "main": "main.js"
 }
