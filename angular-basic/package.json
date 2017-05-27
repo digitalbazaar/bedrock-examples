@@ -16,13 +16,19 @@
     "bedrock-requirejs": "digitalbazaar/bedrock-requirejs#systemjs-transition",
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "digitalbazaar/bedrock-views#remove-requirejs"
+    "bedrock-views": "digitalbazaar/bedrock-views#remove-requirejs",
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.7.0",
+    "jquery": "~1.11.1"
   },
   "bedrock": {
     "browserDependencies": [
       "angular",
       "angular-route",
       "bedrock-angular",
+      "bootstrap",
+      "font-awesome",
+      "jquery",
       "jsonld"
     ]
   },
