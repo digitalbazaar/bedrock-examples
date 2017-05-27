@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./lib/index.js",
-    "postinstall": "bower install && node ./lib/index.js compile-less"
+    "postinstall": "node ./lib/index.js compile-less"
   },
   "dependencies": {
     "angular": "~1.6.4",
@@ -16,8 +16,7 @@
     "bedrock-requirejs": "digitalbazaar/bedrock-requirejs#systemjs-transition",
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "digitalbazaar/bedrock-views#remove-requirejs",
-    "bower": "^1.7.0"
+    "bedrock-views": "digitalbazaar/bedrock-views#remove-requirejs"
   },
   "bedrock": {
     "browserDependencies": [
