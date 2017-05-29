@@ -28,8 +28,7 @@
       "bedrock-angular",
       "bootstrap",
       "font-awesome",
-      "jquery",
-      "jsonld"
+      "jquery"
     ]
   },
   "main": "main.js"
