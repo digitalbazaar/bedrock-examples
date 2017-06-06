@@ -24,9 +24,9 @@ config.views.vars.supportDomain = 'example.com';
 config.views.vars.title = config.brand.name;
 config.views.vars.siteTitle = config.brand.name;
 
-// pseudo bower package for example
+// add pseudo packages
 const rootPath = path.resolve(path.join(__dirname));
-config.requirejs.bower.packages.push({
+config.views.system.packages.push({
   path: path.join(rootPath, 'components'),
-  manifest: path.join(rootPath, 'bower.json')
+  manifest: path.join(rootPath, 'package.json')
 });

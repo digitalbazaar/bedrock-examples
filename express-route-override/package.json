@@ -4,20 +4,27 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bower install && node index.js compile-less"
+    "postinstall": "node index.js compile-less"
   },
   "dependencies": {
-    "bedrock": "^1.2.5",
-    "bedrock-docs": "^2.0.2",
+    "bedrock": "^1.4.1",
+    "bedrock-docs": "^2.1.0",
     "bedrock-express": "^2.0.6",
-    "bedrock-requirejs": "^2.1.1",
-    "bedrock-server": "^2.0.0",
-    "bedrock-validation": "^2.2.0",
-    "bedrock-views": "^4.0.0",
-    "bower": "^1.8.0"
+    "bedrock-server": "^2.2.0",
+    "bedrock-validation": "^2.2.1",
+    "bedrock-views": "^5.1.0",
+    "bedrock-angular": "^3.0.0",
+    "bedrock-angular-lazy-compile": "^3.0.1",
+    "lodash": "^4.6.1"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "bedrock-angular",
+      "bedrock-angular-lazy-compile"
+    ]
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=6.9.0"
   },
   "main": "index.js"
 }

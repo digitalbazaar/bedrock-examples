@@ -1,4 +1,4 @@
-var bedrock = require('bedrock');
+const bedrock = require('bedrock');
 
 // bedrock modules to load
 require('./bedrock-example-server');

@@ -31,25 +31,24 @@ modular design to help keep code well-organized and to allow a healthy
 ecosystem to grow without hindrance.
 
 [Bedrock][] web applications are typically built by installing a backend
-[npm][] module, [bedrock-views][], and a companion frontend [bower][] package,
-[bedrock-angular][].
+[npm][] module, [bedrock-views][], and [bedrock-angular][].
 
 The [bedrock-views][] module, via a dependency [bedrock-requirejs][], expects
-all frontend code to behave like a [bower][] package. This means that any
-packages you install via [bower][] will be automatically made available to
+all frontend code to behave like a pseudo package. This means that any
+packages you install via pseudo][] will be automatically made available to
 the browser once you've installed them and restarted your [bedrock][] server.
-If you want to serve a directory that isn't in a [bower][] package, you can
-manually add a [bower][] manifest for it to [bedrock][]'s configuration system.
-This establishes a "pseudo bower package" for your directory, causing it to be
-treated just like it was any other [bower][] package.
+If you want to serve a directory that isn't in a pseudo package, you can
+manually add a pseudo package manifest for it to [bedrock][]'s configuration system.
+This establishes a "pseudo package" for your directory, causing it to be
+treated just like it was any other pseudo package.
 
 The [bedrock-angular][] package will create a core, generic [AngularJS][]
-application for you, and automatically integrate any [bower][] packages that
+application for you, and automatically integrate any pseudo packages that
 contain [AngularJS][] components.
 
 So, taken together, all you should need to do to add new frontend content to
-your [bedrock][]-based [AngularJS][] web application is install [bower][]
-packages or manually describe directories as if they were [bower][] packages.
+your [bedrock][]-based [AngularJS][] web application is install pseudo
+packages or manually describe directories as if they were pseudo][] packages.
 
 ### Overview
 
@@ -89,20 +88,20 @@ is not available to the extender.
 
 Before we can look at how to override a component in the browser, we first
 need to learn how [bedrock][] makes components available to the browser. When
-components are installed via [bower][] packages, [bedrock][] will automatically
+components are installed via pseudo packages, [bedrock][] will automatically
 parse their `bower.json` files and make them available to the browser.
 
 Since this is only an example, both the "unskinned" and "skinned" components
-aren't installed via [bower][]. So we need to manually update [bedrock][]'s
+aren't installed via pseudo packages. So we need to manually update [bedrock][]'s
 configuration to tell [bedrock][] to treat them as if they were.
 
-To do this we create a "pseudo bower package" for each component. This can be
+To do this we create a "pseudo package" for each component. This can be
 seen by looking at the "example-skinned" entry in `configs/skinned.js` or at
 the "example-unskinned" entry in `configs/unskinned.js`. This is just a way to
-get directories to behave like [bower][] packages, so that [bedrock][] can deal
-with both [bower][] packages and directories in a consistent way.
+get directories to behave like pseudo packages, so that [bedrock][] can deal
+with both pseudo packages and directories in a consistent way.
 
-These "pseudo bower packages" are pushed onto an array that is referenced in
+These "pseudo packages" are pushed onto an array that is referenced in
 [bedrock][]'s configuration system as:
 
 ```
@@ -123,7 +122,7 @@ configuration system using this key:
 bedrock.config.views.vars.angular.templates.overrides
 ```
 
-Both its keys and values are URLs that are relative to [bower][] package names.
+Both its keys and values are URLs that are relative to pseudo package names.
 Therefore, an entry with a key of `example-unskinned/unskinned.html` and a
 value of `example-skinned/skinned.html` will cause the [AngularJS][] application
 to use `example-skinned/skinned.html` instead of
@@ -167,5 +166,4 @@ looks and its new functionality, visit the URL that is logged to the console.
 [bedrock-requirejs]: https://github.com/digitalbazaar/bedrock-requirejs
 [bedrock-views]: https://github.com/digitalbazaar/bedrock-views
 [bedrock-angular]: https://github.com/digitalbazaar/bedrock-angular
-[bower]: http://bower.io
 [npm]: https://www.npmjs.com

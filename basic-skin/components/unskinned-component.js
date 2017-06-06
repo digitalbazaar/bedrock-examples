@@ -1,16 +1,17 @@
 /*!
+ * Example Unskinned controller.
+ *
  * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
 export default {
-  bindings: {
-    sortDescending: '<'
-  },
   controller: Ctrl,
-  templateUrl: 'angular-basic/show-numbers-component.html'
+  templateUrl: 'basic-skin/unskinned-component.html'
 };
 
-/* @ngInject */
 function Ctrl() {
   const self = this;
-  self.numbers = [1, 5, 99, 6, 75];
+  self.one = 1;
+  self.two = 2;
+  self.three = 3;
+  self.four = 4;
 }

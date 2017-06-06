@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-primary" ng-click="$ctrl.showMyModal=true">
+  Add Person
+</button>
+<stackable-modal stackable="$ctrl.showMyModal">
+  <br-person-editor></br-person-editor>
+</stackable-modal>
+<div ng-show="$ctrl.people.length > 0">
+  <h3>List of people</h3>
+  <hr/>
+  <ul ng-repeat="person in $ctrl.people">
+    <li>
+      {{person.name}}
+      <ul ng-repeat="trait in person.traits">
+        <li>
+          {{trait}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

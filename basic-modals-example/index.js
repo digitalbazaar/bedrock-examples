@@ -1,17 +1,17 @@
-var bedrock = require('bedrock');
-var path = require('path');
-var config = bedrock.config;
+const bedrock = require('bedrock');
+const path = require('path');
+const config = bedrock.config;
 
 require('bedrock-express');
-require('bedrock-requirejs');
 require('bedrock-server');
 require('bedrock-views');
 
-// basic-modals pseudo bower package
-var rootPath = path.join(__dirname);
-config.requirejs.bower.packages.push({
-  path: path.join(rootPath, 'example'),
-  manifest: path.join(rootPath, 'bower.json')
+const rootPath = path.join(__dirname);
+config.views.system.packages.push({
+  path: path.join(rootPath, 'components'),
+  manifest: path.join(rootPath, 'package.json')
 });
+
+config.views.system.importAllIgnore.push('bootstrap');
 
 bedrock.start();
