@@ -1,16 +1,10 @@
 /*!
  * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.component('exHome', {
-    controller: Ctrl,
-    templateUrl: requirejs.toUrl('angular-basic/home-component.html')
-  });
-}
+export default {
+   controller: Ctrl,
+   templateUrl: 'angular-basic/home-component.html'
+};
 
 /* @ngInject */
 function Ctrl() {
@@ -30,8 +24,4 @@ function Ctrl() {
     }
     self.display[showProperty] = true;
   }
-}
-
-return register;
-
-});
+};
