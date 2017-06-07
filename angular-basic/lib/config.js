@@ -8,7 +8,7 @@ var path = require('path');
 
 // angular-basic pseudo bower package
 var rootPath = path.join(__dirname, '..');
-config.requirejs.bower.packages.push({
+config.views.system.packages.push({
   path: path.join(rootPath, 'components'),
-  manifest: path.join(rootPath, 'bower.json')
+  manifest: path.join(rootPath, 'package.json')
 });
