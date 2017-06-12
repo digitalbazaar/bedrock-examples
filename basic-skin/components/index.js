@@ -11,6 +11,8 @@ import UnskinnedComponent from './unskinned-component.js';
 
 var module = angular.module('app.unskinned', []);
 
+bedrock.setRootModule(module);
+
 module.component('brUnskinned',UnskinnedComponent);
 
 /* @ngInject */
