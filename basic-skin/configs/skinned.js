@@ -10,4 +10,4 @@ require('./unskinned');
 
 // angular template overrides
 var overrides = config.views.vars.angular.templates.overrides;
-overrides['basic-skin/unskinned.html'] = 'basic-skin/skinned.html';
+overrides['basic-skin/unskinned-component.html'] = 'basic-skin/skinned-component.html';
