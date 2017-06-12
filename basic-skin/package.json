@@ -23,5 +23,5 @@
   "engines": {
     "node": ">=6.9.0"
   },
-  "main": "skinned.js"
+  "main": "index.js"
 }
