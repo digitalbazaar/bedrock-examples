@@ -5,25 +5,19 @@
  *
  * @author Matt Collier
  */
-define(
-  ['angular', './unskinned-controller'],
-  function(angular, unskinnedController) {
-
-'use strict';
+import angular from 'angular';
+import * as bedrock from 'bedrock-angular';
+import UnskinnedComponent from './unskinned-component.js';
 
 var module = angular.module('app.unskinned', []);
 
-module.controller(unskinnedController);
+module.component('brUnskinned',UnskinnedComponent);
 
 /* @ngInject */
 module.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       title: 'Example Home',
-      templateUrl: requirejs.toUrl('example-unskinned/unskinned.html')
+      template: '<br-unskinned></br-unskinned>'
     });
-});
-
-return module.name;
-
 });
