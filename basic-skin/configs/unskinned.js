@@ -30,15 +30,8 @@ config.views.vars.supportDomain = 'example.com';
 config.views.vars.title = config.brand.name;
 config.views.vars.siteTitle = config.brand.name;
 
-// pseudo bower package
-config.requirejs.bower.packages.push({
-  path: path.join(__dirname, '..', 'components/unskinned'),
-  manifest: {
-    name: 'example-unskinned',
-    moduleType: 'amd',
-    main: './unskinned.js',
-    dependencies: {
-      angular: '~1.3.0'
-    }
-  }
+var rootPath = path.join(__dirname, '..');
+config.views.system.packages.push({
+  path: path.join(rootPath, 'components'),
+  manifest: path.join(rootPath, 'package.json')
 });

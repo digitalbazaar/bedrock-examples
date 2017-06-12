@@ -4,20 +4,25 @@
   "private": true,
   "scripts": {
     "start": "node minimal.js",
-    "postinstall": "bower install && node minimal.js compile-less"
+    "postinstall": "node minimal.js compile-less"
   },
   "dependencies": {
     "bedrock": "^1.0.0",
+    "bedrock-angular": "^3.0.0",
     "bedrock-docs": "^2.0.2",
     "bedrock-express": "^2.0.0",
     "bedrock-requirejs": "^2.0.0",
     "bedrock-server": "^2.0.0",
     "bedrock-validation": "^2.2.0",
-    "bedrock-views": "^4.2.0",
-    "bower": "^1.7.0"
+    "bedrock-views": "^5.0.0"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "bedrock-angular"
+    ]
   },
   "engines": {
     "node": ">=0.10.0"
   },
-  "main": "index.js"
+  "main": "minimal.js"
 }
