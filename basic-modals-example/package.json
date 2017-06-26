@@ -1,22 +1,30 @@
 {
-  "name": "bedrock-angular-example",
-  "version": "0.0.1",
+  "name": "basic-modals-example",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bower install && node index.js compile-less"
+    "postinstall": "node index.js compile-less"
   },
   "dependencies": {
-    "bedrock": "^1.2.4",
-    "bedrock-express": "^2.0.4",
-    "bedrock-requirejs": "^2.0.2",
-    "bedrock-server": "^2.1.2",
-    "bedrock-views": "^4.2.1",
-    "bower": "^1.7.9"
+    "bedrock": "^1.4.1",
+    "bedrock-angular": "^3.0.0",
+    "bedrock-angular-alert": "^3.0.2",
+    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#bootstrap",
+    "bedrock-angular-navbar": "^4.0.6",
+    "bedrock-express": "^2.0.6",
+    "bedrock-server": "^2.2.0",
+    "bedrock-views": "^5.0.1"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "bedrock-angular",
+      "bedrock-angular-modal"
+    ]
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.9.0"
   },
   "directories": {},
-  "main": "index.js"
+  "main": "example-component.js"
 }

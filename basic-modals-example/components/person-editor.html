@@ -1,12 +1,12 @@
 <br-modal br-title="Add a Person to the list">
-  <div name="br-modal-body">
+  <br-modal-body>
     <div>
       <div class="row">
         <div class="col-xs-6">
           Enter a name:
         </div>
         <div class="col-xs-6">
-          <input type="text" ng-model="model.person.name" ex-focus="true" />
+          <input type="text" ng-model="$ctrl.person.name" ex-focus="true" />
         </div>
       </div>
       <div class="row">
@@ -14,23 +14,23 @@
           Add a trait
         </div>
         <div class="col-xs-6">
-          <button type="button" class="btn btn-primary" ng-click="showTraitModal=true">
+          <button type="button" class="btn btn-primary" ng-click="$ctrl.showTraitModal=true">
             Add
           </button>
-          <stackable-modal stackable="showTraitModal">
-            <ex-trait-adder ex-person="model.person" />
+          <stackable-modal stackable="$ctrl.showTraitModal">
+            <br-trait-adder br-person="$ctrl.person" />
           </stackable-modal>
         </div>
       </div>
-       <h4> {{model.person.name}} Traits</h4>
-          <ul ng-repeat="trait in model.person.traits">
+       <h4> {{$ctrl.person.name}} Traits</h4>
+          <ul ng-repeat="trait in $ctrl.person.traits">
             <li>{{trait}}</li>
           </ul>
     </div>
-  </div>
-  <div name="br-modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="model.ok(model.person)">Ok</button>
+  </br-modal-body>
+  <br-modal-footer>
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.savePerson()">Ok</button>
     <button type="button"
       class="btn btn-default stackable-cancel">Cancel</button>
-  </div>
+  </br-modal-footer>
 </br-modal>

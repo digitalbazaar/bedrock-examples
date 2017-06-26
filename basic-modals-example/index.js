@@ -3,15 +3,15 @@ var path = require('path');
 var config = bedrock.config;
 
 require('bedrock-express');
-require('bedrock-requirejs');
 require('bedrock-server');
 require('bedrock-views');
 
-// basic-modals pseudo bower package
 var rootPath = path.join(__dirname);
-config.requirejs.bower.packages.push({
-  path: path.join(rootPath, 'example'),
-  manifest: path.join(rootPath, 'bower.json')
+config.views.system.packages.push({
+  path: path.join(rootPath, 'components'),
+  manifest: path.join(rootPath, 'package.json')
 });
+
+config.views.system.importAllIgnore.push('bootstrap');
 
 bedrock.start();
