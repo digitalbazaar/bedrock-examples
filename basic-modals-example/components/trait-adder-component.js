@@ -3,10 +3,10 @@
  */
 export default {
   controller: Ctrl,
-  require: '^stackable',
   bindings: {
     thePerson: '=brPerson'
   },
+  require: {stackable: '^'},
   templateUrl: 'basic-modals-example/trait-adder.html'
 };
 
@@ -17,7 +17,7 @@ function Ctrl(brAlertService) {
   self.addTrait = function() {
     if(self.trait.length > 1) {
       self.thePerson.traits.push(self.trait);
-      stackable.close(null, this.person);
+      self.stackable.close(null, this.person);
     } else {
       brAlertService.add('error', 'Please enter a valid trait');
     }
