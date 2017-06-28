@@ -14,14 +14,12 @@
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
     "bedrock-views": "digitalbazaar/bedrock-views#webpack",
-    "bedrock-webpack": "digitalbazaar/bedrock-webpack#webpack",
-    "jquery": "^3.2.1"
+    "bedrock-webpack": "digitalbazaar/bedrock-webpack#webpack"
   },
   "bedrock": {
     "browserDependencies": [
       "bedrock-angular",
-      "bedrock-angular-form",
-      "jquery"
+      "bedrock-angular-form"
     ]
   },
   "engines": {
