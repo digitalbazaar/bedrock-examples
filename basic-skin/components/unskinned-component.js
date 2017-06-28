@@ -1,7 +1,7 @@
 /*!
  * Example Unskinned controller.
  *
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
 export default {
   controller: Ctrl,

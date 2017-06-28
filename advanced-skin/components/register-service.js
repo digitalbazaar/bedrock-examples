@@ -1,13 +1,8 @@
 /*!
  * Example Register service.
  *
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-/* @ngInject */
 function factory() {
   var service = {};
 
@@ -18,6 +13,4 @@ function factory() {
   return service;
 }
 
-return {RegisterService: factory};
-
-});
+export default factory;

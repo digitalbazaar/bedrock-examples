@@ -1,13 +1,9 @@
 /*!
  * Password confirmation directive.
  *
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function factory() {
+export default function factory($timeout) {
   return {
     restrict: 'A',
     require: 'ngModel',
@@ -20,7 +16,3 @@ function factory() {
     }
   };
 }
-
-return {passwordConfirmation: factory};
-
-});
