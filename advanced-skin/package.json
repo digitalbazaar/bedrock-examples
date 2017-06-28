@@ -10,15 +10,18 @@
   "dependencies": {
     "bedrock": "^1.4.1",
     "bedrock-angular": "^3.0.0",
+    "bedrock-angular-form": "^3.0.6",
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
-    "bedrock-views": "^5.0.1",
-    "bedrock-angular-form": "^3.0.6"
+    "bedrock-views": "digitalbazaar/bedrock-views#webpack",
+    "bedrock-webpack": "digitalbazaar/bedrock-webpack#webpack",
+    "jquery": "^3.2.1"
   },
   "bedrock": {
     "browserDependencies": [
       "bedrock-angular",
-      "bedrock-angular-form"
+      "bedrock-angular-form",
+      "jquery"
     ]
   },
   "engines": {
