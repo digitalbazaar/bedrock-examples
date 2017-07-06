@@ -2,6 +2,7 @@
   "name": "advanced-skinning",
   "version": "1.0.0",
   "private": true,
+  "browser": "unskinned.js",
   "scripts": {
     "unskinned": "node unskinned.js",
     "skinned": "node skinned.js",
@@ -26,6 +27,5 @@
   },
   "engines": {
     "node": ">=6.9.0"
-  },
-  "main": "skinned.js"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "name": "advanced-skinning-skinned",
+  "version": "1.0.0",
+  "browser": "skinned.js",
+  "private": true,
+  "dependencies": {
+    "advanced-skinning": "^1.0.0",
+    "bedrock-angular": "^3.0.0",
+    "bedrock-angular-form": "^3.0.6"
+  },
+  "bedrock": {
+    "browserDependencies": "all"
+  }
+}
