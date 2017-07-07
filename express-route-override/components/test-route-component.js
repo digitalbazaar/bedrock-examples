@@ -1,18 +1,10 @@
 /*!
  * Copyright (c) 2017 Digital Bazaar, Inc. All rights reserved.
  */
-/* global requirejs */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.component('exTestRoute', {
-    controller: Ctrl,
-    templateUrl: requirejs.toUrl(
-      'express-route-override/test-route-component.html')
-  });
-}
+export default {
+  controller: Ctrl,
+  templateUrl: 'express-route-override/test-route-component.html'
+};
 
 /* @ngInject */
 function Ctrl($http) {
@@ -32,7 +24,3 @@ function Ctrl($http) {
     });
   };
 }
-
-return register;
-
-});

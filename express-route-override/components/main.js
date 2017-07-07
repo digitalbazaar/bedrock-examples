@@ -1,14 +1,15 @@
 /*!
  * Copyright (c) 2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([
-  'angular',
-  './test-route-component'
-], function(angular) {
-
-'use strict';
+import angular from 'angular';
+import * as bedrock from 'bedrock-angular';
+import TestRouteComponent from './test-route-component.js';
 
 var module = angular.module('example.express-route-override', []);
+
+bedrock.setRootModule(module);
+
+module.component('brTestRoute',TestRouteComponent);
 
 Array.prototype.slice.call(arguments, 1).forEach(function(register) {
   register(module);
@@ -19,8 +20,6 @@ module.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       title: 'Test',
-      template: '<ex-test-route></ex-test-route>'
+      template: '<br-test-route></br-test-route>'
     });
-});
-
 });
