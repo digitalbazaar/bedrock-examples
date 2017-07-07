@@ -8,15 +8,14 @@
     "postinstall": "node ./lib/index.js compile-less"
   },
   "dependencies": {
-    "bedrock": "^1.0.0",
+    "bedrock": "^1.4.1",
     "bedrock-angular": "^3.0.0",
-    "bedrock-docs": "^2.0.2",
-    "bedrock-express": "^2.0.0",
-    "bedrock-requirejs": "^2.0.0",
-    "bedrock-server": "^2.0.0",
+    "bedrock-docs": "^2.1.0",
+    "bedrock-express": "^2.0.6",
+    "bedrock-server": "^2.2.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "digitalbazaar/bedrock-views#webpack",
-    "bedrock-webpack": "digitalbazaar/bedrock-webpack#webpack"
+    "bedrock-views": "^5.1.0",
+    "bedrock-webpack": "^1.0.2"
   },
   "bedrock": {
     "browserDependencies": [
