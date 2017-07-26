@@ -19,7 +19,10 @@
   },
   "bedrock": {
     "browserDependencies": [
-      "bedrock-angular"
+      "bedrock-angular",
+      "web-request-mediator",
+      "web-request-mediator-client",
+      "web-request-rpc"
     ]
   },
   "engines": {
