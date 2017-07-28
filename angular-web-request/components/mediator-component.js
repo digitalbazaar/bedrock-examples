@@ -20,11 +20,11 @@ class TestManager {
 
   async toggle() {
     await _control.show();
-    console.log('hiding in 3 seconds...');
+    console.log('hiding in 2 seconds...');
     setTimeout(() => {
       console.log('hiding.');
       _control.hide();
-    }, 3000);
+    }, 2000);
   }
 }
 

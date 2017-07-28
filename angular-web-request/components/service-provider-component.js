@@ -18,14 +18,25 @@ function Ctrl() {
     (async () => {
       try {
         await polyfill.load();
-        console.log('calling test manager "test" function...');
-        const result = await polyfill.testManager.test();
-        console.log('result', result);
-        await polyfill.testManager.toggle();
-        console.log('done');
+        console.log('polyfill loaded.');
       } catch(e) {
         console.error(e);
       }
+    })();
+  };
+
+  self.test = () => {
+    (async () => {
+      console.log('calling test manager "test" function...');
+      const result = await polyfill.testManager.test();
+      console.log('result', result);
+      console.log('done');
+    })();
+  };
+
+  self.toggle = () => {
+    (async() => {
+      await polyfill.testManager.toggle();
     })();
   };
 }
