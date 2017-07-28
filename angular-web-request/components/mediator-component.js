@@ -13,14 +13,12 @@ export default {
 
 let _control;
 
-// class TestManager {
-//   async test() {
-//     return 'test function called';
-//   }
-// }
-const testManager = {
-  test: async () => 'test function called',
-  toggle: async () => {
+class TestManager {
+  async test() {
+    return 'test function called';
+  }
+
+  async toggle() {
     await _control.show();
     console.log('hiding in 3 seconds...');
     setTimeout(() => {
@@ -28,7 +26,7 @@ const testManager = {
       _control.hide();
     }, 3000);
   }
-};
+}
 
 /* @ngInject */
 function Ctrl() {
@@ -44,8 +42,7 @@ function Ctrl() {
     _control = control;
 
     const server = new rpc.Server();
-    //server.define('testManager', new TestManager());
-    server.define('testManager', testManager);
+    server.define('testManager', new TestManager());
     server.listen(origin);
 
     control.ready();
