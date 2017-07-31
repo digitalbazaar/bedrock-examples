@@ -3,30 +3,36 @@
  */
 'use strict';
 
-//import * as wrMediator from 'web-request-mediator';
-import * as rpc from 'web-request-rpc';
+import {WebRequestMediator} from 'web-request-mediator';
 
 export default {
   controller: Ctrl,
   templateUrl: 'angular-web-request/mediator-component.html'
 };
 
-let _control;
-
 class TestManager {
+  constructor(wrm) {
+    this.mediator = wrm;
+  }
+
   async test() {
     return 'test function called';
   }
 
   async toggle() {
-    await _control.show();
+    const self = this;
+    await self.mediator.show();
     console.log('hiding in 2 seconds...');
     setTimeout(() => {
       console.log('hiding.');
-      _control.hide();
+      self.mediator.hide();
     }, 2000);
   }
 }
+
+// HACK: fixes babel compiler bug that makes `TestManager` undefined
+// below in `Ctrl`
+const _ugly = new TestManager();
 
 /* @ngInject */
 function Ctrl() {
@@ -34,26 +40,15 @@ function Ctrl() {
 
   (async () => {
     const origin = 'https://bedrock.dev:18443';
-    const client = new rpc.Client();
-    const injector = await client.connect(origin);
-    const control = injector.define('core.control', {
-      functions: ['ready', 'show', 'hide']
-    });
-    _control = control;
+    const wrm = new WebRequestMediator(origin);
 
-    const server = new rpc.Server();
-    server.define('testManager', new TestManager());
-    server.listen(origin);
+    // define custom server API
+    wrm.server.define('testManager', new TestManager(wrm));
 
-    control.ready();
+    // connect to relying origin
+    const injector = await wrm.connect();
 
-    // wrMediator.server.define('testManager', new TestManager());
-
-    // const origin = 'https://bedrock.dev:18443';
-    // wrMediator.listen({
-    //   origin: origin
-    // });
-
-    // wrMediator
+    // TODO: define custom client API
+    // injector.define();
   })();
 }
