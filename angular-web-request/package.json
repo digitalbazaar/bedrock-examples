@@ -21,7 +21,6 @@
     "browserDependencies": [
       "bedrock-angular",
       "web-request-mediator",
-      "web-request-mediator-client",
       "web-request-rpc"
     ]
   },
