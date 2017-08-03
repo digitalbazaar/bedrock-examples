@@ -9,8 +9,8 @@ export const polyfill = {};
 
 polyfill.load = async () => {
   const url = 'https://bedrock.dev:18443/mediator';
-  const serverContext = new rpc.ServerContext();
-  const injector = await serverContext.createWindow(url);
+  const appContext = new rpc.WebAppContext();
+  const injector = await appContext.createWindow(url);
   polyfill.testManager = injector.define('testManager', {
     functions: ['test', 'toggle']
   });
