@@ -50,8 +50,5 @@ function Ctrl() {
 
     // TODO: define custom client API
     // injector.define();
-
-    // ready
-    await wrm.ready();
   })();
 }
