@@ -40,16 +40,16 @@ async function install() {
   const PaymentHandlers = navigator.paymentPolyfill.PaymentHandlers;
   const PaymentManager = navigator.paymentPolyfill.PaymentManager;
 
-  // get payment handler registration
-  const registration = await PaymentHandlers.register(
-    '/payment-handler.js');
-
   // ensure permission has been granted to add a payment instrument
   const result = await PaymentManager.requestPermission();
   if(result !== 'granted') {
-    console.log('permission denied');
+    throw new Error('Permission denied.');
     return;
   }
+
+  // get payment handler registration
+  const registration = await PaymentHandlers.register(
+    '/payment-handler.js');
 
   console.log('adding instruments');
   await addInstruments(registration);
@@ -60,16 +60,16 @@ async function uninstall() {
   const PaymentHandlers = navigator.paymentPolyfill.PaymentHandlers;
   const PaymentManager = navigator.paymentPolyfill.PaymentManager;
 
-  // get payment handler registration
-  const registration = await PaymentHandlers.register(
-    '/payment-handler.js');
-
   // ensure permission has been granted to add a payment instrument
   const result = await PaymentManager.requestPermission();
   if(result !== 'granted') {
-    console.log('permission denied');
+    throw new Error('Permission denied.');
     return;
   }
+
+  // get payment handler registration
+  const registration = await PaymentHandlers.register(
+    '/payment-handler.js');
 
   await registration.paymentManager.instruments.clear();
   console.log('payment instruments cleared');
