@@ -6,21 +6,22 @@
 
 export async function activate() {
   const PaymentHandler = navigator.paymentPolyfill.PaymentHandler;
-  handler = new PaymentHandler();
+  const self = new PaymentHandler();
 
-  handler.addEventListener('paymentrequest', event => {
+  self.addEventListener('paymentrequest', event => {
     // TODO: handle event
     console.log('got payment request event', event);
 
-    // TODO: client = openWindow('/payment-app')
+    // TODO: event.respondWith(...
+    // TODO: client = event.openWindow('/payment-app')
     // TODO: client.addEventListener('message', ...)
     // TODO: client.postMessage(...)
   });
 
-  handler.addEventListener('paymentabort', event => {
+  self.addEventListener('paymentabort', event => {
     // TODO: handle event
     console.log('got payment abort event', event);
   });
 
-  await handler.connect();
+  await self.connect();
 }
