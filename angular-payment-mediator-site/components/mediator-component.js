@@ -31,10 +31,14 @@ function Ctrl($location) {
       await polyfill.load({
         relyingOrigin: relyingOrigin,
         requestPermission(permissionDesc) {
-          // TODO:
+          // TODO: implement UI
+          return {
+            state: 'granted'
+          };
         },
         showRequest(requestState) {
           // TODO: return PaymentResponse data
+          throw new Error('Not implemented');
         }
       });
       console.log('payment mediator polyfill loaded');
