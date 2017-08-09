@@ -3,7 +3,7 @@
  */
 import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
-import {polyfill} from 'payment-handler-polyfill';
+import * as polyfill from 'payment-handler-polyfill';
 import HomeComponent from './home-component';
 import PaymentAppComponent from './payment-app-component';
 import PaymentHandlerComponent from './payment-handler-component';
@@ -31,6 +31,10 @@ module.config($routeProvider => {
         }
       }
     })
+    // TODO: Would be nice to separate out the payment handler from the
+    // rest of the application as a single static page in the future because
+    // it would be a better (and more efficient) example; for now it is here
+    // out of convenience/speed of implementation.
     .when('/payment-handler', {
       title: 'Payment Handler',
       template: '<pa-payment-handler></pa-payment-handler>',

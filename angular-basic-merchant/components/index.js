@@ -3,7 +3,7 @@
  */
 import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
-import {polyfill} from 'payment-handler-polyfill';
+import * as polyfill from 'payment-handler-polyfill';
 import HomeComponent from './home-component';
 
 'use strict';

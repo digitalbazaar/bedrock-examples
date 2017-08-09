@@ -5,5 +5,5 @@
 'use strict';
 
 export default {
-  templateUrl: 'angular-payment-mediator/home-component.html'
+  templateUrl: 'angular-payment-mediator-site/home-component.html'
 };
