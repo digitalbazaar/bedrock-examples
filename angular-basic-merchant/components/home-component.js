@@ -1,18 +1,19 @@
 /*!
  * Copyright (c) 2017 Digital Bazaar, Inc. All rights reserved.
  */
-/* navigator */
+/* global navigator */
 'use strict';
 
 export default {
   controller: Ctrl,
-  templateUrl: 'angular-merchant/home-component.html'
+  templateUrl: 'angular-basic-merchant/home-component.html'
 };
 
 /* @ngInject */
 function Ctrl() {
   const self = this;
-  
+  const PaymentRequest = navigator.paymentPolyfill.PaymentRequest;
+
   self.buy = async () => {
     const pr = new PaymentRequest([{
       supportedMethods: ['basic-card']
@@ -24,48 +25,9 @@ function Ctrl() {
     });
     try {
       const response = await pr.show();
+      console.log('response', response);
     } catch(e) {
       console.error(e);
     }
-  };
-  
-  self.polyfillLoaded = false;
-
-  // load polyfill
-  (async () => {
-    try {
-      await polyfill.load();
-      self.polyfillLoaded = true;
-      console.log('polyfill loaded');
-    } catch(e) {
-      console.error(e);
-    }
-  })();
-
-
-  self.loadPolyfill = () => {
-    (async () => {
-      try {
-        await polyfill.load();
-        console.log('polyfill loaded.');
-      } catch(e) {
-        console.error(e);
-      }
-    })();
-  };
-
-  self.test = () => {
-    (async () => {
-      console.log('calling test manager "test" function...');
-      const result = await polyfill.testManager.test();
-      console.log('result', result);
-      console.log('done');
-    })();
-  };
-
-  self.toggle = () => {
-    (async() => {
-      await polyfill.testManager.toggle();
-    })();
   };
 }
