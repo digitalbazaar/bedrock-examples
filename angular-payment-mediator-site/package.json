@@ -16,13 +16,14 @@
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.1.0",
     "bedrock-webpack": "^1.0.2",
-    "localforage": "^1.5.0"
+    "localforage": "^1.5.0",
+    "payment-mediator-polyfill": "^0.0.4",
+    "web-request-rpc": "^0.0.2"
   },
   "bedrock": {
     "browserDependencies": [
       "bedrock-angular",
       "payment-mediator-polyfill",
-      "web-request-mediator",
       "web-request-rpc"
     ]
   },
