@@ -16,7 +16,7 @@ module.component('paPaymentApp', PaymentAppComponent);
 module.component('paPaymentHandler', PaymentHandlerComponent);
 
 bedrock.setRootModule(module);
-
+console.log('payment app provider loading at ', window.location.href);
 const loadPolyfillPromise = polyfill.loadOnce();
 
 /* @ngInject */
@@ -40,6 +40,7 @@ module.config($routeProvider => {
       template: '<pa-payment-handler></pa-payment-handler>',
       resolve: {
         polyfill($q) {
+          console.log('waiting to resolve payment handler route...');
           return $q.resolve(loadPolyfillPromise);
         }
       }

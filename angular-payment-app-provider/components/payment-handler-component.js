@@ -17,7 +17,10 @@ let handlerActivated = false;
 function Ctrl() {
   const self = this;
 
+  console.log('loaded payment handler component');
+
   if(!handlerActivated) {
+    console.log('activating handler');
     activate();
     handlerActivated = true;
   }

@@ -48,8 +48,7 @@ async function install() {
   }
 
   // get payment handler registration
-  const registration = await PaymentHandlers.register(
-    '/payment-handler.js');
+  const registration = await PaymentHandlers.register('/payment-handler');
 
   console.log('adding instruments');
   await addInstruments(registration);
@@ -68,8 +67,7 @@ async function uninstall() {
   }
 
   // get payment handler registration
-  const registration = await PaymentHandlers.register(
-    '/payment-handler.js');
+  const registration = await PaymentHandlers.register('/payment-handler');
 
   await registration.paymentManager.instruments.clear();
   console.log('payment instruments cleared');

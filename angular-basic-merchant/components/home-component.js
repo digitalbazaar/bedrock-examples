@@ -10,7 +10,7 @@ export default {
 };
 
 /* @ngInject */
-function Ctrl() {
+function Ctrl($scope) {
   const self = this;
   const PaymentRequest = navigator.paymentPolyfill.PaymentRequest;
 
@@ -25,7 +25,9 @@ function Ctrl() {
     });
     try {
       const response = await pr.show();
-      console.log('response', response);
+      console.log('response at merchant site', response);
+      self.paymentDetails = response.details;
+      $scope.$apply();
     } catch(e) {
       console.error(e);
     }

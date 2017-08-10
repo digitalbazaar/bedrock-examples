@@ -19,8 +19,6 @@ export default {
 function Ctrl($location, $scope) {
   const self = this;
 
-  const PaymentRequestService = polyfill.PaymentRequestService;
-
   if(window.location.ancestorOrigins &&
     window.location.ancestorOrigins.length > 0) {
     self.relyingOrigin = window.location.ancestorOrigins[0];
@@ -43,11 +41,19 @@ function Ctrl($location, $scope) {
 
   self.selectPaymentInstrument = async (selection) => {
     self.display = null;
-    const response = await navigator.paymentMediator.ui.selectPaymentInstrument(
-      selection);
-    console.log('response', response);
+    let response;
+    try {
+      response = await navigator.paymentMediator.ui.selectPaymentInstrument(
+        selection);
+      console.log('response', response);
+    } catch(e) {
+      console.error(e);
+      self.requestPaymentPromise.reject(e);
+    }
+    if(response) {
+      self.requestPaymentPromise.resolve(response);
+    }
     await navigator.paymentMediator.hide();
-    self.requestPaymentPromise.resolve(response);
   };
 
   self.abortPayment = async () => {
@@ -63,9 +69,9 @@ function Ctrl($location, $scope) {
         requestPermission,
         showRequest
       });
-      console.log('payment mediator polyfill loaded');
+      console.log('payment mediator site loaded polyfill');
     } catch(e) {
-      console.error('payment mediator polyfill failed to load');
+      console.error('payment mediator site failed to load polyfill');
       console.error(e);
     }
   })();
