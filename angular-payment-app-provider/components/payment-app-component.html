@@ -1,8 +1,10 @@
-<div>
+<div style="background-color: white">
   <h3>Payment App</h3>
   <div ng-if="$ctrl.paymentRequest">
-    <div>Do you want to pay $X.XX for Y?</div>
-    <div>Credit card: X</div>
+    <div>{{$ctrl.paymentRequest.topLevelOrigin}} is requesting payment</div>
+    <div>Do you want to pay {{$ctrl.paymentRequest.total.amount.value}} {{$ctrl.paymentRequest.total.amount.currency}} ?</div>
+    <!-- <div>Credit card: X</div> -->
+    <button ng-click="$ctrl.pay()">Pay</button>
   </div>
   <div>
     <a href="" ng-click="$ctrl.addPaymentInstrument()">Add a credit card</a>

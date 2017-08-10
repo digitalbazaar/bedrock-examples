@@ -16,32 +16,55 @@ export async function activate() {
 
     event.respondWith(new Promise(async (resolve, reject) => {
       console.log('resolving event');
-      resolve({
-        // TODO: update once data sent to handler is cleaned up
-        methodName: event.methodData[0].supportedMethods[0],
-        details: {
-          cardHolderName: 'Pat Smith',
-          cardNumber: '1232343451234',
-          expiryMonth: '12',
-          expiryYear: '2020',
-          cardSecurityCode: '123'
-        }
-      });
-      // self.addEventListener('message', listener = function(e) {
-      //   self.removeEventListener('message', listener);
-      //   if(e.data.hasOwnProperty('name')) {
-      //     reject(e.data);
-      //   } else {
-      //     resolve(e.data);
+      // resolve({
+      //   // TODO: update once data sent to handler is cleaned up
+      //   methodName: event.methodData[0].supportedMethods[0],
+      //   details: {
+      //     cardHolderName: 'Pat Smith',
+      //     cardNumber: '1232343451234',
+      //     expiryMonth: '12',
+      //     expiryYear: '2020',
+      //     cardSecurityCode: '123'
       //   }
       // });
 
-      // try {
-      //   const windowClient = await e.openWindow('/payment-app');
-      //   windowClient.postMessage({...});
-      // } catch(err) {
-      //   reject(err);
-      // }
+      let windowClient;
+      let listener;
+      window.addEventListener('message', listener = function(e) {
+        if(!(e.source === windowClient &&
+          e.origin === window.location.origin)) {
+          console.log('ignoring cross origin message');
+          return;
+        }
+
+        if(e.data.type === 'request') {
+          // send payment request
+          console.log('sending payment request to frontend...');
+          return windowClient.postMessage({
+            topLevelOrigin: event.topLevelOrigin,
+            methodData: event.methodData,
+            total: event.total
+          }, window.location.origin);
+        }
+
+        // assume payment handler response or error
+        window.removeEventListener('message', listener);
+        if(e.data.hasOwnProperty('name')) {
+          // assume data is an error
+          // TODO: clean this up
+          reject(e.data);
+        } else {
+          resolve(e.data);
+        }
+      });
+
+      try {
+        console.log('opening client window...');
+        windowClient = await event.openWindow('/payment-app');
+        console.log('client window open, waiting to payment request to it...');
+      } catch(err) {
+        reject(err);
+      }
     }));
     console.log('event.respondWith called');
   });
