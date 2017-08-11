@@ -63,7 +63,6 @@ async function uninstall() {
   const result = await PaymentManager.requestPermission();
   if(result !== 'granted') {
     throw new Error('Permission denied.');
-    return;
   }
 
   // get payment handler registration
