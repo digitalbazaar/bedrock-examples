@@ -59,9 +59,9 @@ export async function activate() {
       });
 
       try {
-        console.log('opening client window...');
+        console.log('opening app window...');
         windowClient = await event.openWindow('/payment-app');
-        console.log('client window open, waiting to payment request to it...');
+        console.log('app window open, waiting to payment request to it...');
       } catch(err) {
         reject(err);
       }

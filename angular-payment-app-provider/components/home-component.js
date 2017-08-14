@@ -65,11 +65,9 @@ async function uninstall() {
     throw new Error('Permission denied.');
   }
 
-  // get payment handler registration
-  const registration = await PaymentHandlers.register('/payment-handler');
-
-  await registration.paymentManager.instruments.clear();
-  console.log('payment instruments cleared');
+  // unregister payment handler registration
+  await PaymentHandlers.unregister('/payment-handler');
+  console.log('payment handler unregistered');
 }
 
 async function addInstruments(registration) {
