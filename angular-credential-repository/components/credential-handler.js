@@ -46,7 +46,7 @@ export async function activate() {
           // TODO: clean this up
           reject(e.data);
         } else {
-          resolve(e.data);
+          resolve(e.data.credential);
         }
       });
 
@@ -96,7 +96,7 @@ export async function activate() {
           // TODO: clean this up
           reject(e.data);
         } else {
-          resolve(e.data);
+          resolve(e.data.credential);
         }
       });
 

@@ -12,7 +12,7 @@ config.server.port = 15443;
 config.server.httpPort = 15080;
 config.server.domain = 'credential.mediator.dev';
 
-// angular-payment-mediator-site pseudo package
+// angular-credential-mediator-site pseudo package
 const rootPath = path.join(__dirname, '..');
 config.views.system.packages.push({
   path: path.join(rootPath, 'components'),

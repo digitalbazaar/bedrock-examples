@@ -76,7 +76,7 @@ async function addHints(registration) {
         name: 'My Foo Identity',
         enabledTypes: ['verifiableProfile'],
         capabilities: {
-          verifiableProfileId: ['did:method1:1234-1234-1234-1234']
+          verifiableProfileId: 'did:method1:1234-1234-1234-1234'
         }
       })
     ]);

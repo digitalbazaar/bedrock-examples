@@ -12,7 +12,7 @@ config.server.port = 13443;
 config.server.httpPort = 13080;
 config.server.domain = 'example.verifier.dev';
 
-// angular-basic-merchant pseudo package
+// angular-credential-verifier pseudo package
 const rootPath = path.join(__dirname, '..');
 config.views.system.packages.push({
   path: path.join(rootPath, 'components'),

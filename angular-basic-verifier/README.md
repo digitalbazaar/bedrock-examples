@@ -1,3 +1,0 @@
-# angular-basic-verifier
-
-TODO

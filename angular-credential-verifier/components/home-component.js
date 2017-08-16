@@ -6,7 +6,7 @@
 
 export default {
   controller: Ctrl,
-  templateUrl: 'angular-basic-verifier/home-component.html'
+  templateUrl: 'angular-credential-verifier/home-component.html'
 };
 
 /* @ngInject */
@@ -14,7 +14,7 @@ function Ctrl($scope) {
   const self = this;
   const credentials = navigator.credentialsPolyfill.credentials;
 
-  self.request = async () => {
+  self.login = async () => {
     try {
       self.credential = await credentials.get({
         web: {

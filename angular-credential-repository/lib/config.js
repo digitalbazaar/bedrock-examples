@@ -12,7 +12,7 @@ config.server.port = 14443;
 config.server.httpPort = 14080;
 config.server.domain = 'example.credential-repository.dev';
 
-// angular-payment-app-provider pseudo package
+// angular-credential-repository pseudo package
 const rootPath = path.join(__dirname, '..');
 config.views.system.packages.push({
   path: path.join(rootPath, 'components'),
