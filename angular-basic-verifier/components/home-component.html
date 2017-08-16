@@ -1,0 +1,16 @@
+<div>
+  <h3>Web Payments Merchant Example</h3>
+  <div>
+    Item X
+  </div>
+  <div>
+    $1.00
+  </div>
+  <div>
+    <a href="" ng-click="$ctrl.buy()">Buy</a>
+  </div>
+  <div ng-if="$ctrl.paymentDetails">
+    <div>Payment complete, here's all of your payment credentials! =)</div>
+    <pre>{{$ctrl.paymentDetails | json}}</pre>
+  </div>
+</div>
