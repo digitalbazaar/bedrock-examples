@@ -13,8 +13,6 @@ export default {
 function Ctrl() {
   const self = this;
 
-  const CredentialHandlers = navigator.credentialsPolyfill.CredentialHandlers;
-
   self.install = async () => {
     console.log('installing...');
     try {

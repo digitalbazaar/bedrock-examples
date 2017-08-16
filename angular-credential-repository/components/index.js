@@ -5,15 +5,17 @@ import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
 import * as polyfill from 'credential-handler-polyfill';
 import HomeComponent from './home-component';
-import CredentialWalletComponent from './credential-wallet-component';
 import CredentialHandlerComponent from './credential-handler-component';
+import CredentialRequestComponent from './credential-request-component';
+import CredentialStoreComponent from './credential-store-component';
 
 'use strict';
 
 const module = angular.module('angular-credential-repository', []);
 module.component('cwHome', HomeComponent);
-module.component('cwCredentialWallet', CredentialWalletComponent);
 module.component('cwCredentialHandler', CredentialHandlerComponent);
+module.component('cwCredentialRequest', CredentialRequestComponent);
+module.component('cwCredentialStore', CredentialStoreComponent);
 
 bedrock.setRootModule(module);
 console.log('credential repository loading at ', window.location.href);
@@ -53,7 +55,7 @@ module.config($routeProvider => {
           return $q.resolve(loadPolyfillPromise);
         }
       }
-    });
+    })
     .when('/credential-store', {
       title: 'Credential Wallet',
       template: '<cw-credential-store></cw-credential-store>',

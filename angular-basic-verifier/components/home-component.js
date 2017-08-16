@@ -16,14 +16,14 @@ function Ctrl($scope) {
 
   self.request = async () => {
     try {
-      const credential = await credentials.get({
+      self.credential = await credentials.get({
         web: {
           verifiableProfile: {
             fooAttribute: true
           }
         }
       });
-      console.log('credential received by verifier', credential);
+      console.log('credential received by verifier', self.credential);
       $scope.$apply();
     } catch(e) {
       console.error(e);

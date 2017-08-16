@@ -1,16 +1,13 @@
 <div>
-  <h3>Web Payments Merchant Example</h3>
+  <h3>Credential Verifier Example</h3>
   <div>
-    Item X
+    Please provide credentials to proceed
   </div>
   <div>
-    $1.00
+    <a href="" ng-click="$ctrl.login()">Login</a>
   </div>
-  <div>
-    <a href="" ng-click="$ctrl.buy()">Buy</a>
-  </div>
-  <div ng-if="$ctrl.paymentDetails">
-    <div>Payment complete, here's all of your payment credentials! =)</div>
-    <pre>{{$ctrl.paymentDetails | json}}</pre>
+  <div ng-if="$ctrl.credential">
+    <div>Credential received, here's all of your info! =)</div>
+    <pre>{{$ctrl.credential | json}}</pre>
   </div>
 </div>

@@ -1,5 +1,5 @@
 {
-  "name": "angular-credential-wallet",
+  "name": "angular-credential-repository",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
@@ -16,7 +16,7 @@
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.1.0",
     "bedrock-webpack": "^1.0.2",
-    "credential-handler-polyfill": "^0.0.1"
+    "web-request-rpc": "0.0.3"
   },
   "bedrock": {
     "browserDependencies": [
