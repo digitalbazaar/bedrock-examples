@@ -18,6 +18,10 @@ export default {
 /* @ngInject */
 function Ctrl($location, $scope) {
   const self = this;
+  self.permissions = [{
+    name: 'Credential Handler',
+    icon: 'fa fa-id-card-o'
+  }];
 
   if(window.location.ancestorOrigins &&
     window.location.ancestorOrigins.length > 0) {
@@ -26,6 +30,8 @@ function Ctrl($location, $scope) {
     const query = $location.search();
     self.relyingOrigin = query.origin;
   }
+
+  self.relyingDomain = utils.parseUrl(self.relyingOrigin).hostname;
 
   self.accept = async () => {
     self.permissionRequest('granted');
@@ -64,9 +70,9 @@ function Ctrl($location, $scope) {
         getCredential,
         storeCredential
       });
-      console.log('payment mediator site loaded polyfill');
+      console.log('credential mediator site loaded polyfill');
     } catch(e) {
-      console.error('payment mediator site failed to load polyfill');
+      console.error('credential mediator site failed to load polyfill');
       console.error(e);
     }
   })();

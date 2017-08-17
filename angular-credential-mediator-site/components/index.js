@@ -8,7 +8,8 @@ import MediatorComponent from './mediator-component';
 
 'use strict';
 
-const module = angular.module('angular-credential-mediator-site', []);
+const module = angular.module(
+  'angular-credential-mediator-site', ['web-request-mediator']);
 module.component('cmHome', HomeComponent);
 module.component('cmMediator', MediatorComponent);
 

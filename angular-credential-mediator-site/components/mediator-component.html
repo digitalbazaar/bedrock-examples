@@ -1,11 +1,12 @@
-<div style="background-color: white">
+<div style="background-color: transparent">
   <div ng-if="$ctrl.display === 'permissionRequest'">
-    <!-- TODO: replace with permission dialog components -->
-    <div>Grant origin <b>{{self.relyOrigin}}</b> `credentialhandler` permission?</div>
-    <button ng-click="$ctrl.accept()">Accept</button>
-    <button ng-click="$ctrl.deny()">Deny</button>
+    <wrm-permission-dialog
+      wrm-origin="$ctrl.relyingDomain"
+      wrm-permissions="$ctrl.permissions"
+      wrm-on-deny="$ctrl.deny()" wrm-on-accept="$ctrl.accept()"></wrm-permission-dialog>
   </div>
-
+</div>
+<div style="background-color: white">
   <div ng-if="$ctrl.display === 'credentialRequest'">
     <!-- TODO: replace with credential request components -->
     <div>{{$ctrl.relyingOrigin}} is requesting credentials</div>
