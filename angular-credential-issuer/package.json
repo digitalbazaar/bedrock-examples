@@ -16,7 +16,7 @@
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.1.0",
     "bedrock-webpack": "^1.0.2",
-    "web-request-rpc": "0.0.3"
+    "credential-handler-polyfill": "^0.0.1"
   },
   "bedrock": {
     "browserDependencies": [
