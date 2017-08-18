@@ -19,7 +19,7 @@ export default {
 function Ctrl($location, $scope) {
   const self = this;
   self.permissions = [{
-    name: 'Credential Handler',
+    name: 'Manage credentials',
     icon: 'fa fa-id-card-o'
   }];
 
