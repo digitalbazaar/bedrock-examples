@@ -16,9 +16,8 @@
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.1.0",
     "bedrock-webpack": "^1.0.2",
+    "credential-mediator-polyfill": "^0.0.1",
     "font-awesome": "^4.7.0",
-    "localforage": "^1.5.0",
-    "web-request-mediator": "0.0.5",
     "web-request-rpc": "^0.0.3"
   },
   "bedrock": {
