@@ -6,7 +6,7 @@ import * as bedrock from 'bedrock-angular';
 import HomeComponent from './home-component.js';
 import ShowNumbersComponent from './show-numbers-component.js';
 
-var module = angular.module('angular-basic', []);
+const module = angular.module('angular-basic', []);
 
 bedrock.setRootModule(module);
 

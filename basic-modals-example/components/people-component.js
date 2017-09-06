@@ -7,7 +7,7 @@ export default {
 };
 
 function Ctrl(exPeopleService) {
-  var self = this;
+  const self = this;
   self.showMyModal = false;
   self.people = exPeopleService.people;
 }

@@ -8,7 +8,7 @@ export default {
 
 /* @ngInject */
 function Ctrl($http) {
-  var self = this;
+  const self = this;
   self.data = null;
 
   self.onClick = function() {

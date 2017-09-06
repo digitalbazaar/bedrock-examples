@@ -8,7 +8,7 @@ export default {
 
 /* @ngInject */
 function Ctrl() {
-  var self = this;
+  const self = this;
   self.display = {
     page1: true,
     page2: false

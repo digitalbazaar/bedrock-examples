@@ -8,7 +8,7 @@ export default {
 };
 
 function Ctrl(brAlertService, exPeopleService) {
-  var self = this;
+  const self = this;
   self.showTraitModal = false;
   self.person = {name: '', traits: []};
 

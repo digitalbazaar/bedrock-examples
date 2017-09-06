@@ -9,7 +9,7 @@ import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
 import UnskinnedComponent from './unskinned-component.js';
 
-var module = angular.module('app.unskinned', []);
+const module = angular.module('app.unskinned', []);
 
 bedrock.setRootModule(module);
 

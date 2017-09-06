@@ -13,7 +13,7 @@ import TraitAdderComponent from './trait-adder-component.js';
 import FocusDirective from './focus-directive.js';
 import PeopleService from './people-service.js';
 
-var module = angular.module('app.basic.modals.example', ['bedrock.modal']);
+const module = angular.module('app.basic.modals.example', ['bedrock.modal']);
 
 bedrock.setRootModule(module);
 

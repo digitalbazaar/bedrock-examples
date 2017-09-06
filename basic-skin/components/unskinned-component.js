@@ -9,7 +9,7 @@ export default {
 };
 
 function Ctrl() {
-  var self = this;
+  const self = this;
   self.one = 1;
   self.two = 2;
   self.three = 3;

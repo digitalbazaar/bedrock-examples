@@ -11,6 +11,6 @@ export default {
 
 /* @ngInject */
 function Ctrl() {
-  var self = this;
+  const self = this;
   self.numbers = [1, 5, 99, 6, 75];
-};
+}

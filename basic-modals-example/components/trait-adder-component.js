@@ -11,7 +11,7 @@ export default {
 };
 
 function Ctrl(brAlertService) {
-  var self = this;
+  const self = this;
   self.trait = '';
 
   self.addTrait = function() {

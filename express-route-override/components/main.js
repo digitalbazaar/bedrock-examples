@@ -5,7 +5,7 @@ import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
 import TestRouteComponent from './test-route-component.js';
 
-var module = angular.module('example.express-route-override', []);
+const module = angular.module('example.express-route-override', []);
 
 bedrock.setRootModule(module);
 

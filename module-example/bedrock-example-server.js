@@ -1,10 +1,10 @@
-var bedrock = require('bedrock');
-var http = require('http');
+const bedrock = require('bedrock');
+const http = require('http');
 
 // setup default module config
 bedrock.config['example-server'] = {port: 80};
 
-var server = http.createServer();
+const server = http.createServer();
 
 // emitted prior to command line parsing
 bedrock.events.on('bedrock-cli.init', function() {

@@ -3,8 +3,8 @@
  *
  * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
-var config = require('bedrock').config;
-var path = require('path');
+const config = require('bedrock').config;
+const path = require('path');
 
 // load bedrock dependencies
 require('bedrock-express');
@@ -30,7 +30,7 @@ config.views.vars.supportDomain = 'example.com';
 config.views.vars.title = config.brand.name;
 config.views.vars.siteTitle = config.brand.name;
 
-var rootPath = path.join(__dirname, '..');
+const rootPath = path.join(__dirname, '..');
 config.views.system.packages.push({
   path: path.join(rootPath, 'components'),
   manifest: path.join(rootPath, 'package.json')
