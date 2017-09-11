@@ -5,7 +5,7 @@ The goal of this example is to create a page in which users may click a button, 
 Using bedrock's stackable-modal allows us to have modals that are stacked on top of one another to provide more freedom with the use of modals on your websites.
 
 **Note**: This demo will require a [host file entry][] for
-`bedrock.dev` pointing to `127.0.0.1` (localhost).
+`bedrock.local` pointing to `127.0.0.1` (localhost).
 
 See the [angular-basic][] example for additional details about implementing an AngularJS front-end.
 
@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-then, direct a web browser to `https://bedrock.dev:18443/`
+then, direct a web browser to `https://bedrock.local:18443/`
 
 [host file entry]:http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/
 [angular-basic]:../angular-basic

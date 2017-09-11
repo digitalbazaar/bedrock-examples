@@ -7,64 +7,16 @@ modules. This demo shows current best practices for defining AngularJS 1.5.x
 modules and components in a bedrock-based project.
 
 **Note**: The angular-basic demo will require a [host file entry][] for
-`bedrock.dev` pointing to `127.0.0.1` (localhost).
+`bedrock.local` pointing to `127.0.0.1` (localhost).
 
 You can read more about building bedrock-based AngularJS components by visiting
 [bedrock-angular][].
-
-## Defining the Pseudo Bower Package
-
-Defining a _pseudo bower package_ is a way to get directories to behave like
-bower packages so that bedrock can deal with both bower packages and
-directories in a consistent way. _Pseudo bower package_ definitions are pushed
-onto an array that is referenced in bedrock's configuration system as:
-
-```
-bedrock.config.requirejs.bower.packages
-```
-
-You will find the _pseudo bower package_ definition for the angular-basic
-module in `lib/config.js`.
-
-Adding a _pseudo bower package_ definition will cause bedrock to serve
-all files and subdirectories in the `path` in its definition. The `path` used
-should be named `components`. This path name is known only to the server, it is
-not known to or used by the client. The name used by the client is taken
-from the `manifest`.
-
-The `manifest` property in the configuration should reference the `bower.json`
-file found in the root of the bedrock module. The `bower.json` file should
-specify that the `moduleType` is `amd`; it is currently best practice for all
-client-side modules to be written in AMD style.
-
-The `name` property in `bower.json` will be used as the name of the
-_pseudo bower package_. This name used to reference the contents of the
-package on the client. The URL to a particular file in the
-_pseudo bower package_ should be generated on the client by using the global var
-`requirejs` and the `name` of the package:
-
-```
-requirejs.toUrl('<name>/path/to/file.html')
-```
-
-Using this method will ensure that the proper URL is used regardless of
-whether bedrock is serving optimized or unoptimized client-side modules.
-
-The `main` property in `bower.json` specifies the script to load when the
-package is requested, in this case `./main.js`. This script must define the
-main AMD module. This AMD module is responsible for defining and pulling in
-all AngularJS components for the _pseudo bower package_.
 
 ## Client-side AMD Modules
 
 This demo shows current best practices for using client-side AMD modules to
 define AngularJS 1.5.x modules and components. Most of the more advanced
 bedrock modules utilize the same file and folder structure shown here.
-
-### Main AMD Module
-
-The `main` property in `bower.json` references the script for the main AMD
-module, relative to the package, in this case `./main.js`.
 
 #### Main AngularJS Module Definition
 
@@ -150,7 +102,7 @@ npm install
 npm start
 ```
 
-then, direct a web browser to `https://bedrock.dev:18443/`
+then, direct a web browser to `https://bedrock.local:18443/`
 
 [host file entry]:http://www.howtogeek.com/howto/27350/beginner-geek-how-to-edit-your-hosts-file/
 [bedrock-angular]:https://github.com/digitalbazaar/bedrock-angular

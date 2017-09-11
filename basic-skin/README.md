@@ -71,30 +71,6 @@ it loads both the "unskinned" component and the "skinned" component,
 demonstrating that the "skinned" component's look and feel overrides the
 "unskinned" component's.
 
-### Serving components
-
-Before we can look at how to override a component in the browser, we first
-need to learn how [bedrock][] makes components available to the browser. When
-components are installed via [bower][] packages, [bedrock][] will automatically
-parse their `bower.json` files and make them available to the browser.
-
-Since this is only an example, both the "unskinned" and "skinned" components
-aren't installed via [bower][]. So we need to manually update [bedrock][]'s
-configuration to tell [bedrock][] to treat them as if they were.
-
-To do this we create a "pseudo bower package" for each component. This can be
-seen by looking at the "example-skinned" entry in `configs/skinned.js` or at
-the "example-unskinned" entry in `configs/unskinned.js`. This is just a way to
-get directories to behave like [bower][] packages, so that [bedrock][] can deal
-with both [bower][] packages and directories in a consistent way.
-
-These "pseudo bower packages" are pushed onto an array that is referenced in
-[bedrock][]'s configuration system as:
-
-```
-bedrock.config.requirejs.bower.packages
-```
-
 ### Template replacement
 
 Now that we know how to serve components, we need to tell [bedrock][] to
@@ -150,5 +126,4 @@ looks, visit the URL that is logged to the console.
 [bedrock-requirejs]: https://github.com/digitalbazaar/bedrock-requirejs
 [bedrock-views]: https://github.com/digitalbazaar/bedrock-views
 [bedrock-angular]: https://github.com/digitalbazaar/bedrock-angular
-[bower]: http://bower.io
 [npm]: https://www.npmjs.com
