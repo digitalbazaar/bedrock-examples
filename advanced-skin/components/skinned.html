@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="headline">Register</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+
+    <form name="regForm" class="form-horizontal" ng-submit="$ctrl.submit()">
+      <fieldset>
+        <legend>Your Email and Password</legend>
+
+        <div class="form-group">
+          <p class="help-block col-md-10">
+            By entering a valid email address and password you will be able to
+            log into the service.
+          </p>
+        </div>
+
+        <br-input br-model="$ctrl.email"
+          br-options="{
+            name: 'email', label: 'Email',
+            autocomplete: 'off',
+            showValidation: true,
+            columns: {
+              label: 'col-md-3',
+              input: 'col-md-7',
+              help: 'col-md-offset-3 col-md-7'
+            }
+          }" required>
+          <div name="br-input-help">
+            A valid email address is required so that we can reset
+            your password if you get locked out.
+          </div>
+          <div name="br-input-validation-errors">
+            <p ng-show="regForm.email.$error.required">
+              Email is required.
+            </p>
+          </div>
+        </br-input>
+        <br-input br-model="$ctrl.password"
+          br-options="{
+            name: 'password', type: 'password',
+            label: 'Password',
+            showValidation: true,
+            columns: {
+              label: 'col-md-3',
+              input: 'col-md-7',
+              help: 'col-md-offset-3 col-md-7'
+            }
+          }" ng-minlength="6" ng-maxlength="32" required>
+          <div name="br-input-help">
+            Please enter a secure password that is between 6 and 32
+            characters long.
+          </div>
+          <div name="br-input-validation-errors">
+            <p ng-show="regForm.password.$error.required">
+              Password is required.
+            </p>
+            <p ng-show="regForm.password.$error.minlength">
+              Password must be longer than 6 characters.
+            </p>
+            <p ng-show="regForm.password.$error.maxlength">
+              Password must be shorter than 32 characters.
+            </p>
+          </div>
+        </br-input>
+
+        <br-input br-model="model.passwordConfirmation"
+          br-options="{
+            name: 'passwordConfirmation', type: 'password',
+            label: 'Confirm Password',
+            showValidation: true,
+            columns: {
+              label: 'col-md-3',
+              input: 'col-md-7',
+              help: 'col-md-offset-3 col-md-7'
+            }
+          }" br-input-password-confirmation="model.password">
+          <div name="br-input-help">
+            Please confirm your password.
+          </div>
+          <div name="br-input-validation-errors">
+            <p ng-show="regForm.passwordConfirmation.$error.inputMatch">
+              Password and confirmation must match.
+            </p>
+          </div>
+        </br-input>
+      </fieldset>
+
+      <br/>
+
+      <div class="form-group">
+        <div class="col-md-offset-3">
+          <button type="submit"
+            ng-disabled="regForm.$invalid"
+            class="btn btn-primary btn-lg">Confirm</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
