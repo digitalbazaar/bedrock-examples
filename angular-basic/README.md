@@ -1,10 +1,9 @@
 # angular-basic
 
 angular-basic is a demonstration of how client-side AMD modules that define
-AngularJS components can be added as a _pseudo bower package_. This demo
-utilizes the same directory structure used by many of the more advanced bedrock
-modules. This demo shows current best practices for defining AngularJS 1.5.x
-modules and components in a bedrock-based project.
+AngularJS components can be added. This demo utilizes the same directory structure
+used by many of the more advanced bedrock modules. This demo shows current best
+practices for defining AngularJS 1.5.x modules and components in a bedrock-based project.
 
 **Note**: The angular-basic demo will require a [host file entry][] for
 `bedrock.local` pointing to `127.0.0.1` (localhost).
@@ -20,14 +19,14 @@ bedrock modules utilize the same file and folder structure shown here.
 
 #### Main AngularJS Module Definition
 
-The `main.js` file is used to define the main AngularJS module and any
+The `index.js` file is used to define the main AngularJS module and any
 dependencies and routes for it. It is important that the `angular.module`
 declaration in this file specifies an AngularJS module name that is **unique**
 throughout the entire project. The name used here is `angular-basic`. This name
 is used to namespace any AngularJS submodules, which we refer to as AngularJS
 components.
 
-The `main.js` script is also responsible for specifying AMD dependencies
+The `index.js` script is also responsible for specifying AMD dependencies
 that define the AngularJS components. Once the AMD dependencies have
 loaded, the script is responsible for declaring the main AngularJS module
 and passing it to each dependency's `register` method, which is the function
@@ -42,15 +41,15 @@ assigned to an inline template that instantiates the `exHome` component.
 
 ### AngularJS Components
 
-In the AMD `define` function call at the top of the `main.js`, note that there
+In the AMD `import` function call at the top of the `index.js`, note that there
 is a reference to `./home-component`. This relative URL will be resolved to
 `components/home-component.js` on the server, which is a script containing the
 AMD module that defines the `exHome` AngularJS component. This component
 will be served from the `'/'` route. A separate AMD module defines each
-AngularJS component. There is another component loaded by `main.js` and
+AngularJS component. There is another component loaded by `index.js` and
 defined in `./show-numbers-component`.
 
-The name of a component is found in the `register` function, `exHome` in this
+The name of a component is found in the `module.component` function, `exHome` in this
 case. Note that a prefix `ex` (for `example`) is prepended to the name of the
 component as a best practice. You should always include a prefix of at least
 two letters, that is based on the name of your project, to help prevent naming
@@ -60,9 +59,7 @@ component is referenced in the HTML as `ex-home` and the
 `exShowNumbers` component is referenced in the HTML as `ex-show-numbers`.
 
 Note that the `templateUrl` specified by the `exHome` component uses
-`angular-basic` as the first element in the path. This corresponds to the name
-of the bower package as specified by the `name` property in the `bower.json`
-file. This template URL will resolve to `components/home-component.html` on
+`angular-basic` as the first element in the path. This template URL will resolve to `components/home-component.html` on
 the server.
 
 Controller definitions in components should always include the variable

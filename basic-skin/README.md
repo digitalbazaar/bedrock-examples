@@ -30,25 +30,10 @@ modular design to help keep code well-organized and to allow a healthy
 ecosystem to grow without hindrance.
 
 [Bedrock][] web applications are typically built by installing a backend
-[npm][] module, [bedrock-views][], and a companion frontend [bower][] package,
-[bedrock-angular][].
-
-The [bedrock-views][] module, via a dependency [bedrock-requirejs][], expects
-all frontend code to behave like a [bower][] package. This means that any
-packages you install via [bower][] will be automatically made available to
-the browser once you've installed them and restarted your [bedrock][] server.
-If you want to serve a directory that isn't in a [bower][] package, you can
-manually add a [bower][] manifest for it to [bedrock][]'s configuration system.
-This establishes a "pseudo bower package" for your directory, causing it to be
-treated just like it was any other [bower][] package.
+[npm][] module, [bedrock-views][], and [bedrock-angular][].
 
 The [bedrock-angular][] package will create a core, generic [AngularJS][]
-application for you, and automatically integrate any [bower][] packages that
-contain [AngularJS][] components.
-
-So, taken together, all you should need to do to add new frontend content to
-your [bedrock][]-based [AngularJS][] web application is install [bower][]
-packages or manually describe directories as if they were [bower][] packages.
+application for you.
 
 ### Overview
 
@@ -83,7 +68,7 @@ overrides map is referred to in the configuration system using this key:
 bedrock.config.views.vars.angular.templates.overrides
 ```
 
-Both its keys and values are URLs that are relative to [bower][] package names.
+Both its keys and values are URLs that are relative to package names.
 Therefore, an entry with a key of `example-unskinned/unskinned.html` and a
 value of `example-skinned/skinned.html` will cause the [AngularJS][] application
 to use `example-skinned/skinned.html` instead of
