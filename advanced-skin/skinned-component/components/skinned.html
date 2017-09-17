@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
 
-    <form name="regForm" class="form-horizontal" ng-submit="$ctrl.submit()">
+    <form name="$ctrl.regForm" class="form-horizontal" ng-submit="$ctrl.submit()">
       <fieldset>
         <legend>Your Email and Password</legend>
 
@@ -67,7 +67,7 @@
           </div>
         </br-input>
 
-        <br-input br-model="model.passwordConfirmation"
+        <br-input br-model="$ctrl.passwordConfirmation"
           br-options="{
             name: 'passwordConfirmation', type: 'password',
             label: 'Confirm Password',
@@ -77,15 +77,15 @@
               input: 'col-md-7',
               help: 'col-md-offset-3 col-md-7'
             }
-          }" br-input-password-confirmation="model.password">
+          }" br-input-br-validator-same-as="$ctrl.password">
           <div name="br-input-help">
             Please confirm your password.
           </div>
-          <div name="br-input-validation-errors">
-            <p ng-show="regForm.passwordConfirmation.$error.inputMatch">
+          <br-input-validation-errors>
+            <p ng-show="$ctrl.regForm.passwordConfirmation.$error.brValidatorSameAs">
               Password and confirmation must match.
             </p>
-          </div>
+          </br-input-validation-errors>
         </br-input>
       </fieldset>
 
@@ -94,7 +94,7 @@
       <div class="form-group">
         <div class="col-md-offset-3">
           <button type="submit"
-            ng-disabled="regForm.$invalid"
+            ng-disabled="$ctrl.regForm.$invalid"
             class="btn btn-primary btn-lg">Confirm</button>
         </div>
       </div>

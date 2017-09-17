@@ -3,11 +3,14 @@
  *
  * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
-var config = require('bedrock').config;
+const config = require('bedrock').config;
+const path = require('path');
 
 // build off of unskinned config
 require('./unskinned');
 
-// angular template overrides
-var overrides = config.views.vars.angular.templates.overrides;
-overrides['advanced-skinning/unskinned/unskinned.html'] = 'advanced-skinning/skinned/skinned.html';
+var rootPath = path.join(__dirname, '..');
+config.views.system.packages.push({
+  path: path.join(rootPath, '/skinned-component/components'),
+  manifest: path.join(rootPath, '/skinned-component/package.json')
+});
