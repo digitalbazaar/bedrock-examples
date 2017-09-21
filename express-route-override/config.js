@@ -24,7 +24,7 @@ config.views.vars.supportDomain = 'example.com';
 config.views.vars.title = config.brand.name;
 config.views.vars.siteTitle = config.brand.name;
 
-// pseudo bower package for example
+// add your packages
 const rootPath = path.resolve(path.join(__dirname));
 config.views.system.packages.push({
   path: path.join(rootPath, 'components'),
