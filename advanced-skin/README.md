@@ -31,8 +31,7 @@ modular design to help keep code well-organized and to allow a healthy
 ecosystem to grow without hindrance.
 
 [Bedrock][] web applications are typically built by installing a backend
-[npm][] module, [bedrock-views][], and a companion frontend [bower][] package,
-[bedrock-angular][].
+[npm][] module, [bedrock-views][], and [bedrock-angular][].
 
 The [bedrock-views][] module, via a dependency [bedrock-requirejs][], expects
 all frontend code to behave like a [bower][] package. This means that any

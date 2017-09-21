@@ -8,7 +8,7 @@ import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
 import SkinnedComponent from './skinned-component.js';
 
-var module = angular.module('app.skinned', ['app.unskinned', 'bedrock.form']);
+const module = angular.module('app.skinned', ['app.unskinned', 'bedrock.form']);
 
 bedrock.setRootModule(module);
 

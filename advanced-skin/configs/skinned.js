@@ -9,7 +9,7 @@ const path = require('path');
 // build off of unskinned config
 require('./unskinned');
 
-var rootPath = path.join(__dirname, '..');
+const rootPath = path.join(__dirname, '..');
 config.views.system.packages.push({
   path: path.join(rootPath, '/skinned-component/components'),
   manifest: path.join(rootPath, '/skinned-component/package.json')

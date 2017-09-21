@@ -16,8 +16,8 @@
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "digitalbazaar/bedrock-views#webpack",
-    "bedrock-webpack": "digitalbazaar/bedrock-webpack#webpack"
+    "bedrock-views": "^5.0.1",
+    "bedrock-webpack": "^1.0.2"
   },
   "bedrock": {
     "browserDependencies": [
