@@ -9,7 +9,7 @@ export default {
 };
 
 function Ctrl(brRegisterService) {
-  var self = this;
+  const self = this;
   self.email = '';
   self.password = '';
 

@@ -6,7 +6,7 @@
 const config = require('bedrock').config;
 const path = require('path');
 
-// add your packages
+// add pseudo packages
 const rootPath = path.join(__dirname, '..');
 config.views.system.packages.push({
   path: path.join(rootPath, 'components'),

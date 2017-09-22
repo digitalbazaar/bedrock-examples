@@ -9,7 +9,7 @@ Examples of applications running on the [Bedrock][] framework.
 ## [angular-basic][]
 
 Demonstrates how client-side AMD modules that define AngularJS components can
-be added as a _pseudo bower package_.
+be added as a _pseudo package_.
 
 ## [angular-minimal][]
 

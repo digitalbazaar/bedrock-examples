@@ -5,11 +5,11 @@
  */
 export default {
   controller: Ctrl,
-  templateUrl: 'advanced-skinning/skinned.html'
+  templateUrl: 'advanced-skinning-skinned/skinned.html'
 };
 
 function Ctrl(brRegisterService) {
-  var self = this;
+  const self = this;
 
   self.submit = function() {
     if(confirm('Are you sure you want to register?')) {

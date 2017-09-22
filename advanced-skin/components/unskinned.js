@@ -9,7 +9,7 @@ import * as bedrock from 'bedrock-angular';
 import UnskinnedComponent from './unskinned-component.js';
 import RegisterService from './register-service.js';
 
-var module = angular.module('app.unskinned', ['bedrock.form']);
+const module = angular.module('app.unskinned', ['bedrock.form']);
 
 bedrock.setRootModule(module);
 

@@ -7,19 +7,18 @@
 import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
 import SkinnedComponent from './skinned-component.js';
-import PasswordConfirmationDiective from './password-confirmation-directive.js';
-import RegisterService from './register-service.js';
 
-var module = angular.module('app.skinned', ['bedrock.form']);
+const module = angular.module('app.skinned', ['app.unskinned', 'bedrock.form']);
 
 bedrock.setRootModule(module);
 
-module.component('brSkinned',SkinnedComponent);
-module.directive('brPasswordConfirmation',PasswordConfirmationDiective);
-module.service('brRegisterService',RegisterService);
+module.component('brSkinned', SkinnedComponent);
 
 /* @ngInject */
 module.config(function($routeProvider) {
+  // override the route defined in the unskinned angular module `app.unskinned`
+  // this replaces the component defined on that route with the skinned
+  // component
   $routeProvider
   .when('/', {
     title: 'Example Home',
