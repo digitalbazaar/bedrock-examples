@@ -10,7 +10,7 @@
     "bedrock": "^1.4.1",
     "bedrock-angular": "^3.0.0",
     "bedrock-angular-alert": "^3.0.2",
-    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#bootstrap",
+    "bedrock-angular-modal": "^5.0.2",
     "bedrock-angular-navbar": "^4.0.6",
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
