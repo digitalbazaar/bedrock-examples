@@ -6,12 +6,14 @@
     "start": "node index.js",
     "postinstall": "node index.js compile-less"
   },
+  "browser": "index.js",
+  "main": "index.js",
   "dependencies": {
     "bedrock": "^1.4.1",
-    "bedrock-angular": "^3.0.0",
-    "bedrock-angular-alert": "^3.0.2",
-    "bedrock-angular-modal": "^5.0.2",
-    "bedrock-angular-navbar": "^4.0.6",
+    "bedrock-angular": "^4.0.0",
+    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
+    "bedrock-angular-material": "^1.0.0",
+    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
     "bedrock-views": "^5.0.1"
@@ -19,12 +21,12 @@
   "bedrock": {
     "browserDependencies": [
       "bedrock-angular",
+      "bedrock-angular-alert",
+      "bedrock-angular-material",
       "bedrock-angular-modal"
     ]
   },
   "engines": {
     "node": ">=6.9.0"
-  },
-  "directories": {},
-  "main": "example-component.js"
+  }
 }

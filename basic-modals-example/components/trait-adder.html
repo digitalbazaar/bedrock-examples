@@ -1,11 +1,18 @@
 <br-modal br-title="Add a trait for {{$ctrl.person.name}}">
   <br-modal-body>
-    <input type = "text" ng-model="$ctrl.trait" ex-focus="true" />
+    <div layout-padding>
+      <div layout="row">
+        <label>
+          Trait
+          <input type = "text" ng-model="$ctrl.trait" ex-focus="true" />
+        </label>
+      </div>
+    </div>
   </br-modal-body>
   <br-modal-footer>
-    <button type="button" class="btn btn-primary"
-      ng-click="$ctrl.addTrait()">Ok</button>
-    <button type="button"
-      class="btn btn-default stackable-cancel">Cancel</button>
+    <md-button class="md-primary md-raised" ng-click="$ctrl.addTrait()">
+      Ok
+    </md-button>
+    <md-button type="button" class="stackable-cancel">Cancel</md-button>
   </br-modal-footer>
 </br-modal>

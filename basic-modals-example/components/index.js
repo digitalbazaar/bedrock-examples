@@ -13,18 +13,19 @@ import TraitAdderComponent from './trait-adder-component.js';
 import FocusDirective from './focus-directive.js';
 import PeopleService from './people-service.js';
 
-const module = angular.module('app.basic.modals.example', ['bedrock.modal']);
+const module = angular.module('app.basic.modals.example', [
+  'bedrock.alert', 'bedrock.modal', 'ngMaterial']);
 
 bedrock.setRootModule(module);
 
-module.component('brPeople',PeopleComponent);
-module.component('brPersonEditor',PersonEditorComponent);
-module.component('brTraitAdder',TraitAdderComponent);
-module.directive('exFocus',FocusDirective);
-module.service('exPeopleService',PeopleService);
+module.component('brPeople', PeopleComponent);
+module.component('brPersonEditor', PersonEditorComponent);
+module.component('brTraitAdder', TraitAdderComponent);
+module.directive('exFocus', FocusDirective);
+module.service('exPeopleService', PeopleService);
 
 /* @ngInject */
-module.config(function($routeProvider) {
+module.config(($routeProvider) => {
   $routeProvider.when('/', {
     title: 'Basic-modals Example',
     template: '<br-people></br-people>'

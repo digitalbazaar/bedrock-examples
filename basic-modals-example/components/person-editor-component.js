@@ -3,7 +3,7 @@
  */
 export default {
   controller: Ctrl,
-  templateUrl: 'basic-modals-example/person-editor.html',
+  templateUrl: 'basic-modals-example/person-editor-component.html',
   require: {stackable: '^'}
 };
 
