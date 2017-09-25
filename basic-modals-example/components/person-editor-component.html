@@ -1,0 +1,38 @@
+<br-modal br-title="Add a Person to the list">
+  <br-modal-body>
+    <div layout-padding>
+      <div layout="row">
+        <label>
+          Enter a name:
+          <input type="text" ng-model="$ctrl.person.name" ex-focus="true" />
+        </label>
+      </div>
+      <div layout="row">
+        <label>
+          Add a trait
+          <md-button type="button" class="md-primary md-raised"
+            ng-click="$ctrl.showTraitModal=true">
+            Add
+          </md-button>
+        </label>
+        <stackable-modal stackable="$ctrl.showTraitModal">
+          <br-trait-adder br-person="$ctrl.person" />
+        </stackable-modal>
+      </div>
+      <div layout="row">
+        <md-list flex>
+          <md-subheader>{{$ctrl.person.name}} Traits</md-subheader>
+          <md-list-item ng-repeat="trait in $ctrl.person.traits">
+            {{trait}}
+          </md-list-item>
+        </md-list>
+      </div>
+    </div>
+  </br-modal-body>
+  <br-modal-footer>
+    <md-button class="md-primary md-raised" ng-click="$ctrl.savePerson()">
+      Ok
+    </md-button>
+    <md-button type="button" class="stackable-cancel">Cancel</md-button>
+  </br-modal-footer>
+</br-modal>

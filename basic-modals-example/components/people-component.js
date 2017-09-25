@@ -3,7 +3,7 @@
  */
 export default {
   controller: Ctrl,
-  templateUrl: 'basic-modals-example/people.html'
+  templateUrl: 'basic-modals-example/people-component.html'
 };
 
 function Ctrl(exPeopleService) {
