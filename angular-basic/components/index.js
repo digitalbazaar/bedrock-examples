@@ -14,7 +14,7 @@ module.component('exHome', HomeComponent);
 module.component('exShowNumbers', ShowNumbersComponent);
 
 /* @ngInject */
-module.config(function($routeProvider) {
+module.config($routeProvider => {
   $routeProvider
     .when('/', {
       title: 'Angular Basic Home',

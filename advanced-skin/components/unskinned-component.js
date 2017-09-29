@@ -5,7 +5,7 @@
  */
 export default {
   controller: Ctrl,
-  templateUrl: 'advanced-skinning/unskinned.html'
+  templateUrl: 'advanced-skinning/unskinned-component.html'
 };
 
 function Ctrl(brRegisterService) {

@@ -8,20 +8,21 @@ import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
 import SkinnedComponent from './skinned-component.js';
 
-const module = angular.module('app.skinned', ['app.unskinned', 'bedrock.form']);
+const module = angular.module('app.skinned', [
+  'app.unskinned', 'bedrock.form', 'ngMaterial']);
 
 bedrock.setRootModule(module);
 
 module.component('brSkinned', SkinnedComponent);
 
 /* @ngInject */
-module.config(function($routeProvider) {
+module.config($routeProvider => {
   // override the route defined in the unskinned angular module `app.unskinned`
   // this replaces the component defined on that route with the skinned
   // component
   $routeProvider
-  .when('/', {
-    title: 'Example Home',
-    template: '<br-skinned></br-skinned>'
-  });
+    .when('/', {
+      title: 'Example Home',
+      template: '<br-skinned></br-skinned>'
+    });
 });

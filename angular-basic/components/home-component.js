@@ -2,8 +2,8 @@
  * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
 export default {
-   controller: Ctrl,
-   templateUrl: 'angular-basic/home-component.html'
+  controller: Ctrl,
+  templateUrl: 'angular-basic/home-component.html'
 };
 
 /* @ngInject */
@@ -19,9 +19,9 @@ function Ctrl() {
   };
 
   function _display(showProperty) {
-    for(var propertyName in self.display) {
+    for(const propertyName in self.display) {
       self.display[propertyName] = false;
     }
     self.display[showProperty] = true;
   }
-};
+}

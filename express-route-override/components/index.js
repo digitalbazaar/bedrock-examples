@@ -9,14 +9,14 @@ const module = angular.module('example.express-route-override', []);
 
 bedrock.setRootModule(module);
 
-module.component('brTestRoute',TestRouteComponent);
+module.component('brTestRoute', TestRouteComponent);
 
 Array.prototype.slice.call(arguments, 1).forEach(function(register) {
   register(module);
 });
 
 /* @ngInject */
-module.config(function($routeProvider) {
+module.config(($routeProvider) => {
   $routeProvider
     .when('/', {
       title: 'Test',

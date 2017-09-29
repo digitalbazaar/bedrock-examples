@@ -9,6 +9,10 @@
     "bedrock-angular-form": "^3.0.6"
   },
   "bedrock": {
-    "browserDependencies": "all"
+    "browserDependencies": [
+      "bedrock-angular",
+      "bedrock-angular-form",
+      "bedrock-angular-material"
+    ]
   }
 }

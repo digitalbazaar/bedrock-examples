@@ -13,10 +13,10 @@ const module = angular.module('app.unskinned', []);
 
 bedrock.setRootModule(module);
 
-module.component('brUnskinned',UnskinnedComponent);
+module.component('brUnskinned', UnskinnedComponent);
 
 /* @ngInject */
-module.config(function($routeProvider) {
+module.config($routeProvider => {
   $routeProvider
     .when('/', {
       title: 'Example Home',

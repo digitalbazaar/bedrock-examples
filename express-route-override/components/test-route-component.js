@@ -16,9 +16,9 @@ function Ctrl($http) {
       headers: {
         'accept': 'application/json'
       }
-    }).then(function(response) {
+    }).then((response) => {
       self.data = response.data.body;
-    }).catch(function(err) {
+    }).catch((err) => {
       console.error(err);
       self.data = JSON.stringify(err);
     });

@@ -9,7 +9,7 @@ const server = http.createServer();
 // emitted prior to command line parsing
 bedrock.events.on('bedrock-cli.init', function() {
   // add a new subcommand executed via: node project.js debug
-  var command = bedrock.program
+  const command = bedrock.program
     .command('debug')
     .description('display registered http listeners')
     .option(
@@ -23,7 +23,7 @@ bedrock.events.on('bedrock-cli.init', function() {
 
 // emitted after the command line has been parsed
 bedrock.events.on('bedrock-cli.ready', function() {
-  var command = bedrock.config.cli.command;
+  const command = bedrock.config.cli.command;
   if(command.name() !== 'debug') {
     // `debug` not specified on the command line, return early
     return;
@@ -32,8 +32,8 @@ bedrock.events.on('bedrock-cli.ready', function() {
   // emitted after all bedrock.start listeners have run
   bedrock.events.on('bedrock.ready', function() {
     // print out all the listeners that registered with the server
-    var event = command.debugEvent || 'request';
-    var listeners = server.listeners(event);
+    const event = command.debugEvent || 'request';
+    const listeners = server.listeners(event);
     console.log('listeners for event: ' + event);
     listeners.forEach(function(listener, index) {
       console.log(index, listener.toString());
@@ -49,7 +49,7 @@ bedrock.events.on('bedrock.configure', function() {
 });
 
 // emitted for early initialization, prior to dropping process privileges
-bedrock.events.on('bedrock.init', function(callback) {
+bedrock.events.on('bedrock.init', (callback) => {
   // listen on port 80
   server.listen(bedrock.config['example-server'].port, function() {
     // ready, call callback to allow bedrock to continue processing events
@@ -57,7 +57,7 @@ bedrock.events.on('bedrock.init', function(callback) {
   });
 
   // emitted for modules to do or schedule any unprivileged work on start up
-  bedrock.events.on('bedrock.start', function(callback) {
+  bedrock.events.on('bedrock.start', (callback) => {
     // emit a custom event giving other modules access to the example server
     bedrock.events.emit('example.server.ready', server, function() {
       callback();
