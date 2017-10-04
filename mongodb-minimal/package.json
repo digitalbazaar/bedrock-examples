@@ -14,7 +14,8 @@
     "bedrock-server": "^2.2.0",
     "bedrock-validation": "^2.2.0",
     "bedrock-mongodb": "^3.2.3",
-    "async": "^2.5.0"
+    "async": "^2.5.0",
+    "uuid": "^3.1.0"
   },
   "engines": {
     "node": ">=6.9.0"
