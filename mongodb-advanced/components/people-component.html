@@ -1,0 +1,28 @@
+<md-button class="md-primary md-raised" ng-click="$ctrl.showMyModal=true; $ctrl.showSavedPeople=false">
+  Add Person
+</md-button>
+
+<stackable-modal stackable="$ctrl.showMyModal">
+  <br-person-editor></br-person-editor>
+</stackable-modal>
+
+<p>&nbsp;</p>
+
+<!-- div ng-show="$ctrl.savedPeople.length > 0" -->
+<div>
+  <h3>List of saved people</h3>
+  <hr/>
+  <ul ng-repeat="person in $ctrl.savedPeople">
+    <li>
+      {{person.name}}
+      <ul ng-repeat="trait in person.traits">
+        <li>
+          {{trait}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div ng-show="$ctrl.savedPeople.length == 0">
+  There are no people saved in the database
+</div>
