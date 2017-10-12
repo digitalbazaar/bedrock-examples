@@ -1,0 +1,37 @@
+{
+  "name": "mongodb-advanced",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "node index.js compile-less"
+  },
+  "browser": "index.js",
+  "main": "index.js",
+  "dependencies": {
+    "bedrock": "^1.4.1",
+    "bedrock-angular": "^4.0.0",
+    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
+    "bedrock-angular-material": "^1.0.0",
+    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
+    "bedrock-express": "^2.0.6",
+    "bedrock-server": "^2.2.0",
+    "bedrock-views": "^5.0.1",
+    "bedrock-mongodb": "^3.2.3",
+    "bedrock-angular-resource": "^3.0.0",
+    "async": "^2.5.0",
+    "uuid": "^3.1.0"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "bedrock-angular",
+      "bedrock-angular-alert",
+      "bedrock-angular-material",
+      "bedrock-angular-modal",
+      "bedrock-angular-resource"
+    ]
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  }
+}
