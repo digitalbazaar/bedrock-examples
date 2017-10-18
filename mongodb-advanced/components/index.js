@@ -3,7 +3,6 @@
  *
  * Copyright (c) 2014-2017 Digital Bazaar, Inc. All rights reserved.
  *
- * @author Manu Sporny
  */
 import angular from 'angular';
 import * as bedrock from 'bedrock-angular';
@@ -14,7 +13,7 @@ import FocusDirective from './focus-directive.js';
 import PeopleService from './people-service.js';
 
 const module = angular.module('app.mongodb.advanced', [
-  'bedrock.alert', 'bedrock.modal', 'bedrock.resource', 'ngMaterial']);
+  'bedrock.alert', 'bedrock.modal', 'ngMaterial']);
 
 bedrock.setRootModule(module);
 
@@ -27,7 +26,7 @@ module.factory('exPeopleService', PeopleService);
 /* @ngInject */
 module.config($routeProvider => {
   $routeProvider.when('/', {
-    title: 'Basic-modals Example',
+    title: 'MongoDB-Advanced Example',
     template: '<br-people></br-people>'
   });
 });

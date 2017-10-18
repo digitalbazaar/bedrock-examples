@@ -6,28 +6,17 @@ export default {
   templateUrl: 'mongodb-advanced/people-component.html'
 };
 
-function Ctrl($scope, exPeopleService) {
+function Ctrl(exPeopleService, brAlertService) {
   const self = this;
   self.showMyModal = false;
 
-  exPeopleService.getPeople(people => {
-    self.savedPeople = people;
-    $scope.$apply('refreshData');
-  });
+  self.getPeople = () => exPeopleService.getPeople().then(people =>
+    self.savedPeople = people)
+    .catch(err => brAlertService.add('error', err));
 
-  self.modalClosed = () => {
-    exPeopleService.getPeople(people => {
-      self.savedPeople = people;
-      $scope.$apply('refreshData');
-    });
-  };
+  self.$onInit = self.getPeople;
 
-  self.deletePerson = name => {
-    exPeopleService.removePerson(name, () => {
-      exPeopleService.getPeople(people => {
-        self.savedPeople = people;
-        $scope.$apply('refreshData');
-      });
-    });
-  };
+  self.deletePerson = name => exPeopleService.removePerson(name)
+    .catch(err => brAlertService.add('error', err))
+    .then(() => self.getPeople());
 }

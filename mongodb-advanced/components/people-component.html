@@ -3,13 +3,12 @@
 </md-button>
 
 <stackable-modal stackable="$ctrl.showMyModal"
-  stackable-closed="$ctrl.modalClosed()">
+  stackable-closed="$ctrl.getPeople()">
   <br-person-editor></br-person-editor>
 </stackable-modal>
 
 <p>&nbsp;</p>
 
-<!-- div ng-show="$ctrl.savedPeople.length > 0" -->
 <div>
   <h3>List of saved people</h3>
   <hr/>

@@ -7,6 +7,7 @@ const database = require('bedrock-mongodb');
 require('bedrock-express');
 require('bedrock-server');
 require('bedrock-views');
+require('bedrock-webpack');
 
 // load config
 require('./config');
@@ -26,25 +27,30 @@ bedrock.events.on('bedrock-mongodb.ready', callback => async.auto({
 bedrock.events.on('bedrock-express.configure.routes', addRoutes);
 
 function addRoutes(app) {
-  app.get('/people', (req, res) => {
-    database.collections.mongodb_advanced.find({}).toArray(function(err, docs) {
+  app.get('/people', (req, res, next) => database.collections.mongodb_advanced
+    .find({}).toArray((err, docs) => {
+      if(err) {
+        return next(err);
+      }
       res.send(docs);
-    });
-  });
+    }));
 
-  app.post('/people/', (req, res) => {
-    database.collections.mongodb_advanced.insert(req.body,
-      (err, result) => {
-        res.send(result.result);
-      });
-  });
+  app.post('/people/', (req, res, next) => database.collections.mongodb_advanced
+    .insert(req.body, (err, result) => {
+      if(err) {
+        return next(err);
+      }
+      res.sendStatus(200);
+    }));
 
-  app.delete('/people/:name', (req, res) => {
-    database.collections.mongodb_advanced.remove(
+  app.delete('/people/:name', (req, res, next) => database.collections
+    .mongodb_advanced.remove(
       {name: req.params.name}, (err, result) => {
-        res.send(result.result);
-      });
-  });
+        if(err) {
+          return next(err);
+        }
+        res.status(204).end();
+      }));
 }
 
 bedrock.start();

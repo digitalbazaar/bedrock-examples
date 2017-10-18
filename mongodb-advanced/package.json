@@ -9,17 +9,19 @@
   "browser": "index.js",
   "main": "index.js",
   "dependencies": {
-    "bedrock": "^1.4.1",
+    "async": "^2.5.0",
+    "bedrock": "^1.6.0",
     "bedrock-angular": "^4.0.0",
     "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
     "bedrock-angular-material": "^1.0.0",
     "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
+    "bedrock-docs": "^2.0.2",
     "bedrock-express": "^2.0.6",
+    "bedrock-mongodb": "^4.0.0",
     "bedrock-server": "^2.2.0",
-    "bedrock-views": "^5.0.1",
-    "bedrock-mongodb": "^3.2.3",
-    "bedrock-angular-resource": "^3.0.0",
-    "async": "^2.5.0",
+    "bedrock-validation": "^2.0.0",
+    "bedrock-views": "^5.1.0",
+    "bedrock-webpack": "^1.1.1",
     "uuid": "^3.1.0"
   },
   "bedrock": {
@@ -27,8 +29,7 @@
       "bedrock-angular",
       "bedrock-angular-alert",
       "bedrock-angular-material",
-      "bedrock-angular-modal",
-      "bedrock-angular-resource"
+      "bedrock-angular-modal"
     ]
   },
   "engines": {

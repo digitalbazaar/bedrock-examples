@@ -3,9 +3,5 @@
  */
 const config = require('bedrock').config;
 
-// custom atabase configuration
-config.mongodb.name = 'mongodb_advanced'; // default: bedrock_dev
-config.mongodb.host = 'localhost'; // default: localhost
-config.mongodb.port = 27017; // default: 27017
-config.mongodb.username = 'bedrock'; // default: bedrock
-config.mongodb.password = 'password'; // default: password
+// custom database configuration
+config.mongodb.name = 'bedrock_examples_mongodb_advanced';

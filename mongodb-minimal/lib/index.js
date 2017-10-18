@@ -20,16 +20,16 @@ bedrock.events.on('bedrock.started', () => {
   const databaseEntryData = 'This will work';
   const query = {databaseEntryId};
   async.auto({
-    insert: callback =>
-      database.collections.mongodb_minimal.insert({databaseEntryId,
-        databaseEntryData}, callback),
+    insert: callback => database.collections.mongodb_minimal.insert({
+      databaseEntryId, databaseEntryData}, callback),
     find: ['insert', (results, callback) => database.collections.mongodb_minimal
-      .find(query).toArray((err, result) => {
-        console.log('LOCAL-FIND', JSON.stringify(result, null, 2));
-        callback();
-      })]
-  }, err => {
-    console.log('An error occurred', err);
+      .find(query).toArray(callback)]
+  }, (err, results) => {
+    if(err) {
+      console.log('An error occurred', err);
+    } else {
+      console.log('LOCAL-FIND', JSON.stringify(results.find, null, 2));
+    }
     bedrock.exit(err);
   });
 });
