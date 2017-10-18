@@ -2,7 +2,8 @@
   Add Person
 </md-button>
 
-<stackable-modal stackable="$ctrl.showMyModal">
+<stackable-modal stackable="$ctrl.showMyModal"
+  stackable-closed="$ctrl.modalClosed()">
   <br-person-editor></br-person-editor>
 </stackable-modal>
 
@@ -15,6 +16,9 @@
   <ul ng-repeat="person in $ctrl.savedPeople">
     <li>
       {{person.name}}
+      <md-button class="md-primary md-raised" ng-click="$ctrl.deletePerson(person.name)">
+        Remove
+      </md-button>
       <ul ng-repeat="trait in person.traits">
         <li>
           {{trait}}

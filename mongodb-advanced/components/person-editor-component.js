@@ -14,9 +14,9 @@ function Ctrl(brAlertService, exPeopleService) {
 
   self.savePerson = function() {
     if(this.person.name.length > 1 && this.person.traits.length > 0) {
-      //exPeopleService.people.push(this.person);
-      exPeopleService.savePerson(this.person);
-      self.stackable.close(null, this.person);
+      exPeopleService.savePerson(self.person, () => {
+        self.stackable.close(null, self.person);
+      });
     } else {
       brAlertService.add('error',
         'Please enter a valid name and at least one trait');

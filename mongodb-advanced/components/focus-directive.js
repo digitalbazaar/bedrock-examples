@@ -11,9 +11,9 @@ export default function factory($timeout) {
   };
 
   function Link(scope, element) {
-    scope.$watch('trigger', function(value) {
+    scope.$watch('trigger', (value) => {
       if(value === 'true') {
-        $timeout(function() {
+        $timeout(() => {
           element[0].focus();
         });
       }
