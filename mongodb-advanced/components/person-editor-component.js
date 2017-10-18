@@ -12,7 +12,7 @@ function Ctrl(brAlertService, exPeopleService) {
   self.showTraitModal = false;
   self.person = {name: '', traits: []};
 
-  self.savePerson = function() {
+  self.savePerson = () => {
     if(this.person.name.length > 1 && this.person.traits.length > 0) {
       exPeopleService.savePerson(self.person, () => {
         self.stackable.close(null, self.person);

@@ -25,7 +25,7 @@ module.directive('exFocus', FocusDirective);
 module.factory('exPeopleService', PeopleService);
 
 /* @ngInject */
-module.config(($routeProvider) => {
+module.config($routeProvider => {
   $routeProvider.when('/', {
     title: 'Basic-modals Example',
     template: '<br-people></br-people>'

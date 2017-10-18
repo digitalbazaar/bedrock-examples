@@ -5,32 +5,32 @@ export default function factory($http, brResourceService, brAlertService) {
   const service = {};
   service.collection = new brResourceService.Collection({url: '/people'});
 
-  service.savePerson = function(person, callback) {
+  service.savePerson = (person, callback) => {
     Promise.resolve($http.post('/people/', person))
-      .then((response) => {
+      .then(response => {
         callback();
       })
-      .catch((err) => {
+      .catch(err => {
         brAlertService.add('error', err);
       });
   };
 
-  service.getPeople = function(callback) {
+  service.getPeople = callback => {
     Promise.resolve($http.get('/people'))
-      .then((result) => {
+      .then(result => {
         callback(result.data);
       })
-      .catch((err) => {
+      .catch(err => {
         brAlertService.add('error', err);
       });
   };
 
-  service.removePerson = function(name, callback) {
+  service.removePerson = (name, callback) => {
     Promise.resolve($http.delete('/people/' + name))
-      .then((response) => {
+      .then(response => {
         callback();
       })
-      .catch(function(err) {
+      .catch(err => {
         brAlertService.add('error', err);
       });
   };
