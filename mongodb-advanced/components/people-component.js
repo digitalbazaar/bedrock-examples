@@ -10,21 +10,21 @@ function Ctrl($scope, exPeopleService) {
   const self = this;
   self.showMyModal = false;
 
-  exPeopleService.getPeople((people) => {
+  exPeopleService.getPeople(people => {
     self.savedPeople = people;
     $scope.$apply('refreshData');
   });
 
-  self.modalClosed = function() {
-    exPeopleService.getPeople((people) => {
+  self.modalClosed = () => {
+    exPeopleService.getPeople(people => {
       self.savedPeople = people;
       $scope.$apply('refreshData');
     });
   };
 
-  self.deletePerson = function(name) {
+  self.deletePerson = name => {
     exPeopleService.removePerson(name, () => {
-      exPeopleService.getPeople((people) => {
+      exPeopleService.getPeople(people => {
         self.savedPeople = people;
         $scope.$apply('refreshData');
       });
