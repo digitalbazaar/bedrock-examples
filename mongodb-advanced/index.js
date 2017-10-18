@@ -26,27 +26,25 @@ bedrock.events.on('bedrock-mongodb.ready', callback => async.auto({
 bedrock.events.on('bedrock-express.configure.routes', addRoutes);
 
 function addRoutes(app) {
-  app.get('/people', function(req, res) {
-    console.log('querying people from database');
+  app.get('/people', (req, res) => {
     database.collections.mongodb_advanced.find({}).toArray(function(err, docs) {
       res.send(docs);
     });
   });
 
-  app.post('/people', function(req, res) {
-    console.log('saving person ' + JSON.stringify(req.body) + ' into database');
-    database.collections.mongodb_advanced.insert(req.body, function(err, result) {
+  app.post('/people/', (req, res) => {
+    database.collections.mongodb_advanced.insert(req.body,
+      (err, result) => {
         res.send(result.result);
       });
   });
 
-  app.delete('/people/:name', function(req, res) {
-    console.log('deleting person from database');
+  app.delete('/people/:name', (req, res) => {
     database.collections.mongodb_advanced.remove(
-      {_id: req.params.id}, function(err, result) {
+      {name: req.params.name}, (err, result) => {
         res.send(result.result);
-    });
+      });
   });
-};
+}
 
 bedrock.start();

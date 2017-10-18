@@ -14,7 +14,7 @@ function Ctrl(brAlertService) {
   const self = this;
   self.trait = '';
 
-  self.addTrait = function() {
+  self.addTrait = () => {
     if(self.trait.length > 1) {
       self.thePerson.traits.push(self.trait);
       self.stackable.close(null, this.person);
