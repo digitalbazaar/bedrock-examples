@@ -18,7 +18,6 @@
     "bedrock-server": "^2.2.0",
     "bedrock-views": "^5.0.1",
     "bedrock-mongodb": "^3.2.3",
-    "bedrock-angular-resource": "^3.0.0",
     "async": "^2.5.0",
     "uuid": "^3.1.0"
   },
@@ -27,8 +26,7 @@
       "bedrock-angular",
       "bedrock-angular-alert",
       "bedrock-angular-material",
-      "bedrock-angular-modal",
-      "bedrock-angular-resource"
+      "bedrock-angular-modal"
     ]
   },
   "engines": {

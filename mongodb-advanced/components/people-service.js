@@ -1,9 +1,8 @@
 /*!
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-export default function factory($http, brResourceService, brAlertService) {
+export default function factory($http, brAlertService) {
   const service = {};
-  service.collection = new brResourceService.Collection({url: '/people'});
 
   service.savePerson = (person, callback) => {
     Promise.resolve($http.post('/people/', person))

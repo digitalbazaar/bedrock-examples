@@ -14,7 +14,7 @@ import FocusDirective from './focus-directive.js';
 import PeopleService from './people-service.js';
 
 const module = angular.module('app.mongodb.advanced', [
-  'bedrock.alert', 'bedrock.modal', 'bedrock.resource', 'ngMaterial']);
+  'bedrock.alert', 'bedrock.modal', 'ngMaterial']);
 
 bedrock.setRootModule(module);
 
