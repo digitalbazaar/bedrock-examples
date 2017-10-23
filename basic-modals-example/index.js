@@ -5,6 +5,7 @@ const config = bedrock.config;
 require('bedrock-express');
 require('bedrock-server');
 require('bedrock-views');
+require('bedrock-webpack');
 
 const rootPath = path.join(__dirname);
 config.views.system.packages.push({
