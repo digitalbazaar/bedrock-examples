@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "bedrock": "^1.4.1",
-    "bedrock-angular": "^3.0.0",
+    "bedrock-angular": "^4.0.0",
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
     "bedrock-views": "^5.0.1"

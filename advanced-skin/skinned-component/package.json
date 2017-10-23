@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "advanced-skinning": "^1.0.0",
-    "bedrock-angular": "^3.0.0",
+    "bedrock-angular": "^4.0.0",
     "bedrock-angular-form": "^3.0.6"
   },
   "bedrock": {

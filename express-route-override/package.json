@@ -8,13 +8,13 @@
   },
   "dependencies": {
     "bedrock": "^1.4.1",
+    "bedrock-angular": "^4.0.0",
+    "bedrock-angular-lazy-compile": "^3.0.1",
     "bedrock-docs": "^2.1.0",
     "bedrock-express": "^2.0.6",
     "bedrock-server": "^2.2.0",
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.1.0",
-    "bedrock-angular": "^3.0.0",
-    "bedrock-angular-lazy-compile": "^3.0.1",
     "lodash": "^4.6.1"
   },
   "bedrock": {
