@@ -1,0 +1,12 @@
+<div>
+  <button ng-click="$ctrl.showPage('page1')">Show Page 1</button>
+  <button ng-click="$ctrl.showPage('page2')">Show Page 2</button>
+  <div ng-if="$ctrl.display.page1">
+    <h1>Page 1</h1>
+    <ex-show-numbers sort-descending="false"></ex-show-numbers>
+  </div>
+  <div ng-if="$ctrl.display.page2">
+    <h1>Page 2</h1>
+    <ex-show-numbers sort-descending="true"></ex-show-numbers>
+  </div>
+</div>

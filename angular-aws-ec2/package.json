@@ -1,0 +1,30 @@
+{
+  "name": "angular-basic",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./lib/index.js",
+    "postinstall": "node ./lib/index.js compile-less"
+  },
+  "dependencies": {
+    "async": "^2.5.0",
+    "bedrock": "^1.4.1",
+    "bedrock-angular": "^4.0.0",
+    "bedrock-docs": "^2.1.0",
+    "bedrock-express": "^2.0.6",
+    "bedrock-server": "^2.2.0",
+    "bedrock-validation": "^2.2.0",
+    "bedrock-views": "^5.0.1",
+    "bedrock-webpack": "^1.0.2",
+    "request": "^2.83.0"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "bedrock-angular"
+    ]
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  }
+}
