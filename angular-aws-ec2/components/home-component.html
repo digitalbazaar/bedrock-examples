@@ -1,6 +1,6 @@
-<div>
-  <button ng-click="$ctrl.showPage('page1')">Show Page 1</button>
-  <button ng-click="$ctrl.showPage('page2')">Show Page 2</button>
+<md-content layout-padding>
+  <md-button class="md-primary md-raised" ng-click="$ctrl.showPage('page1')">Show Page 1</md-button>
+  <md-button class="md-primary md-raised" ng-click="$ctrl.showPage('page2')">Show Page 2</md-button>
   <div ng-if="$ctrl.display.page1">
     <h1>Page 1</h1>
     <ex-show-numbers sort-descending="false"></ex-show-numbers>
@@ -9,4 +9,4 @@
     <h1>Page 2</h1>
     <ex-show-numbers sort-descending="true"></ex-show-numbers>
   </div>
-</div>
+</md-content>
