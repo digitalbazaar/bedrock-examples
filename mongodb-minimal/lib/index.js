@@ -18,33 +18,39 @@ bedrock.events.on('bedrock-mongodb.ready', callback => async.auto({
 }, err => callback(err)));
 
 const docs = [
-  {'origin': 'a', 'destination': 'b'},
-  {'origin': 'b', 'destination': 'c'},
-  {'origin': 'c', 'destination': ['d', 'e', 'g']},
-  {'origin': 'd', 'destination': 'e'},
-  {'origin': 'e', 'destination': 'f'},
-  {'origin': 'f', 'destination': 'g'},
-  {'origin': 'g', 'destination': 'h'},
-  // {'origin': 'h', 'destination': 'i'},
-  // {'origin': 'a', 'destination': 'e'},
+  {mode: ['bike', 'walk'], 'origin': 'a', 'destination': ['b', 'b2', 'b3']},
+  {mode: ['bike', 'walk'], 'origin': 'b', 'destination': ['c', 'c2']},
+  {mode: 'walk', 'origin': 'b2', 'destination': '1'},
+  {mode: ['walk', 'car'], 'origin': 'b3', 'destination': 'ZZ10'},
+  {mode: 'car', 'origin': 'c', 'destination': ['d', 'e']},
+  {mode: 'walk', 'origin': 'c2', 'destination': 'g'},
+  {mode: 'bike', 'origin': 'd', 'destination': 'e'},
+  {mode: 'bike', 'origin': 'e', 'destination': 'f'},
+  {mode: 'bike', 'origin': 'f', 'destination': 'g'},
+  {mode: ['bike', 'walk'], 'origin': 'g', 'destination': 'h'},
+  {mode: 'walk', 'origin': '1', 'destination': '2'},
+  {mode: ['walk', 'car'], 'origin': '2', 'destination': '3'},
+  {mode: 'walk', 'origin': '3', 'destination': '4'},
 ];
-// const docs = [
-//   {'origin': 'a', 'destination': 'b'},
-//   {'origin': 'b', 'destination': 'c'},
-//   {'origin': 'c', 'destination': 'd'},
-//   {'origin': 'd', 'destination': 'e'},
-//   {'origin': 'e', 'destination': 'f'},
-//   {'origin': 'f', 'destination': 'g'},
-//   {'origin': 'g', 'destination': 'h'},
-//   {'origin': 'h', 'destination': 'i'},
-//   {'origin': 'a', 'destination': 'e'},
-// ];
 
 bedrock.events.on('bedrock.started', () => {
   async.auto({
     insert: callback => async.each(docs, (d, callback) =>
       database.collections.mongodb_minimal.insert(d, callback), callback),
-    agregate: ['insert', (results, callback) => database.collections
+    testQuery: ['insert', (results, callback) => database.collections
+      .mongodb_minimal.find({
+        mode: {
+          $not: {$elemMatch: {$exists: 1}},
+          $eq: 'walk'
+        }
+      }).toArray((err, result) => {
+        if(err) {
+          return callback(err);
+        }
+        console.log('QQQQQQQQ', JSON.stringify(result, null, 2));
+        callback();
+      })],
+    aggregate: ['insert', (results, callback) => database.collections
       .mongodb_minimal.aggregate([
         {$match: {origin: 'a'}},
         {
@@ -55,12 +61,25 @@ bedrock.events.on('bedrock.started', () => {
             connectToField: 'origin',
             depthField: 'numConnections',
             as: 'traverseroute',
-            restrictSearchWithMatch: {'destination': {'$ne': 'h'}}
+            restrictSearchWithMatch: {
+              // destination: {$ne: 'h'},
+              mode: {
+                $not: {$elemMatch: {$exists: 1}},
+                $eq: 'walk'
+              }
+            }
           }
         },
-        // {$project: {'_id': 0, 'origin': 1, 'traverseroute': 1}},
+        {
+          $project: {
+            '_id': 0,
+            'origin': 1,
+            'traverseroute.destination': 1,
+            // 'traverseroute.mode': 1
+          }
+        },
         // FIXME: sort doesn't seem to have any effect before/after project
-        // {$sort: {'traverseroute.numConnections': 1}},
+        // {$sort: {'traverseroute.destination': 1}},
       ]).toArray((err, result) => {
         console.log('LOCAL-FIND', JSON.stringify(result, null, 2));
         callback();
