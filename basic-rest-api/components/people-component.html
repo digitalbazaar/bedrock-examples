@@ -1,0 +1,20 @@
+<div>
+  <div style="width: 400px; float: left; padding: 20px">
+    <form>
+      <fieldset>
+        <br-input br-model="$ctrl.name"
+          br-options="{name: 'name', label: 'Name'}">
+        </br-input>
+        <md-button class="md-primary md-raised" ng-click="$ctrl.newPerson($ctrl.name)" style="float:right">
+          Add Person
+        </md-button>
+      </fieldset>
+    </form>
+  </div>
+  <div style="width: 400px; float: left;">
+    <h3>People</h3>
+    <ul>
+      <li ng-repeat="person in $ctrl.people">{{person.name}}</li>
+    </ul>
+  </div>
+</div>
