@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: 'show-numbers',
+  name: 'ShowNumbers',
   props: {
     sortDescending: {
       type: Boolean,

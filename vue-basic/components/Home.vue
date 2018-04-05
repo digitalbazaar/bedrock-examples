@@ -16,7 +16,7 @@
 import ShowNumbers from './ShowNumbers.vue';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {ShowNumbers},
   data() {
     return {
