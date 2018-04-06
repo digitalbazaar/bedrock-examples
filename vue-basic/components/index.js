@@ -17,7 +17,7 @@ brVue.setRootVue(() => {
     ]
   });
 
-  return new Vue({
+  return new Vue.component('br-app')({
     router
   });
 });

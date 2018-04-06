@@ -41,8 +41,7 @@ brVue.setRootVue(() => {
   Vue.component('br-header', {template: '<div>test</div>'});
 
   return new Vue({
-    template: '<app/>',
-    components: {App},
+    component: {App},
     router
   });
 });
