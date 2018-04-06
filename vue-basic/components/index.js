@@ -18,7 +18,6 @@ brVue.setRootVue(() => {
   });
 
   return new Vue({
-    template: '<br-app/>',
     router
   });
 });
