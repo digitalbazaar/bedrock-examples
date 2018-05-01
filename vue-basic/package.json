@@ -15,7 +15,7 @@
     "bedrock-server": "^2.2.0",
     "bedrock-validation": "^2.2.0",
     "bedrock-views": "digitalbazaar/bedrock-views#vue",
-    "bedrock-vue": "digitalbazaar/bedrock-vue#implementation",
+    "bedrock-vue": "^1.0.0",
     "bedrock-webpack": "^1.0.2",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
