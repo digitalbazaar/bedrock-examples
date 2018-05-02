@@ -11,12 +11,12 @@
     "bedrock": "^1.4.1",
     "bedrock-docs": "^2.1.0",
     "bedrock-express": "^2.0.6",
-    "bedrock-frontend": "^1.0.0",
     "bedrock-server": "^2.2.0",
     "bedrock-validation": "^2.2.0",
     "bedrock-views": "digitalbazaar/bedrock-views#vue",
     "bedrock-vue": "^1.0.0",
     "bedrock-webpack": "^1.0.2",
+    "bedrock-web": "^1.0.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
