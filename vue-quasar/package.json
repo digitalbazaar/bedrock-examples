@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
+  "less": "app.less",
   "scripts": {
     "start": "node ./lib/index.js",
     "postinstall": "node ./lib/index.js compile-less"
@@ -31,6 +32,9 @@
       "vue-router"
     ],
     "manifest": {
+      "font-awesome": {
+        "less": "less/font-awesome.less"
+      },
       "quasar-framework": {
         "main": "dist/umd/quasar.mat.umd.js",
         "style": "dist/umd/quasar.mat.css"
